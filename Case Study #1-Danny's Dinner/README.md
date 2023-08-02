@@ -31,7 +31,9 @@ The case study revolves around three key datasets:
 
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
 
-<h4>What is the total amount each customer spent at the restaurant?</h4>
+<ol>
+<li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
+</ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>
 

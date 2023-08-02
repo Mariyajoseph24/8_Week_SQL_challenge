@@ -33,6 +33,14 @@ The case study revolves around three key datasets:
 
 <ol>
   <li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
+'''' SQL
+SELECT S.customer_id,SUM(M.price) AS total_amnt
+FROM sales S
+JOIN menu M ON S.product_id=M.product_id
+GROUP BY S.customer_id
+ORDER BY customer_id
+'''
+  
   <li><h4>How many days has each customer visited the restaurant?</h4></li>
   <li><h4>What was the first item from the menu purchased by each customer?</h4></li>
   <li><h4>What is the most purchased item on the menu and how many times was it purchased by all customers?

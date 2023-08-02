@@ -198,6 +198,7 @@ ORDER BY
 ```
 
 <h5>Rank All The Things</h5>
+<p>Danny needs additional information about the ranking of customer products. However, he specifically requires null ranking values for non-member purchases, as he is not interested in ranking customers who are not yet part of the loyalty program.</p>
 
 ```sql
 WITH customers_data AS (

@@ -32,6 +32,7 @@ The case study revolves around three key datasets:
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
 
 <ol>
+
   <li><h5>What is the total amount each customer spent at the restaurant?</h5></li>
 	
 ```sql
@@ -53,13 +54,8 @@ SELECT customer_id, COUNT(DISTINCT order_date) AS No_Days
 FROM sales
 GROUP BY customer_id
 ```
-
 <h6>Answer:</h6>
-|customer_id|no_days|
-|-----------|-------|
-|A	    |4      |
-|B          |6      |
-|C          |2      |
+<img width="200" alt="Coding" src="D2.png">
 
   <li><h5>What was the first item from the menu purchased by each customer?</h5></li>
 
@@ -75,6 +71,7 @@ WHERE rn=1
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D3.png">
 
   <li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
 
@@ -88,6 +85,7 @@ LIMIT 1
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D4.png">
 
   <li><h5>Which item was the most popular for each customer?</h5></li>
 
@@ -104,6 +102,7 @@ WHERE rnk=1
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D5.png">
 
   <li><h5>Which item was purchased first by the customer after they became a member?</h5></li>
 
@@ -119,6 +118,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D6.png">
 
   <li><h5>Which item was purchased just before the customer became a member?</h5></li>
 
@@ -134,6 +134,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D7.png">
 
   <li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
 
@@ -150,6 +151,7 @@ ORDER BY S.customer_id
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D8.png">
 
   <li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
 
@@ -166,6 +168,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D9.png">
 
   <li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h5></li>
 
@@ -196,6 +199,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="D10.png">
 </ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>
@@ -230,6 +234,7 @@ ORDER BY
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="Djoin.png">
 
 <h5>Rank All The Things</h5>
 <p>Danny needs additional information about the ranking of customer products. However, he specifically requires null ranking values for non-member purchases, as he is not interested in ranking customers who are not yet part of the loyalty program.</p>
@@ -265,6 +270,7 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
+<img width="200" alt="Coding" src="Drank.png">
 
 
 

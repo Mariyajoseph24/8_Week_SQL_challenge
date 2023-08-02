@@ -32,7 +32,17 @@ The case study revolves around three key datasets:
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
 
 <ol>
-<li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
+  <li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
+  <li><h4>How many days has each customer visited the restaurant?</h4></li>
+  <li><h4>What was the first item from the menu purchased by each customer?</h4></li>
+  <li><h4>What is the most purchased item on the menu and how many times was it purchased by all customers?
+Which item was th</h4></li>
+  <li><h4>Which item was the most popular for each customer?</h4></li>
+  <li><h4>Which item was purchased first by the customer after they became a member?</h4></li>
+  <li><h4>Which item was purchased just before the customer became a member?</h4></li>
+  <li><h4>What is the total items and amount spent for each member before they became a member?</h4></li>
+  <li><h4>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h4></li>
+  <li><h4>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h4></li>
 </ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>

@@ -1,5 +1,5 @@
 <h1>Case Study #1 - Danny's Diner</h1>
-<img width="900" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/image.png">
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/image.png">
 <h1>Contents</h1>
 <ul>
   <li><a href="#Introduction">Introduction</a></li>
@@ -25,7 +25,7 @@ The case study revolves around three key datasets:
 - Members</p>
 
 <h1><a name="Entity Relationship Diagram">Entity Relationship Diagram</a></h1>
-<img width="900" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/ERD.png">
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/ERD.png">
 
 
 <h1><a name="Case Study Questions & Solutions">Case Study Questions & Solutions</a></h1>

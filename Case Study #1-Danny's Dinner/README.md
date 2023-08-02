@@ -1,4 +1,4 @@
-<h1>Case Study #1 - Danny's Diner</h1>
+<h1>Case Study #1 - Danny's Diner👨🏻‍🍳</h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/image.png">
 <h1>Contents</h1>
 <ul>

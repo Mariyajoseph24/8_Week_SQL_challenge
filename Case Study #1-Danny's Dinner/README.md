@@ -416,7 +416,7 @@ FROM customers_data;
 
   <h1><a name="keyinsights">Key Insights</a></h1>
 
-  <ol>
+  <ul>
     <li>Customer Spending: The total amount spent by each customer at Danny's Diner varies widely. Some customers have spent significantly more than others, indicating potential high-value customers or loyal patrons.</li>
     <li>Customer Visits: The number of days each customer visited the restaurant also varies, showing different patterns of customer engagement. Some customers visit frequently, while others may visit less often.</li>
     <li>First Purchases: Understanding the first items purchased by each customer can help Danny identify popular entry items and potentially attract new customers.</li>
@@ -432,7 +432,7 @@ FROM customers_data;
     <li>Menu Optimization: Danny can use the data to evaluate the performance of different menu items and consider introducing new dishes based on customer preferences.</li>
     <li>Customer Engagement: Analyzing customer behavior can help Danny understand what keeps customers coming back and help him create more engaging experiences.</li>
     <li>Long-Term Growth: By leveraging data analysis, Danny can make informed decisions that contribute to the long-term growth and success of Danny's Diner.</li>
-  </ol>
+  </ul>
 
 
 

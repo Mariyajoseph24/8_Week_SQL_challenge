@@ -42,7 +42,7 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 
-### Sa
+<h6>Answer</h6>
 
 | Name          | Age | Occupation     |
 | ------------- | --- | -------------- |
@@ -59,6 +59,8 @@ FROM sales
 GROUP BY customer_id
 ```
 
+<h6>Answer:</h6>
+
   <li><h5>What was the first item from the menu purchased by each customer?</h5></li>
 
 ```sql
@@ -72,6 +74,8 @@ FROM CTE
 WHERE rn=1
 ```
 
+<h6>Answer:</h6>
+
   <li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
 
 ```sql
@@ -82,6 +86,9 @@ GROUP BY M.product_name
 ORDER BY most_ordered DESC
 LIMIT 1
 ```
+
+<h6>Answer:</h6>
+
   <li><h5>Which item was the most popular for each customer?</h5></li>
 
 ```sql
@@ -95,6 +102,9 @@ SELECT customer_id,product_name,order_count
 FROM CTE
 WHERE rnk=1
 ```
+
+<h6>Answer:</h6>
+
   <li><h5>Which item was purchased first by the customer after they became a member?</h5></li>
 
   ```sql
@@ -108,6 +118,8 @@ WHERE s.order_date > mbr.join_date
 ORDER BY s.customer_id;
 ```
 
+<h6>Answer:</h6>
+
   <li><h5>Which item was purchased just before the customer became a member?</h5></li>
 
   ```sql
@@ -120,6 +132,9 @@ JOIN menu m ON s.product_id = m.product_id
 WHERE s.order_date < mbr.join_date
 ORDER BY s.customer_id;
 ```
+
+<h6>Answer:</h6>
+
   <li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
 
   ```sql
@@ -133,6 +148,9 @@ WHERE S.order_date<ME.join_date
 GROUP BY S.customer_id
 ORDER BY S.customer_id
 ```
+
+<h6>Answer:</h6>
+
   <li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
 
   ```sql
@@ -146,6 +164,9 @@ JOIN menu m ON s.product_id = m.product_id
 GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
+
+<h6>Answer:</h6>
+
   <li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h5></li>
 
   ```sql
@@ -206,6 +227,8 @@ ORDER BY
   order_date;
 ```
 
+<h6>Answer:</h6>
+
 <h5>Rank All The Things</h5>
 <p>Danny needs additional information about the ranking of customer products. However, he specifically requires null ranking values for non-member purchases, as he is not interested in ranking customers who are not yet part of the loyalty program.</p>
 
@@ -238,6 +261,8 @@ SELECT
     END AS ranking
 FROM customers_data;
 ```
+
+<h6>Answer:</h6>
 
 
 

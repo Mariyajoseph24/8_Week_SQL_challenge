@@ -31,7 +31,7 @@ The case study revolves around three key datasets:
 
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
 
-<h1><a name="bonusquestionsandaolutions">Bonus Questions & Solutions</a></h1>
+<h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>
 
 
 

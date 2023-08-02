@@ -167,6 +167,68 @@ ORDER BY s.customer_id;
 </ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>
+<h5>Join All The Things</h5>
+
+```sql
+WITH customer_member_status AS (
+  SELECT
+    s.customer_id,
+    s.order_date,
+    m.product_name,
+    m.price,
+    CASE
+      WHEN mbr.join_date <= s.order_date THEN 'Y'
+      ELSE 'N'
+    END AS member
+  FROM sales s
+  INNER JOIN menu m ON s.product_id = m.product_id
+  LEFT JOIN members mbr ON s.customer_id = mbr.customer_id
+)
+SELECT
+  customer_id,
+  order_date,
+  product_name,
+  price,
+  member
+FROM customer_member_status
+ORDER BY
+  customer_id,
+  member DESC,
+  order_date;
+```
+
+<h5>Rank All The Things</h5>
+
+```sql
+WITH customers_data AS (
+    SELECT 
+        sales.customer_id, 
+        sales.order_date,  
+        menu.product_name, 
+        menu.price,
+        CASE
+            WHEN members.join_date > sales.order_date THEN 'N'
+            WHEN members.join_date <= sales.order_date THEN 'Y'
+            ELSE 'N' 
+        END AS member_status
+    FROM sales
+    LEFT JOIN members ON sales.customer_id = members.customer_id
+    INNER JOIN menu ON sales.product_id = menu.product_id
+)
+
+SELECT 
+    customer_id, 
+    order_date, 
+    product_name, 
+    price,
+    member_status AS member,
+    CASE
+        WHEN member_status = 'N' THEN NULL
+        ELSE RANK() OVER (PARTITION BY customer_id, member_status ORDER BY order_date)
+    END AS ranking
+FROM customers_data;
+```
+
 
 
 

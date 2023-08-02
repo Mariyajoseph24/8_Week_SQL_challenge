@@ -43,12 +43,7 @@ ORDER BY customer_id
 ```
 
 <h6>Answer:</h6>
-
-|customer_id    |total_amnt |
-|---------------|-----------| 
-| John Doe      | 30        | 
-| Jane Smith    | 25        | 
-| Mike Johnson  | 35        | 
+<img width="100" alt="Coding" src="D1.png">
 
 
   <li><h5>How many days has each customer visited the restaurant?</h5></li>

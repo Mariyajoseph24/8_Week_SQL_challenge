@@ -4,9 +4,9 @@
 <ul>
   <li><a href="#Introduction">Introduction</a></li>
   <li><a href="#ProblemStatement">Problem Statement</a></li>
-  <li><a href="#Entity Relationship Diagram">Entity Relationship Diagram</a></li>
-  <li><a href="#Case Study Questions & Solutions">Case Study Questions & Solutions</a></li>
-  <li><a href="Bonus Questions & Solutions">Bonus Questions & Solutions</a></li>
+  <li><a href="#EntityRelationshipDiagram">Entity Relationship Diagram</a></li>
+  <li><a href="#CaseStudyQuestionsAndSolutions">Case Study Questions & Solutions</a></li>
+  <li><a href="Bonus QuestionsAndSolutions">Bonus Questions & Solutions</a></li>
 </ul>
 <h1><a name="Introduction">Introduction</a></h1>
 <p>In early 2021, Danny follows his passion for Japanese food and opens "Danny's Diner," a charming restaurant offering sushi, curry, and ramen. However, lacking data analysis expertise, the restaurant struggles to leverage the basic data collected during its initial months to make informed business decisions. Danny's Diner seeks assistance in using this data effectively to keep the restaurant thriving.</p>
@@ -24,13 +24,13 @@ The case study revolves around three key datasets:
 - Menu
 - Members</p>
 
-<h1><a name="Entity Relationship Diagram">Entity Relationship Diagram</a></h1>
+<h1><a name="EntityRelationshipDiagram">Entity Relationship Diagram</a></h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/ERD.png">
 
 
-<h1><a name="Case Study Questions & Solutions">Case Study Questions & Solutions</a></h1>
+<h1><a name="CaseStudyQuestionsAndSolutions">Case Study Questions & Solutions</a></h1>
 
-<h1><a name="Bonus Questions & Solutions">Bonus Questions & Solutions</a></h1>
+<h1><a name="BonusQuestionsAndSolutions">Bonus Questions & Solutions</a></h1>
 
 
 

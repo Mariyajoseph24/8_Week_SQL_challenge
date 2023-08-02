@@ -33,7 +33,7 @@ The case study revolves around three key datasets:
 
 <ol>
   <li><h5>What is the total amount each customer spent at the restaurant?</h5></li>
-
+	
 ```sql
 SELECT S.customer_id, SUM(M.price) AS total_amnt
 FROM sales S

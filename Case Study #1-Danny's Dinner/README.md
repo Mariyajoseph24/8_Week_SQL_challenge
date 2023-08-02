@@ -75,7 +75,8 @@ LIMIT 1
 ```
   <li><h4>Which item was the most popular for each customer?</h4></li>
 
-```WITH CTE AS
+```sql
+WITH CTE AS
 (SELECT S.customer_id,M.product_name,COUNT(M.product_id)AS order_count,DENSE_RANK() OVER(PARTITION BY S.customer_id ORDER BY COUNT(S.product_id)DESC) AS rnk
 FROM sales S
 JOIN menu M ON S.product_id=M.product_id
@@ -87,7 +88,7 @@ WHERE rnk=1
 ```
   <li><h4>Which item was purchased first by the customer after they became a member?</h4></li>
 
-  ```
+  ```sql
   SELECT DISTINCT ON (s.customer_id)
        s.customer_id,
        m.product_name
@@ -100,7 +101,7 @@ ORDER BY s.customer_id;
 
   <li><h4>Which item was purchased just before the customer became a member?</h4></li>
 
-  ```
+  ```sql
 SELECT DISTINCT ON (s.customer_id)
 		s.customer_id,
        m.product_name
@@ -112,7 +113,7 @@ ORDER BY s.customer_id;
 ```
   <li><h4>What is the total items and amount spent for each member before they became a member?</h4></li>
 
-  ```
+  ```sql
 SELECT S.customer_id,
 	COUNT(S.product_id) AS total_item,
 	SUM(M.price) AS total_amont
@@ -125,7 +126,7 @@ ORDER BY S.customer_id
 ```
   <li><h4>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h4></li>
 
-  ```
+  ```sql
 SELECT s.customer_id,
        SUM(CASE
                WHEN m.product_name = 'sushi' THEN price * 2
@@ -138,7 +139,7 @@ ORDER BY s.customer_id;
 ```
   <li><h4>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h4></li>
 
-  ```
+  ```sql
 WITH dates_cte AS (
   SELECT 
     customer_id, 

@@ -33,7 +33,7 @@ The case study revolves around three key datasets:
 
 <ol>
   <li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
-``` SQL
+```sql
 SELECT S.customer_id,SUM(M.price) AS total_amnt
 FROM sales S
 JOIN menu M ON S.product_id=M.product_id

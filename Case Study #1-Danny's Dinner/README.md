@@ -43,7 +43,7 @@ ORDER BY customer_id
 ```
 
 <h6>Answer:</h6>
-<img width="100" alt="Coding" src="D1.png">
+<img width="200" alt="Coding" src="D1.png">
 
 
   <li><h5>How many days has each customer visited the restaurant?</h5></li>

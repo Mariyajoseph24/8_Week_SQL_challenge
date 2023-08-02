@@ -217,7 +217,7 @@ WITH customers_data AS (
 )
 
 SELECT 
-    customer_id, 
+    customer_id,
     order_date, 
     product_name, 
     price,

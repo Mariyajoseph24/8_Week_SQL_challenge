@@ -60,6 +60,11 @@ GROUP BY customer_id
 ```
 
 <h6>Answer:</h6>
+|customer_id|no_days|
+|-----------|-------|
+|A	    |4      |
+|B          |6      |
+|C          |2      |
 
   <li><h5>What was the first item from the menu purchased by each customer?</h5></li>
 

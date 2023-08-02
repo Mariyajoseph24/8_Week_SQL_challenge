@@ -234,7 +234,7 @@ ORDER BY
 ```
 
 <h6>Answer:</h6>
-<img width="350" alt="Coding" src="Djoin.png">
+<img width="450" alt="Coding" src="Djoin.png">
 
 <h5>Rank All The Things</h5>
 <p>Danny needs additional information about the ranking of customer products. However, he specifically requires null ranking values for non-member purchases, as he is not interested in ranking customers who are not yet part of the loyalty program.</p>
@@ -270,7 +270,7 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
-<img width="350" alt="Coding" src="Drank.png">
+<img width="450" alt="Coding" src="Drank.png">
 
 
 

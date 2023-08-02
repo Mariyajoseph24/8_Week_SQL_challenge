@@ -44,11 +44,11 @@ ORDER BY customer_id
 
 <h6>Answer</h6>
 
-| Name          | Age | Occupation     |
-| ------------- | --- | -------------- |
-| John Doe      | 30  | Engineer       |
-| Jane Smith    | 25  | Designer       |
-| Mike Johnson  | 35  | Developer      |
+| customer_id   | total_amnt |
+| ------------- | -----------| | 
+| John Doe      | 30         | 
+| Jane Smith    | 25         | 
+| Mike Johnson  | 35         | 
 
 
   <li><h5>How many days has each customer visited the restaurant?</h5></li>
@@ -194,6 +194,8 @@ INNER JOIN menu m
 GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
+
+<h6>Answer:</h6>
 </ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>

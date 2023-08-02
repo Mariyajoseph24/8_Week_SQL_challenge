@@ -26,7 +26,7 @@ The case study revolves around three key datasets:
 - Members</p>
 
 <h1><a name="entityrelationshipdiagram">Entity Relationship Diagram</a></h1>
-<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/ERD.png">
+<img width="500" alt="Coding" src="ERD.png">
 
 
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>

@@ -8,6 +8,13 @@
   <li><a href="#casestudyquestionsandsolutions">Case Study Questions & Solutions</a></li>
   <li><a href="#bonusquestionsandsolutions">Bonus Questions & Solutions</a></li>
 </ul>
+```sql
+SELECT S.customer_id,SUM(M.price) AS total_amnt
+FROM sales S
+JOIN menu M ON S.product_id=M.product_id
+GROUP BY S.customer_id
+ORDER BY customer_id
+```
 
 <h1><a name="introduction">Introduction</a></h1>
 <p>In early 2021, Danny follows his passion for Japanese food and opens "Danny's Diner," a charming restaurant offering sushi, curry, and ramen. However, lacking data analysis expertise, the restaurant struggles to leverage the basic data collected during its initial months to make informed business decisions. Danny's Diner seeks assistance in using this data effectively to keep the restaurant thriving.</p>

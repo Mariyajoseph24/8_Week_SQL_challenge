@@ -42,6 +42,15 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 
+### Sa
+
+| Name          | Age | Occupation     |
+| ------------- | --- | -------------- |
+| John Doe      | 30  | Engineer       |
+| Jane Smith    | 25  | Designer       |
+| Mike Johnson  | 35  | Developer      |
+
+
   <li><h5>How many days has each customer visited the restaurant?</h5></li>
 
 ```sql

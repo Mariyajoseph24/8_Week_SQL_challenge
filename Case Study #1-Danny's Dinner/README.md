@@ -7,6 +7,7 @@
   <li><a href="#entityrelationshipdiagram">Entity Relationship Diagram</a></li>
   <li><a href="#casestudyquestionsandsolutions">Case Study Questions & Solutions</a></li>
   <li><a href="#bonusquestionsandsolutions">Bonus Questions & Solutions</a></li>
+  <li><a href="#keyinsights">Key Insights</a></li>
 </ul>
 
 <h1><a name="introduction">Introduction</a></h1>
@@ -411,6 +412,29 @@ FROM customers_data;
   <li>If the customer is not a member ('N'), the <code>ranking</code> is set to <code>NULL</code>.</li>
   <li>Results are presented with the selected columns and <code>ranking</code> for each customer's orders, showing whether they are a member or not and the order of their orders.</li>
 </ul>
+
+
+  <h1><a name="keyinsights">Key Insights</a></h1>
+
+  <ol>
+    <li>Customer Spending: The total amount spent by each customer at Danny's Diner varies widely. Some customers have spent significantly more than others, indicating potential high-value customers or loyal patrons.</li>
+    <li>Customer Visits: The number of days each customer visited the restaurant also varies, showing different patterns of customer engagement. Some customers visit frequently, while others may visit less often.</li>
+    <li>First Purchases: Understanding the first items purchased by each customer can help Danny identify popular entry items and potentially attract new customers.</li>
+    <li>Most Popular Item: The most purchased item on the menu is valuable information for Danny. He can use this insight to optimize inventory management and capitalize on the popularity of the item.</li>
+    <li>Personalized Recommendations: Knowing the most popular item for each customer allows Danny to make personalized menu suggestions, enhancing the dining experience for his customers.</li>
+    <li>Customer Loyalty: The data about purchases before and after joining the loyalty program helps Danny evaluate the effectiveness of the loyalty program and its impact on customer behavior.</li>
+    <li>Bonus Points for New Members: By offering 2x points to new members during their first week, Danny incentivizes more spending, encouraging members to engage more actively with the program.</li>
+    <li>Member Points: The points earned by each member can be used to assess their loyalty and potentially offer targeted rewards and promotions.</li>
+    <li>Data Visualization: Creating visualizations based on the data and insights can further aid Danny in understanding trends and making data-driven decisions.</li>
+    <li>Customer Segmentation: By analyzing customer spending habits, Danny can segment his customer base and tailor marketing strategies accordingly.</li>
+    <li>Expanding Membership: Danny can use the insights from this data to refine his loyalty program and attract new members, leveraging the success of the program.</li>
+    <li>Inventory Management: Knowing the most popular and least popular items can help Danny optimize his inventory, reduce wastage, and maximize profits.</li>
+    <li>Menu Optimization: Danny can use the data to evaluate the performance of different menu items and consider introducing new dishes based on customer preferences.</li>
+    <li>Customer Engagement: Analyzing customer behavior can help Danny understand what keeps customers coming back and help him create more engaging experiences.</li>
+    <li>Long-Term Growth: By leveraging data analysis, Danny can make informed decisions that contribute to the long-term growth and success of Danny's Diner.</li>
+  </ol>
+
+
 
 
 

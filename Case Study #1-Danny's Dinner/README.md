@@ -32,7 +32,7 @@ The case study revolves around three key datasets:
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
 
 <ol>
-  <li><h4>What is the total amount each customer spent at the restaurant?</h4></li>
+  <li><h5>What is the total amount each customer spent at the restaurant?</h5></li>
 
 ```sql
 SELECT S.customer_id, SUM(M.price) AS total_amnt
@@ -42,7 +42,7 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 
-  <li><h4>How many days has each customer visited the restaurant?</h4></li>
+  <li><h5>How many days has each customer visited the restaurant?</h5></li>
 
 ```sql
 SELECT customer_id, COUNT(DISTINCT order_date) AS No_Days
@@ -50,7 +50,7 @@ FROM sales
 GROUP BY customer_id
 ```
 
-  <li><h4>What was the first item from the menu purchased by each customer?</h4></li>
+  <li><h5>What was the first item from the menu purchased by each customer?</h5></li>
 
 ```sql
 WITH CTE AS
@@ -63,7 +63,7 @@ FROM CTE
 WHERE rn=1
 ```
 
-  <li><h4>What is the most purchased item on the menu and how many times was it purchased by all customers?</h4></li>
+  <li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
 
 ```sql
 SELECT M.product_name,COUNT(S.product_id)AS most_ordered
@@ -73,7 +73,7 @@ GROUP BY M.product_name
 ORDER BY most_ordered DESC
 LIMIT 1
 ```
-  <li><h4>Which item was the most popular for each customer?</h4></li>
+  <li><h5>Which item was the most popular for each customer?</h5></li>
 
 ```sql
 WITH CTE AS
@@ -86,7 +86,7 @@ SELECT customer_id,product_name,order_count
 FROM CTE
 WHERE rnk=1
 ```
-  <li><h4>Which item was purchased first by the customer after they became a member?</h4></li>
+  <li><h5>Which item was purchased first by the customer after they became a member?</h5></li>
 
   ```sql
   SELECT DISTINCT ON (s.customer_id)
@@ -99,7 +99,7 @@ WHERE s.order_date > mbr.join_date
 ORDER BY s.customer_id;
 ```
 
-  <li><h4>Which item was purchased just before the customer became a member?</h4></li>
+  <li><h5>Which item was purchased just before the customer became a member?</h5></li>
 
   ```sql
 SELECT DISTINCT ON (s.customer_id)
@@ -111,7 +111,7 @@ JOIN menu m ON s.product_id = m.product_id
 WHERE s.order_date < mbr.join_date
 ORDER BY s.customer_id;
 ```
-  <li><h4>What is the total items and amount spent for each member before they became a member?</h4></li>
+  <li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
 
   ```sql
 SELECT S.customer_id,
@@ -124,7 +124,7 @@ WHERE S.order_date<ME.join_date
 GROUP BY S.customer_id
 ORDER BY S.customer_id
 ```
-  <li><h4>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h4></li>
+  <li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
 
   ```sql
 SELECT s.customer_id,
@@ -137,7 +137,7 @@ JOIN menu m ON s.product_id = m.product_id
 GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
-  <li><h4>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h4></li>
+  <li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</h5></li>
 
   ```sql
 WITH dates_cte AS (

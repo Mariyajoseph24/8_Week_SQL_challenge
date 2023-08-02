@@ -45,6 +45,14 @@ ORDER BY customer_id
 
 <h6>Answer:</h6>
 <img width="200" alt="Coding" src="D1.png">
+<ul>
+  <li>The SQL query retrieves the <code>customer_id</code> and calculates the total amount spent (<code>total_amnt</code>) by each customer at the restaurant.</li>
+  <li>It combines data from the <code>sales</code> and <code>menu</code> tables based on matching <code>product_id</code>.</li>
+  <li>The results are grouped by <code>customer_id</code>.</li>
+  <li>The query then calculates the total sum of <code>price</code> for each group of sales records with the same <code>customer_id</code>.</li>
+  <li>Finally, the results are sorted in ascending order based on the <code>customer_id</code>.</li>
+</ul>
+
 
 
   <li><h5>How many days has each customer visited the restaurant?</h5></li>

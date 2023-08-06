@@ -1,5 +1,5 @@
 <h1>Case Study #1 - Danny's Diner👨🏻‍🍳</h1>
-<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/image.png">
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c69d49a0-ffd6-4cf1-b66f-1d1eb14f8549">
 <h1>Contents</h1>
 <ul>
   <li><a href="#introduction">Introduction</a></li>
@@ -27,7 +27,7 @@ The case study revolves around three key datasets:
 - Members</p>
 
 <h1><a name="entityrelationshipdiagram">Entity Relationship Diagram</a></h1>
-<img width="500" alt="Coding" src="ERD.png">
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4bc1a02f-6fac-47f5-82c7-d9be65de1700">
 
 
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
@@ -351,7 +351,7 @@ ORDER BY
 ```
 
 <h6>Answer:</h6>
-<img width="450" alt="Coding" src="Djoin.png">
+<img width="450" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0229b715-8e39-4489-b2ee-dad0e90f28ae">
 <ul>
   <li>The SQL query starts by creating a Common Table Expression (CTE) named <code>customer_member_status</code>.</li>
   <li>Within the CTE, it selects <code>customer_id</code>, <code>order_date</code>, <code>product_name</code>, <code>price</code>, and uses a <code>CASE</code> statement to determine whether the customer is a member ('Y') or not ('N') based on their join date in the <code>members</code> table.</li>
@@ -399,7 +399,7 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
-<img width="450" alt="Coding" src="Drank.png">
+<img width="450" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5bd2409e-1758-4ea6-87a1-549345b41e84">
 
 <ul>
   <li>The SQL query starts by creating a Common Table Expression (CTE) named <code>customers_data</code>.</li>

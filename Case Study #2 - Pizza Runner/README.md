@@ -6,6 +6,13 @@
   <li><a href="#entityrelationshipdiagram">Entity Relationship Diagram</a></li>
   <li><a href="#datacleaninganddatatransformation">Data Cleaning & Data Transformation</a></li>
   <li><a href="#casestudyquestionsandsolutions">Case Study Questions & Solutions</a></li>
+  
+  <ul>
+  <li><a href="#a.pizzametrics">A. Pizza Metrics</a></li>
+  <li><a href="#b.runnerandcustomerexperience">B. Runner And Customer Experience</a></li>
+  <li><a href="#c.ingredientoptimisation">C. Ingredient Optimisation</a></li>
+  </ul>
+  
   <li><a href="#keyinsights">Key Insights</a></li>
 </ul>
 
@@ -15,6 +22,11 @@
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <h1><a name="datacleaninganddatatransformation"></a>Data Cleaning & Data Transformation</h1>
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
+
+<h4><a name="a.pizzametrics"></a>A. Pizza Metrics</h4>
+<h4><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience</h4>
+<h4><a name="c.ingredientoptimisation"></a>C. Ingredient Optimisation</h4>
+
 <h1><a name="keyinsights"></a>Key Insights</h1>
  
 

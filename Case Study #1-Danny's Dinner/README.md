@@ -301,8 +301,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9add2e0b-cea7-4822-b025-18a9c78e339c)
-">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9add2e0b-cea7-4822-b025-18a9c78e339c">
 </ol>
 <ul>
   <li>The SQL query starts by creating a Common Table Expression (CTE) named <code>dates_cte</code>.</li>

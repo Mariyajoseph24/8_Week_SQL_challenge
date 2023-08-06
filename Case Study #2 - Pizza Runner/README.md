@@ -23,7 +23,10 @@
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/38cb5eb7-522d-4081-adb5-0b47ac2ef0a8">
 
 <h1><a name="datacleaninganddatatransformation"></a>Data Cleaning & Data Transformation</h1>
+
 <ul>
+<li><h5>customer_orders table Before</h5></li>
+  <ul>
   <li>The customer_orders table consists of individual pizza orders, with each row representing a unique pizza.</li>
   <li>Key columns in the table are pizza_id, exclusions, and extras.</li>
   <li>Before utilizing the data for queries, the exclusions and extras columns require a data cleaning process to ensure accuracy and consistency.</li>
@@ -34,6 +37,32 @@
   <li>The cleaned data will provide valuable insights into customer preferences, enabling better decision-making for Pizza Runner's operations.</li>
   <li>With accurate data, Pizza Runner can efficiently meet customer demands and deliver an enhanced pizza ordering experience.</li>
 </ul>
+--img
+<li><h5>customer_orders table After AS customer_order_tempp</h5></li>
+  --img
+<li><h5>runner_orders table Before</h5></li>
+  <ul>
+  <p>The data in the orders table of Pizza Runner contains valuable information regarding the assignment of orders to runners, including pickup times, distances, and durations. However, it is crucial to note that the table may have some known data issues that require careful handling during data cleaning.</p><br>
+
+<p>Here are the key points to consider when cleaning the data in the orders table:</p>
+
+<li>Verify Data Types: Before proceeding with data cleaning, it is essential to check the data types for each column in the schema SQL. Ensuring accurate data types will prevent potential data type mismatches and errors in subsequent queries.</li>
+
+<li>Handle Incomplete Orders: Some orders may not be fully completed and can be canceled by either the restaurant or the customer. It is necessary to identify and properly handle these incomplete orders during the data cleaning process.</li>
+
+<li>Address Null Values: The table may contain null values in certain columns, such as pickup_time, distance, and duration. Properly handling these null values is crucial to avoid inaccuracies in the analysis.</li>
+
+<li>Validate Timestamps: The pickup_time column represents the timestamp when the runner arrives at Pizza Runner headquarters to pick up the pizzas. Validating and ensuring the consistency of these timestamps will be essential to maintain data integrity.</li>
+
+<li>Clean Distance and Duration: The distance and duration fields provide information about the runner's travel to deliver the order. Cleaning these fields involves checking for any outliers or inconsistencies that may affect analysis results.</li>
+
+<li>Address Known Data Issues: As there are known data issues in the table, special attention must be given to resolving these issues during the data cleaning process. Identifying and rectifying data discrepancies will enhance the accuracy and reliability of the dataset.</li>
+</ul>
+--img
+<li><h5>runner_orders table After AS runner_orders_temp</h5></li>
+--img
+</ul>
+
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 

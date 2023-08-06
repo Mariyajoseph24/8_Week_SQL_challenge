@@ -37,7 +37,7 @@
   <li>The cleaned data will provide valuable insights into customer preferences, enabling better decision-making for Pizza Runner's operations.</li>
   <li>With accurate data, Pizza Runner can efficiently meet customer demands and deliver an enhanced pizza ordering experience.</li>
 </ul>
---img
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2ba5364c-d9b5-48f1-bb31-b010a28ad9b6">
 <li><h5>customer_orders table After AS customer_order_tempp</h5></li>
   --img
 <li><h5>runner_orders table Before</h5></li>

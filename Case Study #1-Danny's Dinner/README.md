@@ -45,7 +45,7 @@ ORDER BY customer_id
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D1.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/15c40926-3faf-43a6-91de-5e01f12955fc">
 <ul>
   <li>The SQL query retrieves the <code>customer_id</code> and calculates the total amount spent (<code>total_amnt</code>) by each customer at the restaurant.</li>
   <li>It combines data from the <code>sales</code> and <code>menu</code> tables based on matching <code>product_id</code>.</li>
@@ -64,7 +64,7 @@ FROM sales
 GROUP BY customer_id
 ```
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D2.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8e92fa69-0d80-4713-899d-001ee361f30f">
 <ul>
   <li>The SQL query selects the <code>customer_id</code> and counts the number of distinct order dates (<code>No_Days</code>) for each customer.</li>
   <li>It retrieves data from the <code>sales</code> table.</li>
@@ -89,7 +89,7 @@ WHERE rn=1
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D3.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/09694137-3bf0-48a0-8cc6-f9fff7f631d7)">
 <ul>
   <li>The SQL query uses a Common Table Expression (CTE) named <code>CTE</code> to generate a temporary result set.</li>
   <li>Within the CTE, it selects the <code>customer_id</code>, assigns a dense rank to each row based on the order date for each customer, and retrieves the corresponding <code>product_name</code> from the <code>menu</code> table.</li>
@@ -114,7 +114,7 @@ LIMIT 1
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D4.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ceb3fa1b-d1f1-4c88-b3f1-6e642a5e8c70)">
 <ul>
   <li>The SQL query selects the <code>product_name</code> from the <code>menu</code> table and counts the number of times each product was ordered (<code>most_ordered</code>).</li>
   <li>It retrieves data from the <code>Sales</code> table and joins it with the <code>menu</code> table based on matching <code>product_id</code>.</li>
@@ -142,7 +142,7 @@ WHERE rnk=1
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D5.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9b194b28-afed-43b7-bfbc-d396c80877c0">
 <ul>
   <li>The SQL query uses a Common Table Expression (CTE) named <code>CTE</code> to generate a temporary result set.</li>
   <li>Within the CTE, it selects the <code>customer_id</code>, <code>product_name</code>, and counts the number of times each product was ordered (<code>order_count</code>) for each customer.</li>
@@ -171,7 +171,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D6.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ca782906-d2a5-4f85-ae09-879818790462">
 <ul>
   <li>The SQL query retrieves distinct rows for each unique <code>customer_id</code> with their corresponding <code>product_name</code> from the <code>sales</code> and <code>menu</code> tables.</li>
   <li>It filters the data based on the condition that the <code>order_date</code> in the <code>sales</code> table is greater than the <code>join_date</code> of the customer in the <code>members</code> table.</li>
@@ -199,7 +199,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D7.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/76aef691-9fed-4b92-9ead-721187fbf711">
 <ul>
   <li>The SQL query retrieves distinct rows for each unique <code>customer_id</code> with their corresponding <code>product_name</code> from the <code>sales</code> and <code>menu</code> tables.</li>
   <li>It filters the data based on the condition that the <code>order_date</code> in the <code>sales</code> table is less than the <code>join_date</code> of the customer in the <code>members</code> table.</li>
@@ -228,7 +228,7 @@ ORDER BY S.customer_id
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D8.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4806449e-5d44-47eb-8a4b-6d75c226a5c0">
 <ul>
   <li>The SQL query retrieves the <code>customer_id</code> along with the total count of items ordered (<code>total_item</code>) and the total amount spent (<code>total_amont</code>) by each customer.</li>
   <li>It retrieves data from the <code>sales</code> table and joins it with the <code>menu</code> table based on matching <code>product_id</code>.</li>
@@ -257,7 +257,7 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D9.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/fce539f7-78cd-47fd-9aac-bee87e6974ee">
 <ul>
   <li>The SQL query retrieves the <code>customer_id</code> and calculates the total points (<code>total_points</code>) earned by each customer based on their purchases from the <code>sales</code> and <code>menu</code> tables.</li>
   <li>It retrieves data from the <code>sales</code> table and joins it with the <code>menu</code> table based on matching <code>product_id</code>.</li>
@@ -301,7 +301,8 @@ ORDER BY s.customer_id;
 ```
 
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="D10.png">
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9add2e0b-cea7-4822-b025-18a9c78e339c)
+">
 </ol>
 <ul>
   <li>The SQL query starts by creating a Common Table Expression (CTE) named <code>dates_cte</code>.</li>

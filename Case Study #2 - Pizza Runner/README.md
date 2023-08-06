@@ -369,7 +369,7 @@ GROUP BY 1
 </ul>
 </ol>
 
-<h2><a name="b.runnerandcustomerexperience"></a>B. Runner and Customer Experience💁‍♂️🍕</h2>
+<h2><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience</h2>
 
 <ol>
   

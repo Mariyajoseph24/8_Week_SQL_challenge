@@ -66,6 +66,66 @@
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 
+<ol> 
+  <li><h5>How many pizzas were ordered?</h5></li>
+ 
+```sql
+SELECT COUNT(order_id) AS pizza_orders
+FROM customer_orders_tempp
+
+```
+
+<h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7f304383-b85d-4cb9-80ac-863f641647a3">
+
+
+   <li><h5>How many unique customer orders were made?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/015a6c20-99d0-4342-967f-ef3f4c12a69d">
+
+   <li><h5>How many successful orders were delivered by each runner?</h5></li>
+
+  <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/315359f2-94ff-4db7-af2f-a1043259178f">
+
+   <li><h5>How many of each type of pizza was delivered?</h5></li>
+
+  <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9278e4ca-3b7c-4bf4-807a-3ea93e21bd90">
+
+   <li><h5>How many Vegetarian and Meatlovers were ordered by each customer?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/83617d3c-0120-44e9-a1a0-144c96e37ec2">
+
+   <li><h5>What was the maximum number of pizzas delivered in a single order?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/aded37c9-9df5-4da3-9708-b5061cbb16c4">
+
+   <li><h5>For each customer, how many delivered pizzas had at least 1 change and how many had no changes?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/02068c6b-aff7-4a87-997a-ff02f56d3cf3">
+
+   <li><h5>How many pizzas were delivered that had both exclusions and extras?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d2596131-2fdd-444b-9f52-aa17bf8b4e0b">
+
+   <li><h5>What was the total volume of pizzas ordered for each hour of the day?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/571af1d6-8293-4332-a466-5d5c7c15728f">
+
+   <li><h5>What was the volume of orders for each day of the week?</h5></li>
+
+   <h6>Answer:</h6>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/55255c08-49f8-4b59-bd18-62c37c99fcf7">
+
+</ol>
+
 <h4><a name="a.pizzametrics"></a>A. Pizza Metrics</h4>
 <h4><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience</h4>
 <h4><a name="c.ingredientoptimisation"></a>C. Ingredient Optimisation</h4>

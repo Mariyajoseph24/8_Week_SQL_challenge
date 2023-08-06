@@ -1,4 +1,4 @@
-<h4><a name="a.pizzametrics"></a>A. Pizza Metrics🍕</h4>
+<h2><a name="a.pizzametrics"></a>A. Pizza Metrics🍕</h2>
 <h5>Solutions:</h5>
 
 <ol> 

@@ -39,6 +39,28 @@
   <li>The cleaned data will provide valuable insights into customer preferences, enabling better decision-making for Pizza Runner's operations.</li>
   <li>With accurate data, Pizza Runner can efficiently meet customer demands and deliver an enhanced pizza ordering experience.</li>
 </ul>
+
+```sql
+DROP TABLE IF EXISTS customer_orders_tempp;
+CREATE TABLE IF NOT EXISTS customer_orders_tempp AS
+SELECT 
+  order_id,
+  customer_id,
+  pizza_id,
+  CASE 
+    WHEN exclusions IS NULL OR exclusions LIKE 'null' THEN ''
+    ELSE exclusions
+  END AS exclusions,
+  CASE 
+    WHEN extras IS NULL OR extras LIKE 'null' THEN ''
+    ELSE extras
+  END AS extras,
+  order_time
+FROM customer_orders;
+
+SELECT*
+FROM customer_orders_temp
+```
 <li><h5>customer_orders table After AS customer_order_tempp</h5></li>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2d344d6f-695f-4128-befe-09d692b7a115">
 <li><h5>runner_orders table Before</h5></li>
@@ -61,6 +83,50 @@
 
 <li>Address Known Data Issues: As there are known data issues in the table, special attention must be given to resolving these issues during the data cleaning process. Identifying and rectifying data discrepancies will enhance the accuracy and reliability of the dataset.</li>
 </ul>
+
+```sql
+DROP TABLE IF EXISTS runner_orders_temp;
+
+CREATE TABLE runner_orders_temp AS(
+	SELECT order_id
+	   , runner_id
+	   , CASE 
+	   	   WHEN pickup_time IS null OR pickup_time LIKE 'null' THEN null
+	       ELSE pickup_time
+	     END pickup_time
+	   , CASE 
+	   	   WHEN distance IS null OR distance LIKE 'null' THEN null
+	       WHEN distance LIKE '%km' THEN TRIM('km' from distance)
+	       ELSE distance
+	     END distance
+	   , CASE 
+	   	  WHEN duration IS null OR duration LIKE 'null' THEN null
+	      WHEN duration LIKE '%mins' THEN TRIM('mins' from duration)
+	      WHEN duration LIKE '%minute' THEN TRIM('minute' from duration)
+	      WHEN duration LIKE '%minutes' THEN TRIM('minutes' from duration)
+	      ELSE duration 
+	     END duration
+	   , CASE 
+	   	   WHEN cancellation IS null OR cancellation LIKE 'null'
+		   THEN ''
+	       ELSE cancellation
+	     END cancellation
+	FROM runner_orders
+	);
+
+--Alter table & columns to change the data types of the above cleaned columns for better analysis
+
+ALTER TABLE runner_orders_temp
+	ALTER COLUMN pickup_time TYPE timestamp without time zone
+	USING pickup_time::timestamp,
+	ALTER COLUMN distance TYPE NUMERIC
+	USING distance::numeric,
+	ALTER COLUMN duration TYPE INT
+	USING duration::integer;
+		
+SELECT*
+FROM runner_orders_temp
+
 
 <li><h5>runner_orders table After AS runner_orders_temp</h5></li>
 <img width="500" alt="Coding" src='https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/16580860-979b-450c-9cd4-c726659995a5'>

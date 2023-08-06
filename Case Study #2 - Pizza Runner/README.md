@@ -767,5 +767,15 @@ FROM results;
 
 
 <h1><a name="keyinsights"></a>Key Insights</h1>
+<ul>
+  <li>Analyzing pizza orders and customer preferences can guide menu optimization.</li>
+  <li>Identifying top-performing runners ensures efficient delivery and customer satisfaction.</li>
+  <li>Understanding customer order patterns aids in targeted promotions and staffing.</li>
+  <li>Ingredient optimization reduces food waste and enhances inventory management.</li>
+  <li>Data cleaning ensures accurate analysis and informed decision-making.</li>
+  <li>Improving the customer experience fosters loyalty and business growth.</li>
+  <li>Data-driven decisions lead to better resource allocation and growth opportunities.</li>
+</ul>
+
  
 

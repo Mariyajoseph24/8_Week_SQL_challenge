@@ -775,6 +775,20 @@ FROM results;
   <li>Data cleaning ensures accurate analysis and informed decision-making.</li>
   <li>Improving the customer experience fosters loyalty and business growth.</li>
   <li>Data-driven decisions lead to better resource allocation and growth opportunities.</li>
+  <li>Runner Sign-Ups: Analyzing the number of runners signing up each week helps identify trends and patterns in runner recruitment and engagement.</li>
+  <li>Delivery Time Analysis: Calculating the average time it takes for runners to arrive at Pizza Runner HQ for order pickups can reveal efficiency levels and potential areas for improvement in the delivery process.</li>
+  <li>Order Preparation and Pizza Count: Exploring any relationship between the number of pizzas ordered and the time it takes to prepare them can assist in optimizing kitchen operations and delivery timelines.</li>
+  <li>Customer Average Distance: Understanding the average distance traveled for each customer's orders can help identify delivery patterns and optimize delivery routes.</li>
+  <li>Longest and Shortest Delivery Times: Analyzing the difference between the longest and shortest delivery durations can reveal variations in delivery efficiency and potential outliers.</li>
+  <li>Runner Average Speed: Calculating the average speed of each runner for each delivery provides insights into their performance and helps identify high-performing runners.</li>
+  <li>Successful Delivery Percentage: Determining the successful delivery percentage for each runner allows assessing their reliability and performance in completing orders.</li>
+  <li>Standard Ingredients for Each Pizza: Understanding the standard ingredients for each pizza helps identify the base recipe and essential toppings used for various pizza types.</li>
+  <li>Most Commonly Added Extra: Analyzing the most commonly added extra topping provides insights into customer preferences and popular customization choices.</li>
+  <li>Most Common Exclusion: Identifying the most common exclusion topping helps understand popular preferences for omitting specific ingredients.</li>
+  <li>Generating Order Items: Creating formatted order items for each record in the customer_orders table allows presenting detailed information about each order, including the pizza name, excluded toppings, and extra toppings.</li>
+
+
+
 </ul>
 
  

@@ -13,7 +13,7 @@
    <li><h5>What was the difference between the longest and shortest delivery times for all orders?</h5></li>
   <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9c7a053f-9620-4572-b650-eacdbc00138f">
    <li><h5>What was the average speed for each runner for each delivery and do you notice any trend for these values?</h5></li>
-  <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/04d504d4-1f42-4eb8-bd17-80949a183457">
+  <img width="300" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/04d504d4-1f42-4eb8-bd17-80949a183457">
    <li><h5>What is the successful delivery percentage for each runner?</h5></li>
    <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/57d96551-c237-4231-a1d9-3bb5c577fd57">
    

@@ -12,11 +12,11 @@
   <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7a84787b-26ba-4c32-838c-26d6826b381b">
     
   <li><h5>Generate an order item for each record in the customers_orders table in the format of one of the following:
-  <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d243a081-ea2a-49af-b8be-78a96399ee48">
-    
+
 <ul>
 <li>Meat Lovers</li>
 <li>Meat Lovers - Exclude Beef</li>
 <li>Meat Lovers - Extra Bacon</li>
 <li>Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers</li></h5></li></ul>
+<img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d243a081-ea2a-49af-b8be-78a96399ee48">
 </ol>

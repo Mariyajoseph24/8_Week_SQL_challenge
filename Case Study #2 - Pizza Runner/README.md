@@ -81,46 +81,123 @@ FROM customer_orders_tempp
 
 
    <li><h5>How many unique customer orders were made?</h5></li>
+   
+```sql
+SELECT COUNT(DISTINCT order_id) AS unique_orders
+FROM customer_orders_tempp
+```
 
    <h6>Answer:</h6>
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/015a6c20-99d0-4342-967f-ef3f4c12a69d">
 
+
    <li><h5>How many successful orders were delivered by each runner?</h5></li>
+
+   ```sql
+SELECT runner_id,COUNT(order_id)AS orders_delivered
+FROM runner_orders_temp
+WHERE cancellation=''
+GROUP BY runner_id
+```
 
   <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/315359f2-94ff-4db7-af2f-a1043259178f">
 
    <li><h5>How many of each type of pizza was delivered?</h5></li>
 
+  ```sql
+SELECT runner_id,COUNT(order_id)AS orders_delivered
+FROM runner_orders_temp
+WHERE cancellation=''
+GROUP BY runner_id
+```
+
   <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9278e4ca-3b7c-4bf4-807a-3ea93e21bd90">
 
    <li><h5>How many Vegetarian and Meatlovers were ordered by each customer?</h5></li>
+
+   ```sql
+SELECT C.customer_id,PN.pizza_name,COUNT(PN.pizza_id)AS count_ord
+FROM customer_orders_temp C
+JOIN pizza_names PN ON C.pizza_id=PN.pizza_id
+GROUP BY C.customer_id,PN.pizza_name
+ORDER BY C.customer_id
+```  
 
    <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/83617d3c-0120-44e9-a1a0-144c96e37ec2">
 
    <li><h5>What was the maximum number of pizzas delivered in a single order?</h5></li>
 
+   ```sql
+WITH CTE AS 
+(SELECT C.order_id,COUNT(C.pizza_id) AS orders_delivered
+FROM customer_orders_tempp C
+JOIN runner_orders_temp R ON C.order_id=R.order_id
+WHERE r.cancellation=''
+GROUP BY C.order_id)
+
+SELECT MAX(orders_delivered) AS max_deliver_pizza
+FROM CTE
+```
+
    <h6>Answer:</h6>
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/aded37c9-9df5-4da3-9708-b5061cbb16c4">
 
    <li><h5>For each customer, how many delivered pizzas had at least 1 change and how many had no changes?</h5></li>
+
+   ```sql
+WITH CTE AS
+(SELECT C.customer_id,
+SUM(CASE WHEN C.exclusions!=''OR C.extras!=''THEN 1 ELSE 0 END) AS has_atleast_1_changes,
+SUM(CASE WHEN C.exclusions=''AND C.extras=''THEN 1 ELSE 0 END) AS no_changes
+FROM customer_orders_tempp C 
+JOIN runner_orders_temp R ON C.order_id=R.order_id
+WHERE R.cancellation=''
+GROUP BY C.customer_id)
+
+SELECT SUM(has_atleast_1_changes) AS has_atleast_1_changes,
+	   SUM(no_changes) AS no_changes
+FROM CTE
+```
 
    <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/02068c6b-aff7-4a87-997a-ff02f56d3cf3">
 
    <li><h5>How many pizzas were delivered that had both exclusions and extras?</h5></li>
 
+   ```sql
+SELECT SUM(CASE WHEN C.exclusions!='' AND C.extras!='' THEN 1 ELSE 0 END) AS pizza_with_exclusions_extras
+FROM customer_orders_tempp C
+JOIN runner_orders_temp R ON C.order_id=R.order_id
+WHERE R.cancellation=''
+```
+
    <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d2596131-2fdd-444b-9f52-aa17bf8b4e0b">
 
    <li><h5>What was the total volume of pizzas ordered for each hour of the day?</h5></li>
 
+   ```sql
+SELECT 
+  EXTRACT(HOURS FROM order_time) AS hours,
+  COUNT(order_id) AS "pizza ordered"
+FROM customer_orders_tempp
+GROUP BY hours
+ORDER BY hours;
+```
+
    <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/571af1d6-8293-4332-a466-5d5c7c15728f">
 
    <li><h5>What was the volume of orders for each day of the week?</h5></li>
+
+   ```sql
+SELECT to_char(order_time, 'DAY')AS day, COUNT(order_id) AS ordered_pizza
+FROM customer_orders_tempp
+GROUP BY 1
+```
 
    <h6>Answer:</h6>
 <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/55255c08-49f8-4b59-bd18-62c37c99fcf7">

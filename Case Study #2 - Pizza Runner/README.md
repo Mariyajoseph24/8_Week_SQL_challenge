@@ -766,9 +766,6 @@ FROM results;
 </ol>
 
 
-
-<h4><a name="c.ingredientoptimisation"></a>C. Ingredient Optimisation</h4>
-
 <h1><a name="keyinsights"></a>Key Insights</h1>
  
 

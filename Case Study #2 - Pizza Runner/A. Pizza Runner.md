@@ -1,4 +1,5 @@
-<h4><a name="a.pizzametrics"></a>A. Pizza Metrics</h4>
+<h4><a name="a.pizzametrics"></a>A. Pizza Metrics🍕</h4>
+<h5>Solutions:</h5>
 
 <ol> 
   <li><h5>How many pizzas were ordered?</h5></li>

@@ -579,7 +579,7 @@ GROUP BY runner_id,completed;
 </ol>
 
 
-<h4><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience</h4>
+
 <h4><a name="c.ingredientoptimisation"></a>C. Ingredient Optimisation</h4>
 
 <h1><a name="keyinsights"></a>Key Insights</h1>

@@ -114,8 +114,6 @@ CREATE TABLE runner_orders_temp AS(
 	FROM runner_orders
 	);
 
---Alter table & columns to change the data types of the above cleaned columns for better analysis
-
 ALTER TABLE runner_orders_temp
 	ALTER COLUMN pickup_time TYPE timestamp without time zone
 	USING pickup_time::timestamp,

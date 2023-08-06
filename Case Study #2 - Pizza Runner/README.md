@@ -126,6 +126,7 @@ ALTER TABLE runner_orders_temp
 		
 SELECT*
 FROM runner_orders_temp
+```
 
 
 <li><h5>runner_orders table After AS runner_orders_temp</h5></li>

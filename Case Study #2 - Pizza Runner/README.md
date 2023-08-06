@@ -133,7 +133,7 @@ FROM runner_orders_temp
 
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
-<h4><a name="a.pizzametrics"></a>A. Pizza Metrics</h4>
+<h4><a name="a.pizzametrics"></a>A. Pizza Metrics🍕🍕</h4>
 
 <ol> 
   <li><h5>How many pizzas were ordered?</h5></li>
@@ -369,7 +369,7 @@ GROUP BY 1
 </ul>
 </ol>
 
-<h2><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience</h2>
+<h2><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience 💁‍♂️🍕</h2>
 
 <ol>
   

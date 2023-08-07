@@ -121,7 +121,7 @@ SELECT COUNT(DISTINCT customer_id) AS customer_count
 FROM subscriptions
 ```
    <h6>Answer:</h6>
-  <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c5d03554-ff58-44c0-96cf-dd13ed9483b4">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c5d03554-ff58-44c0-96cf-dd13ed9483b4">
   
   <li><h5>What is the monthly distribution of trial plan start_date values for our dataset - use the start of the month as the group by value</h5></li>
 
@@ -282,6 +282,6 @@ JOIN subscriptions current ON prev.customer_id = current.customer_id
 WHERE EXTRACT(YEAR FROM prev.start_date) = 2020;
 ```
   <h6>Answer:</h6>
-  <img width="200" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8e50e760-b694-4a90-832a-1338e13e2115">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8e50e760-b694-4a90-832a-1338e13e2115">
   
 

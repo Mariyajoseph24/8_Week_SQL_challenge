@@ -26,7 +26,7 @@ At the heart of Foodie-Fi's foundation lies Danny's commitment to data-driven de
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="A. Customer Journey"></a>A. Customer Journey🫕🥑</h4>
+<h4><a name="a.customerjourney"></a>A. Customer Journey🫕🥑</h4>
 
 <ol> 
   <li><h5>Based off the 8 sample customers provided in the sample from the subscriptions table, write a brief description about each customer’s onboarding journey.</h5></li>

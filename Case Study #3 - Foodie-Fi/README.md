@@ -374,5 +374,14 @@ WHERE EXTRACT(YEAR FROM prev.start_date) = 2020;
 </ul>
   </ol>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="c.challengepaymentquestion"></a>C. Challenge Payment Question💰</h4>
+<ol>
+  <li><h5>The Foodie-Fi team wants you to create a new payments table for the year 2020 that includes amounts paid by each customer in the subscriptions table with the following requirements:
+<ul>
+<li>monthly payments always occur on the same day of month as the original start_date of any monthly paid plan</li>
+<li>upgrades from basic to monthly or pro plans are reduced by the current paid amount in that month and start immediately</li>
+<li>upgrades from pro monthly to pro annual are paid at the end of the current billing period and also starts at the end of the month period</li>
+<li>once a customer churns they will no longer make payments</li></ul></h5></li>
+
   
 

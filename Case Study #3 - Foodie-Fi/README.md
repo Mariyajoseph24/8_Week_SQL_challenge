@@ -13,7 +13,7 @@
   <li><a href="#c.challengepaymentquestion">C. Challenge Payment Question</a></li>
   </ul>
   
-  <li><a href="#keyinsights">Key Insights</a></li>
+  
 </ul>
 
 <h1><a name="introduction">Introduction</a></h1>

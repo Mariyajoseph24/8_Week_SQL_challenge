@@ -1,5 +1,5 @@
 <h1>Case Study #3 - Foodie-Fi🫕🥑</h1>
-<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/abd6c8a0-371d-4c17-8e36-4a22fd894c20">
+<img width="300" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/abd6c8a0-371d-4c17-8e36-4a22fd894c20">
 <h1>Contents</h1>
 
 <ul>

@@ -45,7 +45,7 @@ ORDER BY
 ```
 
 <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/eb8df25b-8606-4bea-9008-e67b15c27a77">
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/eb8df25b-8606-4bea-9008-e67b15c27a77">
 </ol>
 
 <ol>

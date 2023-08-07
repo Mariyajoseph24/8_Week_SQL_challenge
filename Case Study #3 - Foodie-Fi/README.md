@@ -383,5 +383,64 @@ WHERE EXTRACT(YEAR FROM prev.start_date) = 2020;
 <li>upgrades from pro monthly to pro annual are paid at the end of the current billing period and also starts at the end of the month period</li>
 <li>once a customer churns they will no longer make payments</li></ul></h5></li>
 
+```sql
+WITH all_plans AS (
+  SELECT 
+    s.customer_id,
+    s.plan_id,
+    p.plan_name,
+    s.start_date AS plan_start_date,
+    p.price,
+    CASE 
+      WHEN p.plan_name LIKE 'pro monthly%' THEN 
+        DATE_TRUNC('month', s.start_date)::DATE
+      ELSE 
+        CASE 
+          WHEN EXTRACT(MONTH FROM s.start_date) = 12 THEN s.start_date
+          ELSE DATE_TRUNC('month', s.start_date + INTERVAL '1 month')::DATE
+        END
+    END AS payment_date
+  FROM subscriptions s
+  JOIN plans p ON s.plan_id = p.plan_id
+  WHERE s.start_date >= '2020-01-01' AND s.start_date <= '2020-12-31'
+)
+, payments AS (
+  SELECT 
+    customer_id,
+    plan_id,
+    plan_name,
+    payment_date,
+    price AS amount,
+    ROW_NUMBER() OVER (PARTITION BY customer_id, plan_id, plan_name, payment_date ORDER BY plan_start_date) AS payment_order
+  FROM all_plans
+)
+-- Finalize the query
+SELECT 
+  customer_id,
+  plan_id,
+  plan_name,
+  payment_date,
+  amount,
+  payment_order
+FROM payments
+WHERE payment_order = 1 OR (amount > 0 AND payment_order > 1)
+ORDER BY customer_id, plan_id, payment_date, payment_order
+LIMIT 20;
+```
+<h6>Answer:</h6>
+  <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/52ddd595-12c8-4bad-8a00-e3ef1e448a79">
+  <ul>
+  <li>The SQL query calculates customer payments for various subscription plans during the year 2020 based on data from the <code>subscriptions</code> and <code>plans</code> tables.</li>
+  <li>The <code>all_plans</code> Common Table Expression (CTE) is defined to retrieve customer details, plan details, start dates, prices, and payment dates based on subscription data.</li>
+  <li>Within the <code>all_plans</code> CTE, a conditional expression calculates the payment date based on the plan type (monthly or annual) and ensures that payments for annual plans are made in December.</li>
+  <li>The <code>payments</code> CTE is defined to calculate individual payment records based on customer, plan, and payment date.</li>
+  <li>Within the <code>payments</code> CTE, the <code>ROW_NUMBER()</code> function assigns a payment order to each record within the same customer, plan, plan name, and payment date partition.</li>
+  <li>The main query selects the finalized customer payment details, including customer ID, plan ID, plan name, payment date, amount, and payment order.</li>
+  <li>The <code>WHERE payment_order = 1 OR (amount > 0 AND payment_order > 1)</code> condition filters the data to include the first payment for each partition and subsequent payments with a positive amount.</li>
+  <li>The query <code>ORDER BY customer_id, plan_id, payment_date, payment_order</code> arranges the results in ascending order based on customer ID, plan ID, payment date, and payment order.</li>
+  <li>The <code>LIMIT 20</code> clause limits the results to the first 20 records.</li>
+  <li>As a result, the query presents the customer payments for various subscription plans during the year 2020, including the customer ID, plan ID, plan name, payment date, amount, and payment order.</li>
+</ul>
+</ol>
   
 

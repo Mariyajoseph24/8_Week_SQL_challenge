@@ -10,7 +10,7 @@
 <ul>
   <li><a href="#a.customernodesexploration">A. Customer Nodes Exploration</a></li>
   <li><a href="#b.customertransactions">B. Customer Transactions</a></li>
-  <li><a href="#c.dataallocationchallenge">C. Data Allocation Challenge</a></li>
+
   </ul>
   
   
@@ -322,7 +322,7 @@ FROM (
   <li>As a result, the query presents the percentage increase in closing balances for customers with an increase greater than 5% based on monthly transaction data.</li>
 </ul>
 </ol>
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 

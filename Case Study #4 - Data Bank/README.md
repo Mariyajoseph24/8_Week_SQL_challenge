@@ -157,3 +157,119 @@ GROUP BY
   <li>As a result, the query presents the region names along with the median, 80th percentile, and 95th percentile of node active durations, calculated using data from the <code>date_diff_cte</code> CTE and the <code>regions</code> table.</li>
 </ul>
 </ol>
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="b.customertransactions"></a>B. Customer Transactions</h4>
+<ol>
+  <li><h5>What is the unique count and total amount for each transaction type?</h5></li>
+  
+  ```sql
+  SELECT
+  txn_type AS transaction_type, 
+  COUNT(customer_id) AS tn_cnt, 
+  SUM(txn_amount) AS ttl_amnt
+FROM customer_transactions
+GROUP BY txn_type;
+```
+
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37083c14-2d5f-4348-b57f-c6e966e1e2f0">
+  
+  <li><h5>What is the average total historical deposit counts and amounts for all customers?</h5></li>
+
+  ```sql
+WITH CTE AS (
+  SELECT 
+    customer_id, 
+    COUNT(customer_id) AS cnt, 
+    AVG(txn_amount) AS avg_amnt
+  FROM customer_transactions
+  WHERE txn_type = 'deposit'
+  GROUP BY customer_id
+)
+
+SELECT 
+  ROUND(AVG(cnt)) AS count_avgcnt, 
+  ROUND(AVG(avg_amnt)) AS amt_avgcnt
+FROM CTE;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c5c51199-03b7-4b4a-98c4-e1468f19b7ba">
+  
+  <li><h5>For each month - how many Data Bank customers make more than 1 deposit and either 1 purchase or 1 withdrawal in a single month?</h5></li>
+
+  ```sql
+WITH monthly_transactions AS (
+  SELECT 
+    customer_id, 
+    DATE_TRUNC('month', txn_date) AS transaction_month,
+    SUM(CASE WHEN txn_type = 'deposit' THEN 0 ELSE 1 END) AS deposit_count,
+    SUM(CASE WHEN txn_type = 'withdrawal' THEN 0 ELSE 1 END) AS purchase_count,
+	SUM(CASE WHEN txn_type = 'withdrawal' THEN 1 ELSE 0 END) AS withdrawal_count
+  FROM customer_transactions
+  GROUP BY customer_id,  DATE_TRUNC('month', txn_date)
+)
+
+SELECT
+  transaction_month AS mth,
+  COUNT(DISTINCT customer_id) AS customer_count
+FROM monthly_transactions
+WHERE deposit_count > 1 
+  AND (purchase_count >= 1 OR withdrawal_count >= 1)
+GROUP BY transaction_month
+ORDER BY transaction_month;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/77b52eee-048e-48ee-961b-007d1889b868">
+  
+  <li><h5>What is the closing balance for each customer at the end of the month?</h5></li>
+
+  ```sql
+WITH customer_monthly_balances AS (
+  SELECT
+    customer_id,
+    DATE_TRUNC('month', txn_date) AS transaction_month,
+    SUM(CASE WHEN txn_type = 'deposit' THEN txn_amount ELSE 0 END) -
+    SUM(CASE WHEN txn_type IN ('purchase', 'withdrawal') THEN txn_amount ELSE 0 END) AS closing_balance
+  FROM customer_transactions
+  GROUP BY customer_id, transaction_month
+)
+
+SELECT
+  customer_id,
+  transaction_month,
+  closing_balance
+FROM customer_monthly_balances
+ORDER BY customer_id, transaction_month;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f186a8cc-c39c-450f-8ff7-a22ab1af9a1e">
+  
+  <li><h5>What is the percentage of customers who increase their closing balance by more than 5%?</h5></li>
+
+  ```sql
+WITH customer_monthly_balances AS (
+  SELECT
+    customer_id,
+    DATE_TRUNC('month', txn_date) AS transaction_month,
+    SUM(CASE WHEN txn_type = 'deposit' THEN txn_amount ELSE 0 END) -
+    SUM(CASE WHEN txn_type IN ('purchase', 'withdrawal') THEN txn_amount ELSE 0 END) AS closing_balance
+  FROM customer_transactions
+  GROUP BY customer_id, transaction_month
+)
+SELECT
+  ROUND(
+    (COUNT(*) FILTER (WHERE closing_balance_increase > 5) * 100.0) / COUNT(*),
+    2
+  ) AS percentage_increase
+FROM (
+  SELECT
+    customer_id,
+    transaction_month,
+    closing_balance,
+    LAG(closing_balance) OVER (PARTITION BY customer_id ORDER BY transaction_month) AS prev_balance,
+    (closing_balance - LAG(closing_balance) OVER (PARTITION BY customer_id ORDER BY transaction_month)) * 100.0 / NULLIF(LAG(closing_balance) OVER (PARTITION BY customer_id ORDER BY transaction_month), 0) AS closing_balance_increase
+  FROM customer_monthly_balances
+) AS balance_changes;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8d50573d-cad8-422e-8898-582213158273">

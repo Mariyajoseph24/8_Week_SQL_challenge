@@ -30,7 +30,7 @@ This case study project is an expedition into the realms of metric calculation, 
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7680ae3b-6426-4753-8ca8-e38e183a9649">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="A. Customer Nodes Exploration"></a>A. Customer Nodes Exploration👥</h4>
+<h4><a name="a.customernodesexploration"></a>A. Customer Nodes Exploration👥</h4>
 <ol> 
   <li><h5>How many unique nodes are there on the Data Bank system?</h5></li>
 

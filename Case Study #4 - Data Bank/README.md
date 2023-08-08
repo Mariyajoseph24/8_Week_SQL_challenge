@@ -40,6 +40,12 @@ FROM customer_nodes;
 ```
   <h6>Answer:</h6>
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f307419-c5ca-4671-b9b9-0b1774af66a2">
+<ul>
+  <li>The SQL query calculates the count of distinct node IDs in the <code>customer_nodes</code> table, representing unique nodes.</li>
+  <li>The <code>COUNT(DISTINCT node_id)</code> function calculates the count of distinct values in the <code>node_id</code> column of the <code>customer_nodes</code> table.</li>
+  <li>As a result, the query presents the count of unique node IDs in the <code>customer_nodes</code> table.</li>
+</ul>
+
   
   <li><h5>What is the number of nodes per region?</h5></li>
 
@@ -52,6 +58,15 @@ ORDER BY nodes_per_region DESC;
 ```
   <h6>Answer:</h6>
 <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/46faabc1-a5ac-4602-bb3d-7d05309b85f9">
+<ul>
+  <li>The SQL query retrieves the count of distinct nodes per region from the <code>regions</code> and <code>customer_nodes</code> tables.</li>
+  <li>The <code>SELECT</code> statement selects the <code>region_name</code> and the count of distinct <code>node_id</code> values for each region.</li>
+  <li>The <code>LEFT JOIN</code> clause joins the <code>regions</code> table with the <code>customer_nodes</code> table using the <code>region_id</code> as the common column.</li>
+  <li>The <code>GROUP BY r.region_name</code> clause groups the results by <code>region_name</code> to calculate the count of distinct nodes for each region.</li>
+  <li>The <code>ORDER BY nodes_per_region DESC</code> clause orders the results in descending order based on the count of nodes per region.</li>
+  <li>As a result, the query presents the region names and the corresponding count of distinct nodes per region, ordered by the count of nodes in descending order.</li>
+</ul>
+
 
   <li><h5>How many customers are allocated to each region?</h5></li>
 
@@ -64,6 +79,15 @@ ORDER BY customers_per_region DESC;
 ```
   <h6>Answer:</h6>
 <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c923bb35-38f7-47f3-90b3-449c77ec9119">
+<ul>
+  <li>The SQL query retrieves the count of customers per region from the <code>regions</code> and <code>customer_nodes</code> tables.</li>
+  <li>The <code>SELECT</code> statement selects the <code>region_name</code> and the count of distinct <code>customer_id</code> values for each region.</li>
+  <li>The <code>LEFT JOIN</code> clause joins the <code>regions</code> table with the <code>customer_nodes</code> table using the <code>region_id</code> as the common column.</li>
+  <li>The <code>GROUP BY r.region_name</code> clause groups the results by <code>region_name</code> to calculate the count of customers for each region.</li>
+  <li>The <code>ORDER BY customers_per_region DESC</code> clause orders the results in descending order based on the count of customers per region.</li>
+  <li>As a result, the query presents the region names and the corresponding count of customers per region, ordered by customer count in descending order.</li>
+</ul>
+
 
   <li><h5>How many days on average are customers reallocated to a different node?</h5></li>
 
@@ -88,6 +112,14 @@ FROM CTE2;
 ```
   <h6>Answer:</h6>
 <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/19421d2b-c6ba-4b2c-8a0d-5ba5b829bd7c">
+<ul>
+  <li>The SQL query calculates the average total number of days that each customer-node combination was active, based on data from the <code>customer_nodes</code> table.</li>
+  <li>The <code>CTE</code> (Common Table Expression) named <code>CTE</code> is defined to calculate the number of days each customer-node combination was active. It calculates the difference between the <code>end_date</code> and <code>start_date</code> columns and renames it as <code>node_dys</code>. The <code>WHERE end_date != '9999-12-31'</code> condition filters out records with the default end date.</li>
+  <li>The <code>CTE2</code> is defined to calculate the total number of days each customer-node combination was active. It sums the <code>node_dys</code> values for each customer-node combination using the <code>SUM(node_dys)</code> function.</li>
+  <li>The main query calculates the rounded average of the <code>total_node</code> values using the <code>AVG(total_node)</code> function and renames it as <code>avg_n</code>.</li>
+  <li>As a result, the query presents the rounded average total number of days that each customer-node combination was active, based on the data from the <code>CTE2</code> and <code>customer_nodes</code> tables.</li>
+</ul>
+
 
   <li><h5>What is the median, 80th and 95th percentile for this same reallocation days metric for each region?</h5></li>
 
@@ -115,3 +147,13 @@ GROUP BY
 ```
   <h6>Answer:</h6>
 <img width="300" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e427f376-a3bb-4a95-8426-9f3c29253d85">
+<ul>
+  <li>The SQL query calculates statistical percentiles of node active durations for each region based on data from the <code>customer_nodes</code> and <code>regions</code> tables.</li>
+  <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>date_diff_cte</code> that calculates the difference in days between <code>end_date</code> and <code>start_date</code> for each active node. The condition <code>end_date != '9999-12-31'</code> filters out records with the default end date.</li>
+  <li>The main query selects the <code>region_name</code> column from the <code>regions</code> table and calculates the statistical percentiles within groups of node active durations for each region.</li>
+  <li>The <code>PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY node_dys)</code> calculates the median, <code>PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY node_dys)</code> calculates the 80th percentile, and <code>PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY node_dys)</code> calculates the 95th percentile of node active durations for each region.</li>
+  <li>The <code>JOIN</code> clause joins the <code>date_diff_cte</code> CTE with the <code>regions</code> table using the <code>region_id</code> as the common column.</li>
+  <li>The <code>GROUP BY r.region_name</code> groups the results by <code>region_name</code> to present the statistical percentiles of node active durations for each region.</li>
+  <li>As a result, the query presents the region names along with the median, 80th percentile, and 95th percentile of node active durations, calculated using data from the <code>date_diff_cte</code> CTE and the <code>regions</code> table.</li>
+</ul>
+</ol>

@@ -158,7 +158,7 @@ GROUP BY
 </ul>
 </ol>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="b.customertransactions"></a>B. Customer Transactions</h4>
+<h4><a name="b.customertransactions"></a>B. Customer Transactions💸</h4>
 <ol>
   <li><h5>What is the unique count and total amount for each transaction type?</h5></li>
   

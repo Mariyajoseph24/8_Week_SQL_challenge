@@ -17,7 +17,7 @@
 </ul>
 
 <h1><a name="introduction">Introduction</a></h1>
-<p>In response to the growing popularity of subscription-based businesses, Danny recognized a significant market gap. He saw an opportunity to introduce a distinctive streaming service, one that exclusively featured culinary content—a culinary counterpart to platforms like Netflix. With this vision in mind, Danny collaborated with a group of astute friends to establish Foodie-Fi, a startup launched in 2020. The company quickly began offering monthly and annual subscription plans, granting subscribers unrestricted access to an array of exclusive culinary videos sourced from across the globe.
+<p>In response to the growing popularity of subscription-based businesses, Danny recognized a significant market gap. He saw an opportunity to introduce a distinctive streaming service, one that exclusively featured culinary content—a culinary counterpart to platforms like Netflix. With this vision in mind, Danny collaborated with a group of astute friends to establish Foodie-Fi, a startup launched in 2020. The company quickly began offering monthly and annual subscription plans, granting subscribers unrestricted access to an array of exclusive culinary videos sourced from across the globe.<br>
 
 At the heart of Foodie-Fi's foundation lies Danny's commitment to data-driven decision-making. He was resolute in leveraging data to inform all future investments and innovative features. This case study delves into the realm of subscription-style digital data, where insights derived from data analysis are pivotal in addressing critical business inquiries and steering the company toward sustained growth and success.</p>
 
@@ -442,5 +442,6 @@ LIMIT 20;
   <li>As a result, the query presents the customer payments for various subscription plans during the year 2020, including the customer ID, plan ID, plan name, payment date, amount, and payment order.</li>
 </ul>
 </ol>
+
   
 

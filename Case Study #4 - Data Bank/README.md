@@ -173,6 +173,15 @@ GROUP BY txn_type;
 
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37083c14-2d5f-4348-b57f-c6e966e1e2f0">
+  <ul>
+  <li>The SQL query calculates transaction statistics based on data from the <code>customer_transactions</code> table.</li>
+  <li>The <code>SELECT</code> statement selects three columns: <code>txn_type</code> as <code>transaction_type</code>, <code>COUNT(customer_id)</code> as <code>tn_cnt</code> (transaction count), and <code>SUM(txn_amount)</code> as <code>ttl_amnt</code> (total amount).</li>
+  <li>The <code>GROUP BY txn_type</code> clause groups the results by <code>txn_type</code> to calculate statistics for each transaction type.</li>
+  <li>The <code>COUNT(customer_id)</code> calculates the count of transactions for each transaction type.</li>
+  <li>The <code>SUM(txn_amount)</code> calculates the total amount of transactions for each transaction type.</li>
+  <li>As a result, the query presents the transaction types, the count of transactions, and the total transaction amount for each transaction type.</li>
+</ul>
+
   
   <li><h5>What is the average total historical deposit counts and amounts for all customers?</h5></li>
 
@@ -194,6 +203,14 @@ FROM CTE;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c5c51199-03b7-4b4a-98c4-e1468f19b7ba">
+  <ul>
+  <li>The SQL query calculates average statistics based on deposit transactions for each customer using data from the <code>customer_transactions</code> table.</li>
+  <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>CTE</code> that calculates the count of deposit transactions and the average transaction amount for each customer. The condition <code>txn_type = 'deposit'</code> filters the transactions to consider only deposits.</li>
+  <li>The <code>GROUP BY customer_id</code> clause groups the results by <code>customer_id</code> to calculate statistics for each customer.</li>
+  <li>The main query calculates the rounded average count of deposit transactions and the rounded average of average transaction amounts using the <code>AVG(cnt)</code> and <code>AVG(avg_amnt)</code> functions from the <code>CTE</code>.</li>
+  <li>As a result, the query presents the rounded average count of deposit transactions and the rounded average of average transaction amounts for all customers.</li>
+</ul>
+
   
   <li><h5>For each month - how many Data Bank customers make more than 1 deposit and either 1 purchase or 1 withdrawal in a single month?</h5></li>
 
@@ -220,6 +237,17 @@ ORDER BY transaction_month;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/77b52eee-048e-48ee-961b-007d1889b868">
+  <ul>
+  <li>The SQL query analyzes monthly transaction patterns for customers based on data from the <code>customer_transactions</code> table.</li>
+  <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>monthly_transactions</code> that aggregates transactions for each customer per month. It calculates the count of deposit transactions, purchase transactions, and withdrawal transactions for each customer in each month using conditional aggregations.</li>
+  <li>The <code>GROUP BY customer_id, DATE_TRUNC('month', txn_date)</code> clause groups the results by <code>customer_id</code> and the truncated <code>transaction_month</code> to calculate statistics for each customer in each month.</li>
+  <li>The main query selects the <code>transaction_month</code> column as <code>mth</code> and calculates the count of distinct customers with the specified conditions using the <code>COUNT(DISTINCT customer_id)</code> function.</li>
+  <li>The <code>WHERE</code> clause filters the results to consider only months with more than one deposit transaction and at least one purchase or withdrawal transaction.</li>
+  <li>The <code>GROUP BY transaction_month</code> clause groups the results by <code>transaction_month</code> to analyze monthly patterns.</li>
+  <li>The <code>ORDER BY transaction_month</code> sorts the results by the <code>transaction_month</code> in ascending order.</li>
+  <li>As a result, the query presents the months along with the count of distinct customers who meet the specified transaction conditions for each month.</li>
+</ul>
+
   
   <li><h5>What is the closing balance for each customer at the end of the month?</h5></li>
 
@@ -243,6 +271,15 @@ ORDER BY customer_id, transaction_month;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f186a8cc-c39c-450f-8ff7-a22ab1af9a1e">
+  <ul>
+  <li>The SQL query calculates monthly closing balances for customers based on data from the <code>customer_transactions</code> table.</li>
+  <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>customer_monthly_balances</code> that aggregates transactions for each customer per month. It calculates the closing balance by subtracting the sum of purchase and withdrawal amounts from the sum of deposit amounts for each customer in each month.</li>
+  <li>The <code>GROUP BY customer_id, DATE_TRUNC('month', txn_date)</code> clause groups the results by <code>customer_id</code> and the truncated <code>transaction_month</code> to calculate the closing balance for each customer in each month.</li>
+  <li>The main query selects the <code>customer_id</code>, <code>transaction_month</code>, and <code>closing_balance</code> columns from the <code>customer_monthly_balances</code> CTE.</li>
+  <li>The <code>ORDER BY customer_id, transaction_month</code> sorts the results by <code>customer_id</code> and <code>transaction_month</code> in ascending order.</li>
+  <li>As a result, the query presents the customer IDs, transaction months, and closing balances for each customer based on monthly transaction data.</li>
+</ul>
+
   
   <li><h5>What is the percentage of customers who increase their closing balance by more than 5%?</h5></li>
 
@@ -273,3 +310,18 @@ FROM (
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8d50573d-cad8-422e-8898-582213158273">
+  <ul>
+  <li>The SQL query calculates the percentage increase in closing balances for customers based on monthly transaction data from the <code>customer_transactions</code> table.</li>
+  <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>customer_monthly_balances</code> that aggregates transactions for each customer per month and calculates the closing balance difference.</li>
+  <li>The main query calculates the percentage increase by using a series of calculations and filters on the results from the <code>customer_monthly_balances</code> CTE.</li>
+  <li>Within the main query, the <code>LAG</code> window function is used to retrieve the previous month's closing balance for each customer.</li>
+  <li>The calculated <code>closing_balance_increase</code> represents the percentage increase in closing balance for each month, considering the previous month's balance.</li>
+  <li>The <code>FILTER</code> condition filters the results to consider only rows where <code>closing_balance_increase</code> is greater than 5%.</li>
+  <li>The main query then calculates the percentage of customers with a closing balance increase greater than 5% by dividing the count of such customers by the total count of customers and multiplying by 100.</li>
+  <li>The <code>ROUND</code> function is used to round the percentage to two decimal places.</li>
+  <li>As a result, the query presents the percentage increase in closing balances for customers with an increase greater than 5% based on monthly transaction data.</li>
+</ul>
+</ol>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

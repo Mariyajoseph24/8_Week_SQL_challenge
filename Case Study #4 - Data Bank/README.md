@@ -39,7 +39,7 @@ SELECT COUNT(DISTINCT node_id) AS unique_nodes_count
 FROM customer_nodes;
 ```
   <h6>Answer:</h6>
-<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f307419-c5ca-4671-b9b9-0b1774af66a2">
+<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f307419-c5ca-4671-b9b9-0b1774af66a2">
   
   <li><h5>What is the number of nodes per region?</h5></li>
 
@@ -87,7 +87,7 @@ SELECT ROUND(AVG(total_node)) AS avg_n
 FROM CTE2;
 ```
   <h6>Answer:</h6>
-<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/19421d2b-c6ba-4b2c-8a0d-5ba5b829bd7c">
+<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/19421d2b-c6ba-4b2c-8a0d-5ba5b829bd7c">
 
   <li><h5>What is the median, 80th and 95th percentile for this same reallocation days metric for each region?</h5></li>
 

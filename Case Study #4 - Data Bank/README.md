@@ -114,4 +114,4 @@ GROUP BY
     r.region_name;
 ```
   <h6>Answer:</h6>
-<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e427f376-a3bb-4a95-8426-9f3c29253d85">
+<img width="300" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e427f376-a3bb-4a95-8426-9f3c29253d85">

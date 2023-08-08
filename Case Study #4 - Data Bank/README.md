@@ -309,7 +309,7 @@ FROM (
 ) AS balance_changes;
 ```
   <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8d50573d-cad8-422e-8898-582213158273">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8d50573d-cad8-422e-8898-582213158273">
   <ul>
   <li>The SQL query calculates the percentage increase in closing balances for customers based on monthly transaction data from the <code>customer_transactions</code> table.</li>
   <li>The <code>WITH</code> clause defines a Common Table Expression (CTE) named <code>customer_monthly_balances</code> that aggregates transactions for each customer per month and calculates the closing balance difference.</li>
@@ -322,6 +322,6 @@ FROM (
   <li>As a result, the query presents the percentage increase in closing balances for customers with an increase greater than 5% based on monthly transaction data.</li>
 </ul>
 </ol>
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

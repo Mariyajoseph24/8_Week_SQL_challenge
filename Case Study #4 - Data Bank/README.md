@@ -30,10 +30,88 @@ This case study project is an expedition into the realms of metric calculation, 
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7680ae3b-6426-4753-8ca8-e38e183a9649">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="A. Customer Nodes Exploration"></a>A. Customer Nodes Exploration</h4>
+<h4><a name="A. Customer Nodes Exploration"></a>A. Customer Nodes Exploration👥</h4>
 <ol> 
   <li><h5>How many unique nodes are there on the Data Bank system?</h5></li>
+
+  ```sql
+SELECT COUNT(DISTINCT node_id) AS unique_nodes_count
+FROM customer_nodes;
+```
+  <h6>Answer:</h6>
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f307419-c5ca-4671-b9b9-0b1774af66a2">
+  
   <li><h5>What is the number of nodes per region?</h5></li>
+
+  ```sql
+SELECT r.region_name, COUNT(DISTINCT cn.node_id) AS nodes_per_region
+FROM regions r
+LEFT JOIN customer_nodes cn ON r.region_id = cn.region_id
+GROUP BY r.region_name
+ORDER BY nodes_per_region DESC;
+```
+  <h6>Answer:</h6>
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/46faabc1-a5ac-4602-bb3d-7d05309b85f9">
+
   <li><h5>How many customers are allocated to each region?</h5></li>
+
+  ```sql
+SELECT r.region_name, COUNT(cn.customer_id) AS customers_per_region
+FROM regions r
+LEFT JOIN customer_nodes cn ON r.region_id = cn.region_id
+GROUP BY r.region_name
+ORDER BY customers_per_region DESC;
+```
+  <h6>Answer:</h6>
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c923bb35-38f7-47f3-90b3-449c77ec9119">
+
   <li><h5>How many days on average are customers reallocated to a different node?</h5></li>
+
+  ```sql
+WITH CTE AS
+(SELECT customer_id, 
+    node_id,
+    end_date - start_date AS node_dys
+FROM customer_nodes
+WHERE end_date != '9999-12-31'
+  GROUP BY customer_id, node_id, start_date, end_date),
+  
+CTE2 AS
+(
+  SELECT customer_id,node_id,
+    SUM(node_dys) AS total_node
+  FROM CTE
+  GROUP BY customer_id, node_id)
+  
+SELECT ROUND(AVG(total_node)) AS avg_n
+FROM CTE2;
+```
+  <h6>Answer:</h6>
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/19421d2b-c6ba-4b2c-8a0d-5ba5b829bd7c">
+
   <li><h5>What is the median, 80th and 95th percentile for this same reallocation days metric for each region?</h5></li>
+
+  ```sql
+WITH date_diff_cte AS (
+    SELECT
+        cn.region_id,
+        end_date - start_date AS node_dys
+    FROM
+        customer_nodes cn
+    WHERE
+        end_date != '9999-12-31'
+)
+SELECT
+    r.region_name,
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY node_dys) AS median,
+    PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY node_dys) AS percentile_80,
+    PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY node_dys) AS percentile_95
+FROM
+    date_diff_cte d
+JOIN
+    regions r ON d.region_id = r.region_id
+GROUP BY
+    r.region_name;
+```
+  <h6>Answer:</h6>
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e427f376-a3bb-4a95-8426-9f3c29253d85">

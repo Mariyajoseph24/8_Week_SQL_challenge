@@ -106,6 +106,13 @@ FROM clean_weekly_sales;
 ```
   <h6>Answer:</h6>
   <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
+  <ul>
+  <li>The SQL query selects distinct weekdays from the <code>clean_weekly_sales</code> table.</li>
+  <li>The <code>TO_CHAR</code> function is used to format the <code>week_date</code> column as a weekday string.</li>
+  <li>The format 'day' specifies that only the name of the day of the week should be extracted.</li>
+  <li>The result is a list of unique weekday names present in the <code>week_date</code> column of the <code>clean_weekly_sales</code> table.</li>
+</ul>
+
   
   <li><h5>What range of week numbers are missing from the dataset?</h5></li>
 
@@ -123,6 +130,16 @@ ORDER BY w.week_num;
 
   <h6>Answer:</h6>
   <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccad3c23-842b-41bb-abec-412bf6439f91">
+  <ul>
+  <li>The SQL query uses a common table expression (CTE) named <code>week_number_cte</code> to generate a series of week numbers from 1 to 52.</li>
+  <li>The <code>GENERATE_SERIES</code> function is used to create a sequence of numbers within the specified range.</li>
+  <li>The main <code>SELECT</code> statement then selects distinct <code>week_num</code> values from the <code>week_number_cte</code> CTE.</li>
+  <li>A <code>LEFT JOIN</code> is performed between the <code>week_number_cte</code> CTE and the <code>clean_weekly_sales</code> table on the condition that the <code>week_num</code> matches the <code>week_number</code> column in the sales data.</li>
+  <li>The <code>WHERE</code> clause filters rows where the <code>week_number</code> in the sales data is <code>NULL</code>, indicating missing data for that week.</li>
+  <li>The result is a list of week numbers that are missing data in the <code>clean_weekly_sales</code> table.</li>
+  <li>The list is ordered in ascending order of week numbers.</li>
+</ul>
+
   
   <li><h5>How many total transactions were there for each year in the dataset?</h5></li>
 
@@ -134,6 +151,14 @@ ORDER BY calendar_year;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e4e02db3-2fdd-4727-9cc8-7ec81d99b8c4">
+  <ul>
+  <li>The SQL query selects the <code>calendar_year</code> and calculates the total number of transactions for each calendar year from the <code>clean_weekly_sales</code> table.</li>
+  <li>The <code>SUM</code> function is used to add up the <code>transactions</code> values for each year.</li>
+  <li>The results are grouped by the <code>calendar_year</code> column.</li>
+  <li>The <code>ORDER BY</code> clause sorts the results in ascending order based on the <code>calendar_year</code>.</li>
+  <li>The outcome is a list that displays the total number of transactions for each calendar year present in the <code>clean_weekly_sales</code> table.</li>
+</ul>
+
   
   <li><h5>What is the total sales for each region for each month?</h5></li>
 
@@ -146,6 +171,15 @@ ORDER BY region;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/44f582a6-db59-40df-aaeb-91cd768d8246">
+  <ul>
+  <li>The SQL query selects the <code>region</code> and calculates the total sales for each region from the <code>clean_weekly_sales</code> table.</li>
+  <li>The <code>SUM</code> function is used to add up the <code>sales</code> values for each region.</li>
+  <li>The <code>WHERE</code> clause filters the rows to include only data where the <code>month_number</code> is 7, indicating July.</li>
+  <li>The results are grouped by the <code>region</code> column.</li>
+  <li>The <code>ORDER BY</code> clause sorts the results in ascending order based on the <code>region</code>.</li>
+  <li>The outcome is a list that displays the total sales for each region in the month of July from the <code>clean_weekly_sales</code> table.</li>
+</ul>
+
   
   <li><h5>What is the total count of transactions for each platform</h5></li>
 
@@ -157,6 +191,14 @@ ORDER BY platform;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cd1ea6cb-0cae-441a-bb43-373c43fb6c45">
+  <ul>
+  <li>The SQL query selects the <code>platform</code> column and calculates the total number of transactions for each platform from the <code>clean_weekly_sales</code> table.</li>
+  <li>The <code>SUM</code> function is used to add up the <code>transactions</code> values for each platform.</li>
+  <li>The results are grouped by the <code>platform</code> column.</li>
+  <li>The <code>ORDER BY</code> clause sorts the results in ascending order based on the <code>platform</code>.</li>
+  <li>The outcome is a list that displays the total number of transactions for each platform in the <code>clean_weekly_sales</code> table.</li>
+</ul>
+
   
   <li><h5>What is the percentage of sales for Retail vs Shopify for each month?</h5></li>
 
@@ -182,6 +224,18 @@ ORDER BY calendar_year, month_number;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/3a646eaa-5d9d-48c7-b23d-f8c943e567e5">
+  <ul>
+  <li>The SQL query first creates a Common Table Expression (CTE) named <code>monthly_platform_sales</code>.</li>
+  <li>In the CTE, the query calculates the total monthly sales for each combination of <code>calendar_year</code>, <code>month_number</code>, and <code>platform</code> from the <code>clean_weekly_sales</code> table using the <code>SUM</code> function.</li>
+  <li>The results are grouped by <code>calendar_year</code>, <code>month_number</code>, and <code>platform</code>.</li>
+  <li>The main part of the query selects data from the <code>monthly_platform_sales</code> CTE.</li>
+  <li>It calculates the percentage of retail sales by dividing the sum of monthly sales from the 'Retail' platform by the total monthly sales, multiplied by 100. The <code>ROUND</code> function is used to round the result to two decimal places.</li>
+  <li>Similarly, it calculates the percentage of Shopify sales by dividing the sum of monthly sales from the 'Shopify' platform by the total monthly sales, multiplied by 100.</li>
+  <li>The results are grouped by <code>calendar_year</code> and <code>month_number</code>.</li>
+  <li>The <code>ORDER BY</code> clause sorts the results in ascending order based on <code>calendar_year</code> and <code>month_number</code>.</li>
+  <li>The outcome is a table that displays the percentage of retail and Shopify sales for each month and calendar year based on the data from the <code>clean_weekly_sales</code> table.</li>
+</ul>
+
   
   <li><h5>What is the percentage of sales by demographic for each year in the dataset?</h5></li>
 
@@ -204,6 +258,17 @@ ORDER BY calendar_year, demographic;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5d1c7183-1c2b-4da6-b377-ea5103fe1a4a">
+  <ul>
+  <li>The SQL query creates a Common Table Expression (CTE) named <code>yearly_demographic_sales</code>.</li>
+  <li>In the CTE, the query calculates the total yearly sales for each combination of <code>calendar_year</code> and <code>demographic</code> from the <code>clean_weekly_sales</code> table using the <code>SUM</code> function.</li>
+  <li>The results are grouped by <code>calendar_year</code> and <code>demographic</code>.</li>
+  <li>The main part of the query selects data from the <code>yearly_demographic_sales</code> CTE.</li>
+  <li>It calculates the sales percentage for each demographic in a given year by dividing the yearly sales for that demographic by the total yearly sales for the same year, multiplied by 100. The <code>ROUND</code> function is used to round the result to two decimal places.</li>
+  <li>The <code>SUM(yearly_sales) OVER (PARTITION BY calendar_year)</code> calculates the total yearly sales for each year and is used as the denominator for calculating the percentage.</li>
+  <li>The results are displayed with columns for <code>calendar_year</code>, <code>demographic</code>, and <code>sales_percentage</code>.</li>
+  <li>The results are ordered in ascending order based on <code>calendar_year</code> and <code>demographic</code>.</li>
+</ul>
+
   
   <li><h5>Which age_band and demographic values contribute the most to Retail sales?</h5></li>
 
@@ -219,6 +284,15 @@ ORDER BY retail_sales DESC;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2178524a-a18d-4557-b298-4384d9007462">
+  <ul>
+  <li>The SQL query selects data from the <code>clean_weekly_sales</code> table.</li>
+  <li>It retrieves the columns <code>age_band</code> and <code>demographic</code> along with the calculated sum of <code>sales</code> as <code>retail_sales</code>.</li>
+  <li>The query filters the data to include only rows where the <code>platform</code> is 'Retail' using the <code>WHERE</code> clause.</li>
+  <li>The results are grouped by <code>age_band</code> and <code>demographic</code> using the <code>GROUP BY</code> clause.</li>
+  <li>The calculated sum of <code>sales</code> for each group is displayed as <code>retail_sales</code>.</li>
+  <li>The results are ordered in descending order based on <code>retail_sales</code> using the <code>ORDER BY</code> clause with the <code>DESC</code> keyword.</li>
+</ul>
+
   
   <li><h5>Can we use the avg_transaction column to find the average transaction size for each year for Retail vs Shopify?</h5></li>
 
@@ -233,6 +307,15 @@ ORDER BY calendar_year, platform;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/770f621c-55f4-406f-8940-4ab8baacc0f1">
+  <ul>
+  <li>The SQL query selects data from the <code>clean_weekly_sales</code> table.</li>
+  <li>It retrieves the columns <code>calendar_year</code> and <code>platform</code> along with the calculated average of <code>avg_transaction</code> as <code>average_transaction_size</code>.</li>
+  <li>The query calculates the average transaction size using the <code>AVG</code> function on the <code>avg_transaction</code> column.</li>
+  <li>The results are grouped by <code>calendar_year</code> and <code>platform</code> using the <code>GROUP BY</code> clause.</li>
+  <li>The calculated average transaction size for each group is displayed as <code>average_transaction_size</code>.</li>
+  <li>The results are ordered in ascending order based on <code>calendar_year</code> and <code>platform</code> using the <code>ORDER BY</code> clause.</li>
+</ul>
+
   </ol>
   
 

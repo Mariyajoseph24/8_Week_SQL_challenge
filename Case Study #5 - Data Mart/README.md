@@ -27,3 +27,8 @@ Central to this inquiry are the subsequent pivotal questions:<br>
 <li>What is the measurable impact resulting from the changes implemented in June 2020?</li><br>
 <li>Among platforms, regions, segments, and customer categories, which experienced the most pronounced effects due to these adjustments?</li><br>
 <li>How can we strategize for potential future implementations of analogous sustainability enhancements to the business, with the aim of mitigating any adverse consequences on sales?</li><br></p>
+
+<h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
+<h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------

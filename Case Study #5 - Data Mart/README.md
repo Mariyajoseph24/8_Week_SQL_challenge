@@ -315,8 +315,21 @@ ORDER BY calendar_year, platform;
   <li>The calculated average transaction size for each group is displayed as <code>average_transaction_size</code>.</li>
   <li>The results are ordered in ascending order based on <code>calendar_year</code> and <code>platform</code> using the <code>ORDER BY</code> clause.</li>
 </ul>
+</ol>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="3.before&afteranalysis"></a>3. Before & After Analysis</h4>
+<ol>
+  <li><h5>This technique is usually used when we inspect an important event and want to inspect the impact before and after a certain point in time.
 
-  </ol>
+Taking the week_date value of 2020-06-15 as the baseline week where the Data Mart sustainable packaging changes came into effect.
+
+We would include all week_date values for 2020-06-15 as the start of the period after the change and the previous week_date values would be before
+
+Using this analysis approach - answer the following questions:
+<ol>
+<li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</li>
+<li>What about the entire 12 weeks before and after?</li></ol></h5></li>
+  
 -------------------------------------------------------------------------------------------------------------------------------------------------------
   
 

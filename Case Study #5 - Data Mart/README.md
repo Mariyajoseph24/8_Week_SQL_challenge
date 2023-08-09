@@ -100,11 +100,11 @@ FROM clean_weekly_sales;
 <ol>
   <li><h5>What day of the week is used for each week_date value?</h5></li>
     <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
   
   <li><h5>What range of week numbers are missing from the dataset?</h5></li>
     <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccad3c23-842b-41bb-abec-412bf6439f91">
+  <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccad3c23-842b-41bb-abec-412bf6439f91">
   
   <li><h5>How many total transactions were there for each year in the dataset?</h5></li>
     <h6>Answer:</h6>

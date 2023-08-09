@@ -329,7 +329,7 @@ Using this analysis approach - answer the following questions:
 <ol>
 <li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</li>
 
-  ```sql
+```sql
 WITH CTE AS (
     SELECT 
         week_date, 

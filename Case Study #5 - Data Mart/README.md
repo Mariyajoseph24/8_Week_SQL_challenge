@@ -99,39 +99,139 @@ FROM clean_weekly_sales;
 <h4><a name="2.dataexploration"></a>2. Data Exploration</h4>
 <ol>
   <li><h5>What day of the week is used for each week_date value?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT DISTINCT(TO_CHAR(week_date, 'day')) AS day 
+FROM clean_weekly_sales;
+```
+  <h6>Answer:</h6>
   <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
   
   <li><h5>What range of week numbers are missing from the dataset?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+WITH week_number_cte AS (
+    SELECT GENERATE_SERIES(1, 52) AS week_num
+)
+SELECT DISTINCT w.week_num
+FROM week_number_cte AS w
+LEFT JOIN clean_weekly_sales AS s
+    ON w.week_num = s.week_number
+WHERE s.week_number IS NULL
+ORDER BY w.week_num;
+```
+
+  <h6>Answer:</h6>
   <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccad3c23-842b-41bb-abec-412bf6439f91">
   
   <li><h5>How many total transactions were there for each year in the dataset?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT calendar_year, SUM(transactions) AS total_transactions
+FROM clean_weekly_sales
+GROUP BY calendar_year
+ORDER BY calendar_year;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e4e02db3-2fdd-4727-9cc8-7ec81d99b8c4">
   
   <li><h5>What is the total sales for each region for each month?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT region, SUM(sales) AS total_sales
+FROM clean_weekly_sales
+WHERE month_number=7
+GROUP BY region
+ORDER BY region;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/44f582a6-db59-40df-aaeb-91cd768d8246">
   
   <li><h5>What is the total count of transactions for each platform</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT platform, SUM(transactions) AS total_transactions
+FROM clean_weekly_sales
+GROUP BY platform
+ORDER BY platform;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cd1ea6cb-0cae-441a-bb43-373c43fb6c45">
   
   <li><h5>What is the percentage of sales for Retail vs Shopify for each month?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+WITH monthly_platform_sales AS (
+  SELECT 
+    calendar_year, 
+    month_number, 
+    platform, 
+    SUM(sales) AS monthly_sales
+  FROM clean_weekly_sales
+  GROUP BY calendar_year, month_number, platform
+)
+
+SELECT 
+  calendar_year, 
+  month_number, 
+  ROUND(100 * SUM(CASE WHEN platform = 'Retail' THEN monthly_sales ELSE 0 END) / SUM(monthly_sales), 2) AS retail_percentage,
+  ROUND(100 * SUM(CASE WHEN platform = 'Shopify' THEN monthly_sales ELSE 0 END) / SUM(monthly_sales), 2) AS shopify_percentage
+FROM monthly_platform_sales
+GROUP BY calendar_year, month_number
+ORDER BY calendar_year, month_number;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/3a646eaa-5d9d-48c7-b23d-f8c943e567e5">
   
   <li><h5>What is the percentage of sales by demographic for each year in the dataset?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+WITH yearly_demographic_sales AS (
+    SELECT 
+        calendar_year, 
+        demographic,
+        SUM(sales) AS yearly_sales
+    FROM clean_weekly_sales
+    GROUP BY calendar_year, demographic
+)
+
+SELECT 
+    calendar_year,
+    demographic,
+    ROUND(100 * yearly_sales / SUM(yearly_sales) OVER (PARTITION BY calendar_year), 2) AS sales_percentage
+FROM yearly_demographic_sales
+ORDER BY calendar_year, demographic;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5d1c7183-1c2b-4da6-b377-ea5103fe1a4a">
   
   <li><h5>Which age_band and demographic values contribute the most to Retail sales?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT 
+  age_band, 
+  demographic, 
+  SUM(sales) AS retail_sales
+FROM clean_weekly_sales
+WHERE platform = 'Retail'
+GROUP BY age_band, demographic
+ORDER BY retail_sales DESC;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2178524a-a18d-4557-b298-4384d9007462">
   
   <li><h5>Can we use the avg_transaction column to find the average transaction size for each year for Retail vs Shopify?</h5></li>
-    <h6>Answer:</h6>
+
+  ```sql
+SELECT 
+    calendar_year,
+    platform,
+    AVG(avg_transaction) AS average_transaction_size
+FROM clean_weekly_sales
+GROUP BY calendar_year, platform
+ORDER BY calendar_year, platform;
+```
+  <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/770f621c-55f4-406f-8940-4ab8baacc0f1">
   </ol>
   

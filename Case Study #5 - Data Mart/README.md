@@ -10,7 +10,7 @@
 <ul>
   <li><a href="#1.datacleansingsteps">1. Data Cleansing Steps</a></li>
   <li><a href="#2.dataexploration">2. Data Exploration</a></li>
-  <li><a href="3.before&afternalysis">3. Before & After Analysis</a></li>
+  <li><a href="3.beforeandafternalysis">3. Before & After Analysis</a></li>
 
   </ul>
 </ul>
@@ -32,7 +32,7 @@ Central to this inquiry are the subsequent pivotal questions:<br>
 <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="1.datacleansingsteps"></a>1. Data Cleansing Steps</h4>
+<h4><a name="1.datacleansingsteps"></a>1. Data Cleansing Steps📊</h4>
 <ol> 
   <li><h5>
 
@@ -96,7 +96,7 @@ FROM clean_weekly_sales;
 </ul>
 </ol>
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="2.dataexploration"></a>2. Data Exploration</h4>
+<h4><a name="2.dataexploration"></a>2. Data Exploration🤯📊</h4>
 <ol>
   <li><h5>What day of the week is used for each week_date value?</h5></li>
 
@@ -317,7 +317,7 @@ ORDER BY calendar_year, platform;
 </ul>
 </ol>
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="3.before&afteranalysis"></a>3. Before & After Analysis</h4>
+<h4><a name="3.beforeandafteranalysis"></a>3. Before & After Analysis📈📉</h4>
 <ol>
   <li><h5>This technique is usually used when we inspect an important event and want to inspect the impact before and after a certain point in time.
 
@@ -411,8 +411,7 @@ FROM before_after_changes;
   <li>The query also calculates the percentage variance by dividing the variance by the <code>before_packaging_sales</code> and then multiplying by 100. It rounds the percentage to 2 decimal places using the <code>ROUND</code> function.</li>
   <li>The calculated sales variance and percentage variance are displayed as <code>sales_variance</code> and <code>variance_percentage</code>, respectively.</li>
 </ul>
-
-  </ol>
+</ol>
 
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------

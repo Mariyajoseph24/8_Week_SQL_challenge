@@ -100,7 +100,7 @@ FROM clean_weekly_sales;
 <ol>
   <li><h5>What day of the week is used for each week_date value?</h5></li>
     <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
+  <img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7979aa79-bb6b-443b-b6b1-d6093575c289">
   
   <li><h5>What range of week numbers are missing from the dataset?</h5></li>
     <h6>Answer:</h6>
@@ -133,6 +133,7 @@ FROM clean_weekly_sales;
   <li><h5>Can we use the avg_transaction column to find the average transaction size for each year for Retail vs Shopify?</h5></li>
     <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/770f621c-55f4-406f-8940-4ab8baacc0f1">
+  </ol>
   
 
 

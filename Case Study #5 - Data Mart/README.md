@@ -330,7 +330,7 @@ Using this analysis approach - answer the following questions:
 <li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</li>
 
 ```sql
-WITH CTE AS (
+   WITH CTE AS (
     SELECT 
         week_date, 
         week_number, 
@@ -390,6 +390,7 @@ FROM before_after_changes;
 ```
 <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0ae5ef49-65de-4ceb-8217-223c2159b138">
+  </ol>
 
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------

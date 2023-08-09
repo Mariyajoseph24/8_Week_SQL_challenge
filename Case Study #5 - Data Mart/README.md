@@ -359,6 +359,17 @@ FROM CTE2;
 
 <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e03860bc-a44f-4eba-8651-99252edeeffc">
+  <ul>
+  <li>The SQL query uses two Common Table Expressions (CTEs) to perform calculations on the <code>clean_weekly_sales</code> table.</li>
+  <li>The first CTE named <code>CTE</code> calculates the total sales for each week within the specified range (week numbers 21 to 28) of the year 2020.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>week_date</code> and <code>week_number</code>.</li>
+  <li>The second CTE named <code>CTE2</code> further processes the data from the <code>CTE</code>.</li>
+  <li>It calculates the sum of total sales for the weeks before (week numbers 21 to 24) and after (week numbers 25 to 28) the specified range.</li>
+  <li>The main query calculates the variance in sales between the "after" and "before" periods by subtracting the <code>before_sales</code> from the <code>after_sales</code>.</li>
+  <li>The query also calculates the percentage variance by dividing the variance by the <code>before_sales</code> and then multiplying by 100. It rounds the percentage to 2 decimal places using the <code>ROUND</code> function.</li>
+  <li>The calculated sales variance and percentage variance are displayed as <code>sales_va</code> and <code>variance_percent</code>, respectively.</li>
+</ul>
+
   
 <li><h5>What about the entire 12 weeks before and after?</li></ol></h5></li>
 
@@ -390,6 +401,17 @@ FROM before_after_changes;
 ```
 <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0ae5ef49-65de-4ceb-8217-223c2159b138">
+  <ul>
+  <li>The SQL query consists of two Common Table Expressions (CTEs) to perform calculations on the <code>clean_weekly_sales</code> table.</li>
+  <li>The first CTE named <code>packaging_sales</code> calculates the total sales for each week within a specific date range, including 12 weeks before and after a central period.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>week_date</code> and <code>week_number</code>.</li>
+  <li>The second CTE named <code>before_after_changes</code> further processes the data from the <code>packaging_sales</code>.</li>
+  <li>It calculates the sum of total sales for the weeks before the central period (weeks from '2020-04-06' to '2020-06-07') and after the central period (weeks from '2020-06-15' to '2020-08-02').</li>
+  <li>The main query calculates the variance in sales between the "after" and "before" periods by subtracting the <code>before_packaging_sales</code> from the <code>after_packaging_sales</code>.</li>
+  <li>The query also calculates the percentage variance by dividing the variance by the <code>before_packaging_sales</code> and then multiplying by 100. It rounds the percentage to 2 decimal places using the <code>ROUND</code> function.</li>
+  <li>The calculated sales variance and percentage variance are displayed as <code>sales_variance</code> and <code>variance_percentage</code>, respectively.</li>
+</ul>
+
   </ol>
 
   

@@ -10,7 +10,7 @@
 <ul>
   <li><a href="#1.datacleansingsteps">1. Data Cleansing Steps</a></li>
   <li><a href="#2.dataexploration">2. Data Exploration</a></li>
-  <li><a href="#3.beforeandafternalysis">3. Before & After Analysis</a></li>
+  <li><a href="#3.beforeandafteranalysis">3. Before & After Analysis</a></li>
 
   </ul>
 </ul>

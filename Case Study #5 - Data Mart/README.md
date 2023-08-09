@@ -31,4 +31,23 @@ Central to this inquiry are the subsequent pivotal questions:<br>
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="1.datacleansingsteps"></a>1. Data Cleansing Steps</h4>
+<ol> 
+  <li><h5>
+
+<p>In a single query, the following operations are performed to generate a new table named <code>clean_weekly_sales</code> in the <code>data_mart</code> schema:</p>
+
+<ul>
+  <li>Convert the <code>week_date</code> to a <code>DATE</code> format</li>
+  <li>Add a <code>week_number</code> as the second column for each <code>week_date</code> value, where the week number corresponds to the range of dates within that week</li>
+  <li>Add a <code>month_number</code> with the calendar month for each <code>week_date</code> value as the third column</li>
+  <li>Add a <code>calendar_year</code> column as the fourth column containing values of 2018, 2019, or 2020 based on the year of the <code>week_date</code></li>
+  <li>Add a new column called <code>age_band</code> after the original <code>segment</code> column using predefined mappings for age groups</li>
+  <li>Add a new demographic column using the following mapping for the first letter in the segment values</li>
+  <li>Ensure all null string values with an "unknown" string value in the original segment column as well as the new age_band and demographic columns</li>
+  <li>Generate a new avg_transaction column as the sales value divided by transactions rounded to 2 decimal places for each record</li>
+</ul>
+
+
+</h5></li>

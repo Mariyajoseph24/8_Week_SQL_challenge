@@ -327,7 +327,7 @@ We would include all week_date values for 2020-06-15 as the start of the period 
 
 Using this analysis approach - answer the following questions:
 <ol>
-<li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</li>
+<li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</h5></li>
 
 ```sql
    WITH CTE AS (
@@ -360,7 +360,7 @@ FROM CTE2;
 <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e03860bc-a44f-4eba-8651-99252edeeffc">
   
-<li>What about the entire 12 weeks before and after?</li></ol></h5></li>
+<li><h5>What about the entire 12 weeks before and after?</li></ol></h5></li>
 
 ```sql
 WITH packaging_sales AS (

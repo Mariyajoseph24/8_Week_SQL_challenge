@@ -83,7 +83,7 @@ SELECT *
 FROM clean_weekly_sales;
 ```
  <h6>Answer:</h6>
-<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5c8f38c9-c299-4d52-a870-b2d292c83f2a">
+<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5c8f38c9-c299-4d52-a870-b2d292c83f2a">
 <ul>
   <li>The SQL script begins by creating a new table named <code>clean_weekly_sales</code> by selecting and transforming data from an existing table named <code>weekly_sales</code>.</li>
   <li>Within the <code>SELECT</code> statement, various operations are performed on the <code>week_date</code> column to extract different date-related information like <code>week_number</code>, <code>month_number</code>, <code>transaction_month</code>, and <code>calendar_year</code> based on the year of the <code>week_date</code>.</li>
@@ -95,7 +95,7 @@ FROM clean_weekly_sales;
   <li>As a result, the <code>clean_weekly_sales</code> table contains transformed and cleaned data from the <code>weekly_sales</code> table with various columns representing date information, age band, demographic, platform, sales metrics, and more.</li>
 </ul>
 </ol>
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

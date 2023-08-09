@@ -356,8 +356,10 @@ SELECT
         / before_sales, 2) AS variance_percent
 FROM CTE2;
 ```
+
 <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e03860bc-a44f-4eba-8651-99252edeeffc">
+  
 <li>What about the entire 12 weeks before and after?</li></ol></h5></li>
 
 ```sql

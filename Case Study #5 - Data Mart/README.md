@@ -328,7 +328,67 @@ We would include all week_date values for 2020-06-15 as the start of the period 
 Using this analysis approach - answer the following questions:
 <ol>
 <li>What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?</li>
+
+  ```sql
+WITH CTE AS (
+    SELECT 
+        week_date, 
+        week_number, 
+        SUM(sales) AS totl_sales
+    FROM clean_weekly_sales
+    WHERE (week_number BETWEEN 21 AND 28) 
+        AND (EXTRACT(YEAR FROM week_date) = 2020)
+    GROUP BY week_date, week_number
+),
+CTE2 AS (
+    SELECT 
+        SUM(CASE 
+            WHEN week_number BETWEEN 21 AND 24 THEN totl_sales END) AS before_sales,
+        SUM(CASE 
+            WHEN week_number BETWEEN 25 AND 28 THEN totl_sales END) AS after_sales
+    FROM CTE
+)
+
+SELECT 
+    after_sales - before_sales AS sales_va, 
+    ROUND(100 * 
+        (after_sales - before_sales) 
+        / before_sales, 2) AS variance_percent
+FROM CTE2;
+```
+<h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e03860bc-a44f-4eba-8651-99252edeeffc">
 <li>What about the entire 12 weeks before and after?</li></ol></h5></li>
+
+```sql
+WITH packaging_sales AS (
+    SELECT 
+        week_date, 
+        week_number, 
+        SUM(sales) AS total_sales
+    FROM clean_weekly_sales
+    WHERE week_date >= '2020-04-06' AND week_date <= '2020-07-05' -- Include 12 weeks before and after
+    GROUP BY week_date, week_number
+),
+before_after_changes AS (
+    SELECT 
+        SUM(CASE 
+            WHEN week_date >= '2020-04-06' AND week_date <= '2020-06-07' THEN total_sales END) AS before_packaging_sales,
+        SUM(CASE 
+            WHEN week_date >= '2020-06-15' AND week_date <= '2020-08-02' THEN total_sales END) AS after_packaging_sales
+    FROM packaging_sales
+)
+
+SELECT 
+    after_packaging_sales - before_packaging_sales AS sales_variance, 
+    ROUND(100 * 
+        (after_packaging_sales - before_packaging_sales) 
+        / before_packaging_sales, 2) AS variance_percentage
+FROM before_after_changes;
+```
+<h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0ae5ef49-65de-4ceb-8217-223c2159b138">
+
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------
   

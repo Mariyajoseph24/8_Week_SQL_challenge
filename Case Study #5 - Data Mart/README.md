@@ -29,7 +29,7 @@ Central to this inquiry are the subsequent pivotal questions:<br>
 <li>How can we strategize for potential future implementations of analogous sustainability enhancements to the business, with the aim of mitigating any adverse consequences on sales?</li><br></p>
 
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
-<img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 <h4><a name="1.datacleansingsteps"></a>1. Data Cleansing Steps</h4>
@@ -83,7 +83,7 @@ SELECT *
 FROM clean_weekly_sales;
 ```
  <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5c8f38c9-c299-4d52-a870-b2d292c83f2a">
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5c8f38c9-c299-4d52-a870-b2d292c83f2a">
 <ul>
   <li>The SQL script begins by creating a new table named <code>clean_weekly_sales</code> by selecting and transforming data from an existing table named <code>weekly_sales</code>.</li>
   <li>Within the <code>SELECT</code> statement, various operations are performed on the <code>week_date</code> column to extract different date-related information like <code>week_number</code>, <code>month_number</code>, <code>transaction_month</code>, and <code>calendar_year</code> based on the year of the <code>week_date</code>.</li>

@@ -23,7 +23,7 @@ In the juncture of June 2020, Data Mart underwent significant supply chain modif
 Danny is enlisting our expertise to quantify the ramifications of this alteration on Data Mart's sales performance across its distinct business sectors.<br>
 
 Central to this inquiry are the subsequent pivotal questions:<br>
-
-1. What is the measurable impact resulting from the changes implemented in June 2020?<br>
-2. Among platforms, regions, segments, and customer categories, which experienced the most pronounced effects due to these adjustments?<br>
-3. How can we strategize for potential future implementations of analogous sustainability enhancements to the business, with the aim of mitigating any adverse consequences on sales?<br></p>
+<ul>
+<li>What is the measurable impact resulting from the changes implemented in June 2020?</li><br>
+<li>Among platforms, regions, segments, and customer categories, which experienced the most pronounced effects due to these adjustments?</li><br>
+<li>How can we strategize for potential future implementations of analogous sustainability enhancements to the business, with the aim of mitigating any adverse consequences on sales?</li><br></p>

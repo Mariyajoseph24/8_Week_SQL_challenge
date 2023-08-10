@@ -88,6 +88,12 @@ FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc690163-b821-44fc-9ef9-8a746836528d">
+  <ul>
+  <li>The SQL query calculates the number of unique transactions in the <code>balanced_tree.sales</code> table.</li>
+  <li>It uses the <code>COUNT(DISTINCT txn_id)</code> aggregation function to count the distinct values of the <code>txn_id</code> column, which represents unique transactions.</li>
+  <li>The result of the query provides the count of unique transactions present in the sales dataset.</li>
+</ul>
+
   
   <li><h5>What is the average unique products purchased in each transaction?</h5></li>
 
@@ -101,6 +107,13 @@ FROM (
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5091ab29-59c4-41aa-9e65-1e9a00de8cae">
+  <ul>
+  <li>The SQL query calculates the average number of unique products per transaction in the <code>balanced_tree.sales</code> table.</li>
+  <li>It uses a subquery to calculate the count of distinct <code>prod_id</code> values for each <code>txn_id</code>, which represents the unique products in each transaction.</li>
+  <li>The outer query then calculates the average of the counts obtained from the subquery, providing the average number of unique products per transaction.</li>
+  <li>The result of the query gives insight into the average diversity of products bought per transaction.</li>
+</ul>
+
   
   <li><h5>What are the 25th, 50th and 75th percentile values for the revenue per transaction?</h5></li>
 
@@ -119,6 +132,13 @@ FROM (
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2671ea54-3d0f-4ca0-89e0-5abee6c095a7">
+  <ul>
+  <li>The SQL query calculates the 25th, 50th (median), and 75th percentiles of revenue per transaction in the <code>balanced_tree.sales</code> table.</li>
+  <li>It uses a common table expression (CTE) named <code>revenue_cte</code> to calculate the total revenue for each <code>txn_id</code> by summing the product of <code>price</code> and <code>qty</code>.</li>
+  <li>The main query then applies the <code>PERCENTILE_CONT</code> function to calculate the desired percentiles (<code>0.25</code>, <code>0.5</code>, and <code>0.75</code>) of the calculated revenue values.</li>
+  <li>The results provide insights into the distribution of revenue across transactions, with the median being the 50th percentile.</li>
+</ul>
+
   
   <li><h5>What is the average discount value per transaction?</h5></li>
 
@@ -129,6 +149,13 @@ FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/87f9c13a-d1ff-44cd-8daf-f492264723fd">
+  <ul>
+  <li>The SQL query calculates the average discount per transaction in the <code>balanced_tree.sales</code> table.</li>
+  <li>It calculates the total discount amount for each transaction by multiplying the <code>qty</code>, <code>price</code>, and <code>discount</code> columns and then dividing by 100.</li>
+  <li>The main query uses the <code>SUM</code> function to calculate the sum of all the calculated discount amounts and then divides it by the total number of distinct <code>txn_id</code> values using the <code>COUNT</code> function.</li>
+  <li>The result is the average discount per transaction, rounded using the <code>ROUND</code> function.</li>
+</ul>
+
   
   <li><h5>What is the percentage split of all transactions for members vs non-members?</h5></li>
 
@@ -145,6 +172,15 @@ GROUP BY member_status;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d000e86d-54d4-45d7-af99-d771436f6a77">
+  <ul>
+  <li>The SQL query categorizes transactions into two groups based on the <code>member</code> column: 'Member' and 'Non-Member'.</li>
+  <li>The <code>CASE</code> statement is used to transform the 't' and 'f' values in the <code>member</code> column into more meaningful labels.</li>
+  <li>The <code>COUNT</code> function calculates the number of transactions for each member status category.</li>
+  <li>The main query calculates the percentage of transactions for each member status category out of the total number of transactions in the <code>balanced_tree.sales</code> table.</li>
+  <li>The subquery <code>(SELECT COUNT(txn_id) FROM balanced_tree.sales)</code> calculates the total number of transactions in the table.</li>
+  <li>The result is the member status ('Member' or 'Non-Member'), the transaction count for each category, and the percentage of transactions represented by each category, rounded to two decimal places using the <code>ROUND</code> function.</li>
+</ul>
+
   
   <li><h5>What is the average revenue for member transactions and non-member transactions?</h5></li>
 
@@ -160,4 +196,12 @@ GROUP BY member_status;
 ```
   <h6>Answer:</h6>
   <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8a07e238-20f9-4f5a-b392-fb217eb8e3df">
+  <ul>
+  <li>The SQL query categorizes transactions into two groups based on the <code>member</code> column: 'Member' and 'Non-Member'.</li>
+  <li>The <code>CASE</code> statement is used to transform the 't' and 'f' values in the <code>member</code> column into more meaningful labels.</li>
+  <li>The <code>ROUND</code> function calculates the average revenue for each member status category by multiplying the <code>price</code> and <code>qty</code> columns and then rounding the result to two decimal places.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by the transformed member status.</li>
+  <li>The result displays the member status ('Member' or 'Non-Member') and the average revenue for each category.</li>
+</ul>
+--------------------------------------------------------------------------------------------------------------------------------------------
 

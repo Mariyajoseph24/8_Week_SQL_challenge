@@ -227,28 +227,338 @@ LIMIT 3;
 <li>How many times was each product added to a cart but not purchased (abandoned)?</li>
 <li>How many times was each product purchased?</li></ul><br>
 
+```sql
+WITH ProdView AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS views
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+ProdCart AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_adds
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id
+),
+PurchaseEvents AS (
+    SELECT DISTINCT visit_id
+    FROM events
+    WHERE event_type = 3
+),
+ProductStats AS (
+    SELECT 
+        pvc.visit_id, 
+        pvc.product_id, 
+        pvc.product_name, 
+        pvc.product_category, 
+        pvc.views, 
+        pcc.cart_adds,
+        CASE WHEN pe.visit_id IS NOT NULL THEN 1 ELSE 0 END AS purchases
+    FROM ProdView AS pvc
+    JOIN ProdCart AS pcc ON pvc.visit_id = pcc.visit_id AND pvc.product_id = pcc.product_id
+    LEFT JOIN PurchaseEvents AS pe ON pvc.visit_id = pe.visit_id
+)
+SELECT 
+    product_name, 
+    product_category, 
+    SUM(views) AS total_views,
+    SUM(cart_adds) AS total_cart_adds, 
+    SUM(CASE WHEN cart_adds > 0 AND purchases = 0 THEN 1 ELSE 0 END) AS abandoned,
+    SUM(CASE WHEN cart_adds = 1 AND purchases = 1 THEN 1 ELSE 0 END) AS purchases
+FROM ProductStats
+GROUP BY product_name, product_category
+ORDER BY product_name;
+```
+
 <h6>Answer:</h6>
   <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccb568c0-56a8-4f42-8b9c-40d34700e85f">
   
 Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products <br>
 
+```sql
+WITH ProductPageEvents AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS page_view,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_add
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+PurchaseEvents AS (
+    SELECT DISTINCT visit_id
+    FROM events
+    WHERE event_type = 3
+),
+CombinedTable AS (
+    SELECT 
+        ppe.visit_id, 
+        ppe.product_id, 
+        ppe.product_name, 
+        ppe.product_category, 
+        ppe.page_view, 
+        ppe.cart_add,
+        CASE WHEN pe.visit_id IS NOT NULL THEN 1 ELSE 0 END AS purchase
+    FROM ProductPageEvents AS ppe
+    LEFT JOIN PurchaseEvents AS pe ON ppe.visit_id = pe.visit_id
+),
+ProductInfo AS (
+    SELECT 
+        product_name, 
+        product_category, 
+        SUM(page_view) AS views,
+        SUM(cart_add) AS cart_adds, 
+        SUM(CASE WHEN cart_add = 1 AND purchase = 0 THEN 1 ELSE 0 END) AS abandoned,
+        SUM(CASE WHEN cart_add = 1 AND purchase = 1 THEN 1 ELSE 0 END) AS purchases
+    FROM CombinedTable
+    GROUP BY product_id, product_name, product_category
+),
+CategoryStats AS (
+    SELECT
+        product_category,
+        SUM(views) AS total_category_views,
+        SUM(cart_adds) AS total_category_cart_adds,
+        SUM(abandoned) AS total_category_abandoned,
+        SUM(purchases) AS total_category_purchases
+    FROM ProductInfo
+    GROUP BY product_category
+)
+
+
+SELECT
+    product_category,
+    total_category_views,
+    total_category_cart_adds,
+    total_category_abandoned,
+    total_category_purchases
+FROM CategoryStats;
+```
 <h6>Answer:</h6>
   <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37df02b4-cf70-4f0a-b2e4-d36d250dd606">
   
 Use your 2 new output tables - answer the following questions:<br></p>
   <li><h5>Which product had the most views, cart adds and purchases?</h5></li>
+
+  ```sql
+WITH ProductPageEvents AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS page_view,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_add
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+PurchaseEvents AS (
+    SELECT DISTINCT visit_id
+    FROM events
+    WHERE event_type = 3
+),
+CombinedTable AS (
+    SELECT 
+        ppe.visit_id, 
+        ppe.product_id, 
+        ppe.product_name, 
+        ppe.product_category, 
+        ppe.page_view, 
+        ppe.cart_add,
+        CASE WHEN pe.visit_id IS NOT NULL THEN 1 ELSE 0 END AS purchase
+    FROM ProductPageEvents AS ppe
+    LEFT JOIN PurchaseEvents AS pe ON ppe.visit_id = pe.visit_id
+),
+ProductInfo AS (
+    SELECT 
+        product_name, 
+        product_category, 
+        SUM(page_view) AS views,
+        SUM(cart_add) AS cart_adds, 
+        SUM(CASE WHEN cart_add = 1 AND purchase = 0 THEN 1 ELSE 0 END) AS abandoned,
+        SUM(CASE WHEN cart_add = 1 AND purchase = 1 THEN 1 ELSE 0 END) AS purchases
+    FROM CombinedTable
+    GROUP BY product_id, product_name, product_category
+)
+
+SELECT
+    product_name,
+    MAX(views) AS most_views,
+    MAX(cart_adds) AS most_cart_adds,
+    MAX(purchases) AS most_purchases
+FROM ProductInfo
+GROUP BY product_name
+ORDER BY most_views DESC, most_cart_adds DESC, most_purchases DESC
+LIMIT 1;
+```
   <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f7d5e7ff-cb17-4208-ba55-8fb8bba20dd0">
   
   <li><h5>Which product was most likely to be abandoned?</h5></li>
+
+  ```sql
+WITH ProductPageEvents AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS page_view,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_add
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+PurchaseEvents AS (
+    SELECT DISTINCT visit_id
+    FROM events
+    WHERE event_type = 3
+),
+CombinedTable AS (
+    SELECT 
+        ppe.visit_id, 
+        ppe.product_id, 
+        ppe.product_name, 
+        ppe.product_category, 
+        ppe.page_view, 
+        ppe.cart_add,
+        CASE WHEN pe.visit_id IS NOT NULL THEN 1 ELSE 0 END AS purchase
+    FROM ProductPageEvents AS ppe
+    LEFT JOIN PurchaseEvents AS pe ON ppe.visit_id = pe.visit_id
+),
+ProductInfo AS (
+    SELECT 
+        product_name, 
+        product_category, 
+        SUM(page_view) AS views,
+        SUM(cart_add) AS cart_adds, 
+        SUM(CASE WHEN cart_add = 1 AND purchase = 0 THEN 1 ELSE 0 END) AS abandoned,
+        SUM(CASE WHEN cart_add = 1 AND purchase = 1 THEN 1 ELSE 0 END) AS purchases
+    FROM CombinedTable
+    GROUP BY product_id, product_name, product_category
+)
+
+SELECT
+    product_name,
+    MAX(abandoned_percentage) AS most_likely_abandoned
+FROM (
+    SELECT
+        product_name,
+        (CAST(abandoned AS decimal) / CAST(cart_adds AS decimal)) * 100 AS abandoned_percentage
+    FROM ProductInfo
+) AS AbandonedPercentage
+GROUP BY product_name
+ORDER BY most_likely_abandoned DESC
+LIMIT 1;
+```
   <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/09844e65-dca0-4fb8-8c8c-101987d00915">
   
   <li><h5></h5>Which product had the highest view to purchase percentage?</li>
+
+  ```sql
+WITH ProductPageEvents AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS page_view,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_add
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+PurchaseEvents AS (
+    SELECT DISTINCT visit_id
+    FROM events
+    WHERE event_type = 3
+),
+CombinedTable AS (
+    SELECT 
+        ppe.visit_id, 
+        ppe.product_id, 
+        ppe.product_name, 
+        ppe.product_category, 
+        ppe.page_view, 
+        ppe.cart_add,
+        CASE WHEN pe.visit_id IS NOT NULL THEN 1 ELSE 0 END AS purchase
+    FROM ProductPageEvents AS ppe
+    LEFT JOIN PurchaseEvents AS pe ON ppe.visit_id = pe.visit_id
+),
+ProductInfo AS (
+    SELECT 
+        product_name, 
+        product_category, 
+        SUM(page_view) AS views,
+        SUM(cart_add) AS cart_adds, 
+        SUM(CASE WHEN cart_add = 1 AND purchase = 0 THEN 1 ELSE 0 END) AS abandoned,
+        SUM(CASE WHEN cart_add = 1 AND purchase = 1 THEN 1 ELSE 0 END) AS purchases
+    FROM CombinedTable
+    GROUP BY product_id, product_name, product_category
+),
+ViewToPurchase AS (
+    SELECT
+        product_name,
+        (CAST(views AS decimal) / CAST(purchases AS decimal)) * 100 AS view_to_purchase_percentage
+    FROM ProductInfo
+)
+
+SELECT
+    product_name
+FROM ViewToPurchase
+ORDER BY view_to_purchase_percentage DESC
+LIMIT 1;
+```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/079f599f-58c6-4ee8-b97c-9d12028822f2">
   
   <li><h5>What is the average conversion rate from view to cart add?</h5></li>
+
+  ```sql
+WITH ProductPageEvents AS (
+    SELECT 
+        e.visit_id,
+        ph.product_id,
+        ph.page_name AS product_name,
+        ph.product_category,
+        COUNT(CASE WHEN e.event_type = 1 THEN 1 ELSE NULL END) AS page_view,
+        COUNT(CASE WHEN e.event_type = 2 THEN 1 ELSE NULL END) AS cart_add
+    FROM events AS e
+    JOIN page_hierarchy AS ph ON e.page_id = ph.page_id
+    WHERE product_id IS NOT NULL
+    GROUP BY e.visit_id, ph.product_id, ph.page_name, ph.product_category
+),
+ProductStats AS (
+    SELECT
+        product_name,
+        SUM(page_view) AS views,
+        SUM(cart_add) AS cart_adds
+    FROM ProductPageEvents
+    GROUP BY product_name
+)
+
+SELECT
+    AVG((CAST(cart_adds AS decimal) / CAST(views AS decimal)) * 100) AS average_conversion_rate
+FROM ProductStats;
+```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/b53c7604-6257-4fa3-b93b-db52b5165bf6">
   

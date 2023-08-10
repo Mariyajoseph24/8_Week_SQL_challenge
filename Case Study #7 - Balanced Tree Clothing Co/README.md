@@ -31,7 +31,7 @@ SELECT COUNT(DISTINCT txn_id) AS unique_transactions
 FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d60c9df0-fb38-4e1d-9c92-e7dc7f614919">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d60c9df0-fb38-4e1d-9c92-e7dc7f614919">
   <ul>
   <li>The SQL query calculates the count of unique transactions from the <code>balanced_tree.sales</code> table.</li>
   <li>The <code>SELECT</code> statement includes the <code>COUNT(DISTINCT txn_id)</code> function to count distinct transaction IDs.</li>
@@ -50,7 +50,7 @@ FROM (
 ) AS unique_products_per_transaction;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d8304f68-b375-4d7e-b3bf-53031339443b">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d8304f68-b375-4d7e-b3bf-53031339443b">
   <ul>
   <li>The SQL query calculates the average number of unique products per transaction from the <code>balanced_tree.sales</code> table.</li>
   <li>It achieves this by first creating a subquery that groups the sales data by <code>txn_id</code> and calculates the count of distinct <code>prod_id</code> values for each transaction.</li>
@@ -75,7 +75,7 @@ FROM (
 ) AS revenue_cte;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/df7e06f7-f44f-4f60-b77a-b62f74aebf26">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/df7e06f7-f44f-4f60-b77a-b62f74aebf26">
   <ul>
   <li>The SQL query calculates the 25th, 50th (median), and 75th percentiles of revenue per transaction from the <code>balanced_tree.sales</code> table.</li>
   <li>It does this by first creating a subquery named <code>revenue_cte</code>. This subquery groups the sales data by <code>txn_id</code> and calculates the sum of revenue for each transaction using the formula <code>price * qty</code>.</li>

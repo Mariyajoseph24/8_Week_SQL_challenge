@@ -27,13 +27,13 @@
 <ol> 
   <li><h5>How many users are there?</h5></li>
   <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/69aa003d-3866-4648-948a-b514576efd71">
+<img width="100" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/69aa003d-3866-4648-948a-b514576efd71">
   <li><h5>How many cookies does each user have on average?</h5></li>
    <h6>Answer:</h6>
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0ceb8176-8975-4c23-b65e-c3b333d94077">
   <li><h5>What is the unique number of visits by all users per month?</h5></li>
    <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1838845c-b4c7-4f0c-94dd-1ef62a99df66">
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1838845c-b4c7-4f0c-94dd-1ef62a99df66">
   <li><h5>What is the number of events for each event type?</h5></li>
    <h6>Answer:</h6>
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f49bf803-80ec-47fc-bb87-f3246ab17039">
@@ -48,7 +48,7 @@
 <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/bbe58a56-0884-4cb7-ab8b-44d70ce27fd7">
   <li><h5>What is the number of views and cart adds for each product category?</h5></li>
    <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9685c222-fcc6-4d6d-bf49-5ae12d642df6">
+<img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/9685c222-fcc6-4d6d-bf49-5ae12d642df6">
   <li><h5>What are the top 3 products by purchases?</h5></li>
    
 

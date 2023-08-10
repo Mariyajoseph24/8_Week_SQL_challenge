@@ -62,6 +62,49 @@ FROM (
   <li><h5>What was the total discount amount for all products?</h5></li>
 
   ```sql
+SELECT SUM((price * qty) - (price * qty * (discount / 100))) AS total_discount_amount
+FROM balanced_tree.sales;
+
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/df7e06f7-f44f-4f60-b77a-b62f74aebf26">
+ <ul>
+  <li>The SQL query calculates the total discount amount for all sales transactions in the <code>balanced_tree.sales</code> table.</li>
+  <li>It achieves this by summing up the discounted amounts for each transaction. The discounted amount for a transaction is calculated as <code>(price * qty) - (price * qty * (discount / 100))</code>.</li>
+  <li>Within the formula, <code>price * qty</code> calculates the total price for the transaction before discount, and <code>price * qty * (discount / 100)</code> calculates the discounted amount based on the discount percentage for that transaction.</li>
+  <li>The <code>SUM</code> function then aggregates the calculated discounted amounts across all transactions to yield the total discount amount.</li>
+  <li>The result of the query provides the total amount saved due to discounts across all sales transactions in the dataset.</li>
+</ul>
+
+</ol>
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="b.transactionanalysis"></a>A. Transaction Analysis</h4>
+<ol>
+  <li><h5>How many unique transactions were there?</h5></li>
+
+  ```sql
+SELECT COUNT(DISTINCT txn_id) AS unique_transactions
+FROM balanced_tree.sales;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc690163-b821-44fc-9ef9-8a746836528d">
+  
+  <li><h5>What is the average unique products purchased in each transaction?</h5></li>
+
+  ```sql
+SELECT AVG(avg_unique_products) AS average_unique_products_per_transaction
+FROM (
+    SELECT txn_id, COUNT(DISTINCT prod_id) AS avg_unique_products
+    FROM balanced_tree.sales
+    GROUP BY txn_id
+) AS unique_products_per_transaction;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5091ab29-59c4-41aa-9e65-1e9a00de8cae">
+  
+  <li><h5>What are the 25th, 50th and 75th percentile values for the revenue per transaction?</h5></li>
+
+  ```sql
 SELECT
   PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY revenue) AS percentile_25th,
   PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY revenue) AS percentile_50th,
@@ -75,14 +118,46 @@ FROM (
 ) AS revenue_cte;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/df7e06f7-f44f-4f60-b77a-b62f74aebf26">
-  <ul>
-  <li>The SQL query calculates the 25th, 50th (median), and 75th percentiles of revenue per transaction from the <code>balanced_tree.sales</code> table.</li>
-  <li>It does this by first creating a subquery named <code>revenue_cte</code>. This subquery groups the sales data by <code>txn_id</code> and calculates the sum of revenue for each transaction using the formula <code>price * qty</code>.</li>
-  <li>The main query then uses the <code>PERCENTILE_CONT</code> function to calculate the specified percentiles (25th, 50th, and 75th) of revenue by ordering the aggregated revenue values within the subquery.</li>
-  <li>The calculated percentiles are given the aliases <code>percentile_25th</code>, <code>percentile_50th</code> (median), and <code>percentile_75th</code> respectively.</li>
-  <li>The result of the query will provide the specified percentiles of revenue per transaction from the sales data.</li>
-</ul>
-</ol>
------------------------------------------------------------------------------------------------------------------------------------------------------
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2671ea54-3d0f-4ca0-89e0-5abee6c095a7">
+  
+  <li><h5>What is the average discount value per transaction?</h5></li>
+
+  ```sql
+SELECT 
+  ROUND(SUM(qty * price * discount/100) / COUNT(DISTINCT txn_id)) AS avg_discount
+FROM balanced_tree.sales;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/87f9c13a-d1ff-44cd-8daf-f492264723fd">
+  
+  <li><h5>What is the percentage split of all transactions for members vs non-members?</h5></li>
+
+  ```sql
+SELECT
+  CASE
+    WHEN member = 't' THEN 'Member'
+    WHEN member = 'f' THEN 'Non-Member'
+  END AS member_status,
+  COUNT(txn_id) AS transaction_count,
+  ROUND(100 * COUNT(txn_id) / (SELECT COUNT(txn_id) FROM balanced_tree.sales), 2) AS percentage
+FROM balanced_tree.sales
+GROUP BY member_status;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d000e86d-54d4-45d7-af99-d771436f6a77">
+  
+  <li><h5>What is the average revenue for member transactions and non-member transactions?</h5></li>
+
+  ```sql
+SELECT
+  CASE
+    WHEN member = 't' THEN 'Member'
+    WHEN member = 'f' THEN 'Non-Member'
+  END AS member_status,
+  ROUND(AVG(price * qty), 2) AS avg_revenue
+FROM balanced_tree.sales
+GROUP BY member_status;
+```
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8a07e238-20f9-4f5a-b392-fb217eb8e3df">
 

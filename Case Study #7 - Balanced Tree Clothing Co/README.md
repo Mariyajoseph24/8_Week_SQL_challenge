@@ -78,7 +78,7 @@ FROM balanced_tree.sales;
 
 </ol>
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="b.transactionanalysis"></a>A. Transaction Analysis</h4>
+<h4><a name="b.transactionanalysis"></a>B. Transaction Analysis</h4>
 <ol>
   <li><h5>How many unique transactions were there?</h5></li>
 

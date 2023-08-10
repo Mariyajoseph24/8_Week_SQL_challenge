@@ -226,15 +226,33 @@ LIMIT 3;
 <li>How many times was each product added to cart?</li>
 <li>How many times was each product added to a cart but not purchased (abandoned)?</li>
 <li>How many times was each product purchased?</li></ul><br>
-Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products.<br>
 
+<h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccb568c0-56a8-4f42-8b9c-40d34700e85f">
+  
+Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products <br>
+
+<h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37df02b4-cf70-4f0a-b2e4-d36d250dd606">
+  
 Use your 2 new output tables - answer the following questions:<br></p>
   <li><h5>Which product had the most views, cart adds and purchases?</h5></li>
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f7d5e7ff-cb17-4208-ba55-8fb8bba20dd0">
+  
   <li><h5>Which product was most likely to be abandoned?</h5></li>
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/09844e65-dca0-4fb8-8c8c-101987d00915">
+  
   <li><h5></h5>Which product had the highest view to purchase percentage?</li>
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/079f599f-58c6-4ee8-b97c-9d12028822f2">
+  
   <li><h5>What is the average conversion rate from view to cart add?</h5></li>
-  <li><h5>What is the average conversion rate from cart add to purchase?</h5></li>
-   
+  <h6>Answer:</h6>
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/b53c7604-6257-4fa3-b93b-db52b5165bf6">
+  
+  
 
 
 

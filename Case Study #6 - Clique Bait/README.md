@@ -218,7 +218,7 @@ LIMIT 3;
 </ul>
 </ol>
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="3.productfunnelanalysis"></a>3. Product Funnel Analysis</h4>
+<h4><a name="c.productfunnelanalysis"></a>C. Product Funnel Analysis</h4>
 <ol>
   <p></ul>Using a single SQL query - create a new output table which has the following details:<br>
 <ul>
@@ -229,11 +229,11 @@ LIMIT 3;
 Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products.<br>
 
 Use your 2 new output tables - answer the following questions:<br></p>
-  <li><h5></h5></li>
-  <li><h5></h5></li>
-  <li><h5></h5></li>
-  <li><h5></h5></li>
-  <li><h5></h5></li>
+  <li><h5>Which product had the most views, cart adds and purchases?</h5></li>
+  <li><h5>Which product was most likely to be abandoned?</h5></li>
+  <li><h5></h5>Which product had the highest view to purchase percentage?</li>
+  <li><h5>What is the average conversion rate from view to cart add?</h5></li>
+  <li><h5>What is the average conversion rate from cart add to purchase?</h5></li>
    
 
 

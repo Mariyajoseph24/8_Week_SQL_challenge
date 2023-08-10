@@ -87,7 +87,7 @@ SELECT COUNT(DISTINCT txn_id) AS unique_transactions
 FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc690163-b821-44fc-9ef9-8a746836528d">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc690163-b821-44fc-9ef9-8a746836528d">
   
   <li><h5>What is the average unique products purchased in each transaction?</h5></li>
 
@@ -128,7 +128,7 @@ SELECT
 FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/87f9c13a-d1ff-44cd-8daf-f492264723fd">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/87f9c13a-d1ff-44cd-8daf-f492264723fd">
   
   <li><h5>What is the percentage split of all transactions for members vs non-members?</h5></li>
 

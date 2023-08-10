@@ -228,12 +228,12 @@ LIMIT 3;
 <li>How many times was each product purchased?</li></ul><br>
 
 <h6>Answer:</h6>
-  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccb568c0-56a8-4f42-8b9c-40d34700e85f">
+  <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccb568c0-56a8-4f42-8b9c-40d34700e85f">
   
 Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products <br>
 
 <h6>Answer:</h6>
-  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37df02b4-cf70-4f0a-b2e4-d36d250dd606">
+  <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37df02b4-cf70-4f0a-b2e4-d36d250dd606">
   
 Use your 2 new output tables - answer the following questions:<br></p>
   <li><h5>Which product had the most views, cart adds and purchases?</h5></li>

@@ -203,6 +203,7 @@ GROUP BY member_status;
   <li>The <code>GROUP BY</code> clause groups the results by the transformed member status.</li>
   <li>The result displays the member status ('Member' or 'Non-Member') and the average revenue for each category.</li>
 </ul>
+</ol>
 --------------------------------------------------------------------------------------------------------------------------------------------
 <h4><a name="c.productanalysis"></a>C. Product Analysis</h4>
 <ol>
@@ -483,6 +484,6 @@ FROM category_revenue cr;
   <li>The calculated revenue percentage is displayed as <code>revenue_percentage</code>.</li>
   <li>The query presents the revenue distribution for each category, showing the <code>category_id</code>, <code>category_name</code>, total revenue, and the revenue percentage.</li>
 </ul>
-
+</ol>
   
 

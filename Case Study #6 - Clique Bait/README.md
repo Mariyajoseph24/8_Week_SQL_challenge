@@ -218,6 +218,22 @@ LIMIT 3;
 </ul>
 </ol>
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="3.productfunnelanalysis"></a>3. Product Funnel Analysis</h4>
+<ol>
+  <p></ul>Using a single SQL query - create a new output table which has the following details:<br>
+<ul>
+<li>How many times was each product viewed?</li>
+<li>How many times was each product added to cart?</li>
+<li>How many times was each product added to a cart but not purchased (abandoned)?</li>
+<li>How many times was each product purchased?</li></ul><br>
+Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products.<br>
+
+Use your 2 new output tables - answer the following questions:<br></p>
+  <li><h5></h5></li>
+  <li><h5></h5></li>
+  <li><h5></h5></li>
+  <li><h5></h5></li>
+  <li><h5></h5></li>
    
 
 

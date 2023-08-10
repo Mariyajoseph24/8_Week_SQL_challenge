@@ -282,6 +282,20 @@ ORDER BY product_name;
 
 <h6>Answer:</h6>
   <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ccb568c0-56a8-4f42-8b9c-40d34700e85f">
+
+  <ul>
+  <li>The SQL query involves multiple Common Table Expressions (CTEs) to analyze product interactions and purchases.</li>
+  <li>The first CTE named <code>ProdView</code> calculates the number of views for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>ProdCart</code> calculates the number of cart additions for each product in a similar manner to the first CTE.</li>
+  <li>The third CTE named <code>PurchaseEvents</code> identifies distinct visit IDs with purchase events (event_type = 3).</li>
+  <li>The fourth CTE named <code>ProductStats</code> combines data from the previous CTEs to calculate aggregated statistics for each product.</li>
+  <li>The main query selects <code>product_name</code>, <code>product_category</code>, and aggregates the <code>views</code>, <code>cart_adds</code>, and <code>purchases</code> based on different conditions.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_name</code> and <code>product_category</code>.</li>
+  <li>The <code>ORDER BY product_name</code> clause sorts the results alphabetically by product name.</li>
+</ul>
+
   
 Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products <br>
 
@@ -349,6 +363,20 @@ FROM CategoryStats;
 ```
 <h6>Answer:</h6>
   <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/37df02b4-cf70-4f0a-b2e4-d36d250dd606">
+  <ul>
+  <li>The SQL query analyzes product page events, purchases, and statistics based on different categories.</li>
+  <li>The first CTE named <code>ProductPageEvents</code> calculates page views and cart additions for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>PurchaseEvents</code> identifies distinct visit IDs with purchase events (event_type = 3).</li>
+  <li>The third CTE named <code>CombinedTable</code> combines data from the previous CTEs and determines if a visit resulted in a purchase.</li>
+  <li>The fourth CTE named <code>ProductInfo</code> aggregates statistics for each product, including views, cart additions, abandoned carts, and successful purchases.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The fifth CTE named <code>CategoryStats</code> aggregates category-level statistics based on the <code>product_category</code>.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_category</code>.</li>
+  <li>The main query selects <code>product_category</code> and the aggregated statistics for total category views, cart additions, abandoned carts, and purchases.</li>
+</ul>
+
   
 Use your 2 new output tables - answer the following questions:<br></p>
   <li><h5>Which product had the most views, cart adds and purchases?</h5></li>
@@ -408,6 +436,21 @@ LIMIT 1;
 ```
   <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/f7d5e7ff-cb17-4208-ba55-8fb8bba20dd0">
+  <ul>
+  <li>The SQL query focuses on analyzing product page events, purchases, and statistics to find the most viewed, most cart-added, and most purchased product.</li>
+  <li>The first CTE named <code>ProductPageEvents</code> calculates page views and cart additions for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>PurchaseEvents</code> identifies distinct visit IDs with purchase events (event_type = 3).</li>
+  <li>The third CTE named <code>CombinedTable</code> combines data from the previous CTEs and determines if a visit resulted in a purchase.</li>
+  <li>The fourth CTE named <code>ProductInfo</code> aggregates statistics for each product, including views, cart additions, abandoned carts, and successful purchases.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The main query selects <code>product_name</code> and aggregates the maximum views, cart additions, and purchases for each product.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_name</code>.</li>
+  <li>The <code>ORDER BY</code> clause orders the results based on most views, most cart additions, and most purchases in descending order.</li>
+  <li>The <code>LIMIT 1</code> clause restricts the output to only the top product with the most views, cart additions, and purchases.</li>
+</ul>
+
   
   <li><h5>Which product was most likely to be abandoned?</h5></li>
 
@@ -469,6 +512,23 @@ LIMIT 1;
 ```
   <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/09844e65-dca0-4fb8-8c8c-101987d00915">
+  <ul>
+  <li>The SQL query aims to identify the product with the highest likelihood of abandoned cart based on statistics.</li>
+  <li>The first CTE named <code>ProductPageEvents</code> calculates page views and cart additions for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>PurchaseEvents</code> identifies distinct visit IDs with purchase events (event_type = 3).</li>
+  <li>The third CTE named <code>CombinedTable</code> combines data from the previous CTEs and determines if a visit resulted in a purchase.</li>
+  <li>The fourth CTE named <code>ProductInfo</code> aggregates statistics for each product, including page views, cart additions, abandoned carts, and successful purchases.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The main query selects <code>product_name</code> and calculates the percentage of abandoned carts for each product using the formula <code>(abandoned / cart_adds) * 100</code>.</li>
+  <li>The calculated abandoned percentage and product name are included in the derived table <code>AbandonedPercentage</code>.</li>
+  <li>The outer query selects the product name and maximum abandoned percentage for each product.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_name</code>.</li>
+  <li>The <code>ORDER BY</code> clause orders the results based on the most likely abandoned percentage in descending order.</li>
+  <li>The <code>LIMIT 1</code> clause restricts the output to only the top product with the highest likelihood of abandoned cart.</li>
+</ul>
+
   
   <li><h5></h5>Which product had the highest view to purchase percentage?</li>
 
@@ -529,6 +589,22 @@ LIMIT 1;
 ```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/079f599f-58c6-4ee8-b97c-9d12028822f2">
+  <ul>
+  <li>The SQL query aims to identify the product with the highest view-to-purchase conversion rate based on statistics.</li>
+  <li>The first CTE named <code>ProductPageEvents</code> calculates page views and cart additions for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>PurchaseEvents</code> identifies distinct visit IDs with purchase events (event_type = 3).</li>
+  <li>The third CTE named <code>CombinedTable</code> combines data from the previous CTEs and determines if a visit resulted in a purchase.</li>
+  <li>The fourth CTE named <code>ProductInfo</code> aggregates statistics for each product, including page views, cart additions, abandoned carts, and successful purchases.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The fifth CTE named <code>ViewToPurchase</code> calculates the view-to-purchase conversion percentage for each product using the formula <code>(views / purchases) * 100</code>.</li>
+  <li>The calculated view-to-purchase percentage and product name are included in the derived table <code>ViewToPurchase</code>.</li>
+  <li>The main query selects the product name with the highest view-to-purchase percentage based on the <code>view_to_purchase_percentage</code> column.</li>
+  <li>The <code>ORDER BY</code> clause orders the results based on the view-to-purchase percentage in descending order.</li>
+  <li>The <code>LIMIT 1</code> clause restricts the output to only the top product with the highest view-to-purchase conversion rate.</li>
+</ul>
+
   
   <li><h5>What is the average conversion rate from view to cart add?</h5></li>
 
@@ -561,6 +637,17 @@ FROM ProductStats;
 ```
   <h6>Answer:</h6>
   <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/b53c7604-6257-4fa3-b93b-db52b5165bf6">
+  <ul>
+  <li>The SQL query calculates the average conversion rate for products based on their page views and cart additions.</li>
+  <li>The first CTE named <code>ProductPageEvents</code> calculates page views and cart additions for each product by joining the <code>events</code> and <code>page_hierarchy</code> tables on the <code>page_id</code> column.</li>
+  <li>The <code>WHERE product_id IS NOT NULL</code> clause filters out rows with null product IDs.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>visit_id</code>, <code>product_id</code>, <code>product_name</code>, and <code>product_category</code>.</li>
+  <li>The second CTE named <code>ProductStats</code> aggregates page views and cart additions for each product from the <code>ProductPageEvents</code> CTE.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>product_name</code>.</li>
+  <li>The main query calculates the average conversion rate using the formula <code>(cart_adds / views) * 100</code> for each product and then calculates the average of these conversion rates using the <code>AVG</code> function.</li>
+  <li>The result is displayed as <code>average_conversion_rate</code>.</li>
+</ul>
+
   
   
 

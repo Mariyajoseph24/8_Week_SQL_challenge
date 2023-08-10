@@ -220,7 +220,7 @@ ORDER BY total_revenue_before_discount DESC
 LIMIT 3;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/39878e7a-2ac0-4556-902e-59150c27d466">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/39878e7a-2ac0-4556-902e-59150c27d466">
   
   <li><h5>What is the total quantity, revenue and discount for each segment?</h5></li>
 
@@ -236,7 +236,7 @@ GROUP BY pd.segment_name
 ORDER BY total_revenue DESC;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/69bff982-0bdc-4627-85cc-1859a2cdd4b3">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/69bff982-0bdc-4627-85cc-1859a2cdd4b3">
   
   <li><h5>What is the total quantity, revenue and discount for each segment?</h5></li>
 
@@ -263,7 +263,7 @@ FROM top_selling_products
 WHERE rank = 1;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/252751a7-9870-4e24-8596-e9f31c939c79">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/252751a7-9870-4e24-8596-e9f31c939c79">
   
   <li><h5>What is the total quantity, revenue and discount for each category?</h5></li>
 
@@ -279,7 +279,7 @@ JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
 GROUP BY pd.category_id, pd.category_name;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1e8f3e66-fc2f-4683-9e7c-d2647c4d7aa5">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1e8f3e66-fc2f-4683-9e7c-d2647c4d7aa5">
   
   <li><h5>What is the top selling product for each category?</h5></li>
 
@@ -310,7 +310,7 @@ FROM top_selling_cte
 WHERE ranking = 1;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0b773687-a43d-474c-a678-bcfb8a5ea6b8">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0b773687-a43d-474c-a678-bcfb8a5ea6b8">
   
   <li><h5>What is the percentage split of revenue by product for each segment?</h5></li>
 
@@ -338,7 +338,7 @@ SELECT
 FROM segment_revenue sr;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/bd54b95f-87e0-4f0d-bf47-01764452f2ec">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/bd54b95f-87e0-4f0d-bf47-01764452f2ec">
   
   <li><h5>What is the percentage split of revenue by segment for each category?</h5></li>
 
@@ -366,7 +366,7 @@ SELECT
 FROM category_segment_revenue csr;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/a63327f5-9ef1-421b-bd34-02f2b66d4c55">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/a63327f5-9ef1-421b-bd34-02f2b66d4c55">
   
   <li><h5>What is the percentage split of total revenue by category?</h5></li>
 
@@ -390,6 +390,6 @@ SELECT
 FROM category_revenue cr;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5d77fb91-fd64-4e31-9c49-14cd69e5fa28">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5d77fb91-fd64-4e31-9c49-14cd69e5fa28">
   
 

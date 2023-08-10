@@ -688,7 +688,7 @@ GROUP BY u.user_id, e.visit_id, ci.campaign_name;
 
 ```
  <h6>Answer:</h6>
-<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d62c0ac7-3738-4066-99ee-7435c208d7ae">
+<img width="450" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d62c0ac7-3738-4066-99ee-7435c208d7ae">
 <ul>
   <li>The SQL query retrieves user-related data along with various event metrics from the <code>events</code> table.</li>
   <li>The <code>SELECT</code> statement selects columns such as <code>user_id</code>, <code>visit_id</code>, and more.</li>

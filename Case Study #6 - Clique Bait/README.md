@@ -218,7 +218,7 @@ LIMIT 3;
 </ul>
 </ol>
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="c.productfunnelanalysis"></a>C. Product Funnel Analysis</h4>
+<h4><a name="b.productfunnelanalysis"></a>B. Product Funnel Analysis</h4>
 <ol>
   <p></ul>Using a single SQL query - create a new output table which has the following details:<br>
 <ul>

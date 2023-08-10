@@ -31,7 +31,7 @@ SELECT COUNT(DISTINCT txn_id) AS unique_transactions
 FROM balanced_tree.sales;
 ```
   <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d60c9df0-fb38-4e1d-9c92-e7dc7f614919">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d60c9df0-fb38-4e1d-9c92-e7dc7f614919">
   <ul>
   <li>The SQL query calculates the count of unique transactions from the <code>balanced_tree.sales</code> table.</li>
   <li>The <code>SELECT</code> statement includes the <code>COUNT(DISTINCT txn_id)</code> function to count distinct transaction IDs.</li>

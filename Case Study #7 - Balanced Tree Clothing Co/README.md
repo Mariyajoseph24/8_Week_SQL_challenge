@@ -25,5 +25,41 @@
 <h4><a name="a.highlevelsalesanalysis"></a>A. High Level Sales Analysis</h4>
 <ol> 
   <li><h5>What was the total quantity sold for all products?</h5></li>
+
+  ```sql
+SELECT COUNT(DISTINCT txn_id) AS unique_transactions
+FROM balanced_tree.sales;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d60c9df0-fb38-4e1d-9c92-e7dc7f614919">
+  
   <li><h5>What is the total generated revenue for all products before discounts?</h5></li>
+
+  ```sql
+SELECT AVG(avg_unique_products) AS average_unique_products_per_transaction
+FROM (
+    SELECT txn_id, COUNT(DISTINCT prod_id) AS avg_unique_products
+    FROM balanced_tree.sales
+    GROUP BY txn_id
+) AS unique_products_per_transaction;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d8304f68-b375-4d7e-b3bf-53031339443b">
+  
   <li><h5>What was the total discount amount for all products?</h5></li>
+
+  ```sql
+SELECT
+  PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY revenue) AS percentile_25th,
+  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY revenue) AS percentile_50th,
+  PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY revenue) AS percentile_75th
+FROM (
+  SELECT
+    txn_id,
+    SUM(price * qty) AS revenue
+  FROM balanced_tree.sales
+  GROUP BY txn_id
+) AS revenue_cte;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/df7e06f7-f44f-4f60-b77a-b62f74aebf26">

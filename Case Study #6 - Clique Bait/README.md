@@ -647,6 +647,62 @@ FROM ProductStats;
   <li>The main query calculates the average conversion rate using the formula <code>(cart_adds / views) * 100</code> for each product and then calculates the average of these conversion rates using the <code>AVG</code> function.</li>
   <li>The result is displayed as <code>average_conversion_rate</code>.</li>
 </ul>
+</ol>
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="c.campaignsanalysis"></a>C. Campaigns Analysis</h4>
+<ol> 
+  <li><h5>Generate a table that has 1 single row for every unique visit_id record and has the following columns:
+<ul>
+<li>user_id</li>
+<li>visit_id</li>
+<li>visit_start_time: the earliest event_time for each visit</li>
+<li>page_views: count of page views for each visit</li>
+<li>cart_adds: count of product cart add events for each visit</li>
+<li>purchase: 1/0 flag if a purchase event exists for each visit</li>
+<li>campaign_name: map the visit to a campaign if the visit_start_time falls between the start_date and end_date</li>
+<li>impression: count of ad impressions for each visit</li>
+<li>click: count of ad clicks for each visit</li>
+<li>(Optional column) cart_products: a comma separated text value with products added to the cart sorted by the order they were added to the cart (hint: use the sequence_number)</li></ul></h5></li>
+
+  ```sql
+SELECT
+    u.user_id,
+    e.visit_id,
+    MIN(e.event_time) AS visit_start_time,
+    SUM(CASE WHEN e.event_type = 1 THEN 1 ELSE 0 END) AS page_views,
+    SUM(CASE WHEN e.event_type = 2 THEN 1 ELSE 0 END) AS cart_adds,
+    MAX(CASE WHEN e.event_type = 3 THEN 1 ELSE 0 END) AS purchase,
+    ci.campaign_name,
+    SUM(CASE WHEN e.event_type = 4 THEN 1 ELSE 0 END) AS impression,
+    SUM(CASE WHEN e.event_type = 5 THEN 1 ELSE 0 END) AS click,
+    STRING_AGG(
+        CASE WHEN e.event_type = 2 THEN ph.page_name END,
+        ', ' 
+        ORDER BY e.sequence_number
+    ) AS cart_products
+FROM users u
+INNER JOIN events e ON u.cookie_id = e.cookie_id
+LEFT JOIN campaign_identifier ci ON e.event_time BETWEEN ci.start_date AND ci.end_date
+LEFT JOIN page_hierarchy ph ON e.page_id = ph.page_id
+GROUP BY u.user_id, e.visit_id, ci.campaign_name;
+
+```
+ <h6>Answer:</h6>
+<img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/d62c0ac7-3738-4066-99ee-7435c208d7ae">
+<ul>
+  <li>The SQL query retrieves user-related data along with various event metrics from the <code>events</code> table.</li>
+  <li>The <code>SELECT</code> statement selects columns such as <code>user_id</code>, <code>visit_id</code>, and more.</li>
+  <li>The <code>MIN(e.event_time)</code> function is used to find the minimum event time for each visit, serving as the visit start time.</li>
+  <li>The <code>SUM(CASE WHEN e.event_type = 1 THEN 1 ELSE 0 END)</code> aggregates the count of page views using a conditional statement.</li>
+  <li>The <code>SUM(CASE WHEN e.event_type = 2 THEN 1 ELSE 0 END)</code> aggregates the count of cart additions using a similar conditional statement.</li>
+  <li>The <code>MAX(CASE WHEN e.event_type = 3 THEN 1 ELSE 0 END)</code> identifies if a purchase event occurred during the visit.</li>
+  <li>The <code>LEFT JOIN</code> clauses join the <code>campaign_identifier</code> and <code>page_hierarchy</code> tables based on event time and page ID respectively.</li>
+  <li>The <code>GROUP BY</code> clause groups the results by <code>user_id</code>, <code>visit_id</code>, and <code>campaign_name</code>.</li>
+  <li>The <code>STRING_AGG</code> function concatenates page names for cart products using a comma separator.</li>
+  <li>The result of the query provides insights into user behavior during visits, including metrics like page views, cart additions, purchases, campaign associations, and more.</li>
+</ul>
+</ol>
+
 
   
   

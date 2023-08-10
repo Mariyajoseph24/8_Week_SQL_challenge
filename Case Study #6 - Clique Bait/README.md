@@ -23,7 +23,7 @@
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f5a28db-79ac-4be4-9c35-909580740913">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-<h4><a name="a.digitaldnalysis"></a>2. Digital Analysis</h4>
+<h4><a name="a.digitaldnalysis"></a>A. Digital Analysis</h4>
 <ol> 
   <li><h5>How many users are there?</h5></li>
 

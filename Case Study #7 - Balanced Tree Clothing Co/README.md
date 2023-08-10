@@ -195,7 +195,7 @@ FROM balanced_tree.sales
 GROUP BY member_status;
 ```
   <h6>Answer:</h6>
-  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8a07e238-20f9-4f5a-b392-fb217eb8e3df">
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/8a07e238-20f9-4f5a-b392-fb217eb8e3df">
   <ul>
   <li>The SQL query categorizes transactions into two groups based on the <code>member</code> column: 'Member' and 'Non-Member'.</li>
   <li>The <code>CASE</code> statement is used to transform the 't' and 'f' values in the <code>member</code> column into more meaningful labels.</li>
@@ -204,4 +204,192 @@ GROUP BY member_status;
   <li>The result displays the member status ('Member' or 'Non-Member') and the average revenue for each category.</li>
 </ul>
 --------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="c.productanalysis"></a>C. Product Analysis</h4>
+<ol>
+  <li><h5>What are the top 3 products by total revenue before discount?</h5></li>
+
+  ```sql
+SELECT
+  pd.product_id,
+  pd.product_name,
+  SUM(s.price * s.qty) AS total_revenue_before_discount
+FROM balanced_tree.product_details pd
+JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
+GROUP BY pd.product_id, pd.product_name
+ORDER BY total_revenue_before_discount DESC
+LIMIT 3;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/39878e7a-2ac0-4556-902e-59150c27d466">
+  
+  <li><h5>What is the total quantity, revenue and discount for each segment?</h5></li>
+
+  ```sql
+SELECT
+  pd.segment_name,
+  SUM(s.qty) AS total_quantity,
+  SUM(s.price * s.qty) AS total_revenue,
+  SUM(s.qty * s.price * s.discount / 100) AS total_discount
+FROM balanced_tree.product_details pd
+JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
+GROUP BY pd.segment_name
+ORDER BY total_revenue DESC;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/69bff982-0bdc-4627-85cc-1859a2cdd4b3">
+  
+  <li><h5>What is the total quantity, revenue and discount for each segment?</h5></li>
+
+  ```sql
+WITH top_selling_products AS (
+  SELECT
+    pd.segment_id,
+    pd.segment_name,
+    pd.product_id,
+    pd.product_name,
+    SUM(s.qty) AS total_quantity,
+    ROW_NUMBER() OVER (PARTITION BY pd.segment_id ORDER BY SUM(s.qty) DESC) AS rank
+  FROM balanced_tree.product_details pd
+  JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
+  GROUP BY pd.segment_id, pd.segment_name, pd.product_id, pd.product_name
+)
+SELECT
+  segment_id,
+  segment_name,
+  product_id,
+  product_name,
+  total_quantity
+FROM top_selling_products
+WHERE rank = 1;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/252751a7-9870-4e24-8596-e9f31c939c79">
+  
+  <li><h5>What is the total quantity, revenue and discount for each category?</h5></li>
+
+  ```sql
+SELECT
+  pd.category_id,
+  pd.category_name,
+  SUM(s.qty) AS total_quantity,
+  SUM(s.qty * s.price) AS total_revenue,
+  SUM(s.qty * s.price * s.discount / 100) AS total_discount
+FROM balanced_tree.product_details pd
+JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
+GROUP BY pd.category_id, pd.category_name;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1e8f3e66-fc2f-4683-9e7c-d2647c4d7aa5">
+  
+  <li><h5>What is the top selling product for each category?</h5></li>
+
+  ```sql
+WITH top_selling_cte AS (
+  SELECT 
+    pd.category_id,
+    pd.category_name,
+    pd.product_id,
+    pd.product_name,
+    SUM(s.qty) AS total_quantity,
+    RANK() OVER (
+      PARTITION BY pd.category_id 
+      ORDER BY SUM(s.qty) DESC) AS ranking
+  FROM balanced_tree.product_details pd
+  JOIN balanced_tree.sales s ON pd.product_id = s.prod_id
+  GROUP BY 
+    pd.category_id, pd.category_name, pd.product_id, pd.product_name
+)
+
+SELECT 
+  category_id,
+  category_name, 
+  product_id,
+  product_name,
+  total_quantity
+FROM top_selling_cte
+WHERE ranking = 1;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0b773687-a43d-474c-a678-bcfb8a5ea6b8">
+  
+  <li><h5>What is the percentage split of revenue by product for each segment?</h5></li>
+
+  ```sql
+WITH segment_revenue AS (
+  SELECT 
+    p.segment_id,
+    p.segment_name,
+    s.prod_id,
+    p.product_name,
+    SUM(s.price * s.qty) AS total_revenue
+  FROM balanced_tree.sales s
+  JOIN balanced_tree.product_details p ON s.prod_id = p.product_id
+  GROUP BY 
+    p.segment_id, p.segment_name, s.prod_id, p.product_name
+)
+
+SELECT 
+  sr.segment_id,
+  sr.segment_name,
+  sr.prod_id,
+  sr.product_name,
+  sr.total_revenue,
+  ROUND(100 * sr.total_revenue / SUM(sr.total_revenue) OVER (PARTITION BY sr.segment_id), 2) AS revenue_percentage
+FROM segment_revenue sr;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/bd54b95f-87e0-4f0d-bf47-01764452f2ec">
+  
+  <li><h5>What is the percentage split of revenue by segment for each category?</h5></li>
+
+  ```sql
+WITH category_segment_revenue AS (
+  SELECT 
+    p.category_id,
+    p.category_name,
+    p.segment_id,
+    p.segment_name,
+    SUM(s.price * s.qty) AS total_revenue
+  FROM balanced_tree.sales s
+  JOIN balanced_tree.product_details p ON s.prod_id = p.product_id
+  GROUP BY 
+    p.category_id, p.category_name, p.segment_id, p.segment_name
+)
+
+SELECT 
+  csr.category_id,
+  csr.category_name,
+  csr.segment_id,
+  csr.segment_name,
+  csr.total_revenue,
+  ROUND(100 * csr.total_revenue / SUM(csr.total_revenue) OVER (PARTITION BY csr.category_id), 2) AS revenue_percentage
+FROM category_segment_revenue csr;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/a63327f5-9ef1-421b-bd34-02f2b66d4c55">
+  
+  <li><h5>What is the percentage split of total revenue by category?</h5></li>
+
+  ```sql
+WITH category_revenue AS (
+  SELECT 
+    p.category_id,
+    p.category_name,
+    SUM(s.price * s.qty) AS total_revenue
+  FROM balanced_tree.sales s
+  JOIN balanced_tree.product_details p ON s.prod_id = p.product_id
+  GROUP BY 
+    p.category_id, p.category_name
+)
+
+SELECT 
+  cr.category_id,
+  cr.category_name,
+  cr.total_revenue,
+  ROUND(100 * cr.total_revenue / SUM(cr.total_revenue) OVER (), 2) AS revenue_percentage
+FROM category_revenue cr;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/5d77fb91-fd64-4e31-9c49-14cd69e5fa28">
+  
 

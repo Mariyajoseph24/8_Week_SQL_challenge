@@ -377,16 +377,132 @@ JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
 <h4><a name="c.segmentanalysis"></a>C. Segment Analysis</h4>
 <ol>
   <li><h5>Using our filtered dataset by removing the interests with less than 6 months worth of data, which are the top 10 and bottom 10 interests which have the largest composition values in any month_year? Only use the maximum composition value for each interest but you must keep the corresponding month_year</h5></li>
+
+  ```sql
+WITH cte AS (
+  SELECT interest_id, COUNT(DISTINCT month_year) AS month_count
+  FROM interest_metrics
+  GROUP BY interest_id
+  HAVING COUNT(DISTINCT month_year) >= 6
+)
+
+SELECT *
+INTO filtered_table
+FROM interest_metrics
+WHERE interest_id IN (SELECT interest_id FROM cte);
+
+-- Top 10 interests with largest composition values
+SELECT
+  f.month_year,
+  f.interest_id,
+  im.interest_name,
+  MAX(f.composition) AS max_composition
+FROM filtered_table f
+JOIN interest_map im ON f.interest_id = im.id::varchar
+GROUP BY f.month_year, f.interest_id, im.interest_name
+ORDER BY max_composition DESC
+LIMIT 10;
+
+-- Bottom 10 interests with smallest composition values
+SELECT
+  f.month_year,
+  f.interest_id,
+  im.interest_name,
+  MAX(f.composition) AS max_composition
+FROM filtered_table f
+JOIN interest_map im ON f.interest_id = im.id::varchar
+GROUP BY f.month_year, f.interest_id, im.interest_name
+ORDER BY max_composition ASC
+LIMIT 10;
+```
    <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0f55fb3f-7d83-44cc-a6b3-98347f1ed317">
+  <ul>
+  <li><strong>Common Table Expression (CTE):</strong></li>
+  <ul>
+    <li>Creates a CTE named <code>cte</code> that counts the number of distinct <code>month_year</code> values for each <code>interest_id</code> in <code>interest_metrics</code>.</li>
+    <li>Groups the results by <code>interest_id</code>.</li>
+    <li>Filters the results to only include rows with a <code>month_count</code> of 6 or more.</li>
+  </ul>
+</ul>
+
+<ul>
+  <li><strong>Query 1:</strong></li>
+  <ul>
+    <li>Selects all columns from <code>interest_metrics</code> into a table named <code>filtered_table</code>.</li>
+    <li>Filters the rows to include only those with <code>interest_id</code> values present in the <code>interest_id</code> column of the <code>cte</code>.</li>
+  </ul>
+</ul>
+
+<ul>
+  <li><strong>Query 2:</strong></li>
+  <ul>
+    <li>Selects <code>month_year</code>, <code>interest_id</code>, calculates the maximum <code>composition</code>, and retrieves <code>interest_name</code> from the <code>filtered_table</code>.</li>
+    <li>Joins <code>filtered_table</code> with <code>interest_map</code> using <code>interest_id</code> and <code>id</code>.</li>
+    <li>Groups the results by <code>month_year</code>, <code>interest_id</code>, and <code>interest_name</code>.</li>
+    <li>Calculates the maximum <code>composition</code> for each group.</li>
+    <li>Orders the result by <code>max_composition</code> in descending order.</li>
+    <li>Limits the output to the top 10 records using <code>LIMIT 10</code>.</li>
+  </ul>
+</ul>
+
+<ul>
+  <li><strong>Query 3:</strong></li>
+  <ul>
+    <li>Selects <code>month_year</code>, <code>interest_id</code>, calculates the maximum <code>composition</code>, and retrieves <code>interest_name</code> from the <code>filtered_table</code>.</li>
+    <li>Joins <code>filtered_table</code> with <code>interest_map</code> using <code>interest_id</code> and <code>id</code>.</li>
+    <li>Groups the results by <code>month_year</code>, <code>interest_id</code>, and <code>interest_name</code>.</li>
+    <li>Calculates the maximum <code>composition</code> for each group.</li>
+    <li>Orders the result by <code>max_composition</code> in ascending order.</li>
+    <li>Limits the output to the bottom 10 records using <code>LIMIT 10</code>.</li>
+  </ul>
+</ul>
+
   
   <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
    <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/70596f0f-0432-4f81-b573-4e36eb3e84cd">
+
+  <ul>
+  <li><strong>Query:</strong></li>
+  <ul>
+    <li>Selects <code>interest_id</code>, calculates the average of <code>ranking</code>, and retrieves <code>interest_name</code> from the <code>filtered_table</code>.</li>
+    <li>Joins <code>filtered_table</code> with <code>interest_map</code> using <code>interest_id</code> and <code>id</code>.</li>
+    <li>Groups the results by <code>interest_id</code> and <code>interest_name</code>.</li>
+    <li>Calculates the average of <code>ranking</code> for each group.</li>
+    <li>Orders the result by <code>avg_ranking</code> in ascending order.</li>
+    <li>Limits the output to the top 5 records using <code>LIMIT 5</code>.</li>
+  </ul>
+</ul>
+
   
   <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
+
+  ```sql
+SELECT
+  f.interest_id,
+  im.interest_name,
+  STDDEV(f.percentile_ranking) AS std_dev_percentile_ranking
+FROM filtered_table f
+JOIN interest_map im ON f.interest_id = im.id::varchar
+GROUP BY f.interest_id, im.interest_name
+ORDER BY std_dev_percentile_ranking DESC
+LIMIT 5;
+```
    <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc45a89a-70e3-44ad-b1bb-48b998b882a7">
+  <ul>
+  <li><strong>Query:</strong></li>
+  <ul>
+    <li>Selects <code>interest_id</code>, calculates the standard deviation of <code>percentile_ranking</code>, and retrieves <code>interest_name</code> from the <code>filtered_table</code>.</li>
+    <li>Joins <code>filtered_table</code> with <code>interest_map</code> using <code>interest_id</code> and <code>id</code>.</li>
+    <li>Groups the results by <code>interest_id</code> and <code>interest_name</code>.</li>
+    <li>Calculates the standard deviation of <code>percentile_ranking</code> for each group.</li>
+    <li>Orders the result by <code>std_dev_percentile_ranking</code> in descending order.</li>
+    <li>Limits the output to the top 5 records using <code>LIMIT 5</code>.</li>
+  </ul>
+</ul>
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

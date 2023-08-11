@@ -6,7 +6,8 @@ This repository reflects the culmination of my journey through various SQL chall
 Through this repository, I proudly present my ability to tackle intricate SQL challenges and exemplify my aptitude for effectively addressing real-world data scenarios. It serves as a testament to my growth, proficiency, and innovation in the realm of SQL.<br>
 The creator behind the development of the #8WeekSQLChallenge is Danny Maa.</p>
 
-<p>Feel free to reach out for any questions or suggestions about this project. I'm open to discussions and eager to assist.<a href="www.linkedin.com/in/mariya-jos">
+<p>Feel free to reach out for any questions or suggestions about this project. I'm open to discussions and eager to assist.
+  <a href="https://www.linkedin.com/in/mariya-jos/">
   <img src=" Linkedln | Mariya Joseph" alt=""> Linkedln | Mariya Joseph</a><br>
   
   Don't forget to follow and star ⭐ the repository if you find it valuable.</p>

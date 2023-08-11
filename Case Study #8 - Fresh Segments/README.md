@@ -270,4 +270,109 @@ ORDER BY
   
   <li><strong>Order By:</strong> Orders the results first by <code>interest_id</code> and then by <code>month_year</code> in ascending order.</li>
 </ul>
+</ol>
+-----------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="b.interestanalysis"></a>B. Interest Analysis</h4>
+<ol>
+  <li><h5>Which interests have been present in all month_year dates in our dataset?</h5></li>
+
+  ```sql
+SELECT DISTINCT interest_id
+FROM interest_metrics 
+GROUP BY interest_id
+HAVING COUNT(DISTINCT month_year) = (SELECT COUNT(DISTINCT month_year) FROM interest_metrics);
+```
+   <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/09507e1c-1a7f-4bc0-8f8c-cd9eb183abff">
+  <ul>
+  <li><strong>Select Command:</strong> Retrieves distinct <code>interest_id</code> values from the <code>interest_metrics</code> table.</li>
+  
+  <li><strong>Distinct:</strong> Ensures that only unique <code>interest_id</code> values are selected.</li>
+  
+  <li><strong>Group By:</strong> Groups the data in the <code>interest_metrics</code> table by <code>interest_id</code>.</li>
+  
+  <li><strong>Having Clause:</strong> Filters the grouped results to include only those groups where the count of distinct <code>month_year</code> values is equal to the total count of distinct <code>month_year</code> values in the entire <code>interest_metrics</code> table.</li>
+  
+  <li><strong>Subquery:</strong> The subquery <code>(SELECT COUNT(DISTINCT month_year) FROM interest_metrics)</code> calculates the total count of distinct <code>month_year</code> values in the <code>interest_metrics</code> table.</li>
+</ul>
+
+  
+  <li><h5>Using this same total_months measure - calculate the cumulative percentage of all records starting at 14 months - which total_months value passes the 90% cumulative percentage value?</h5></li>
+
+  ```sql
+WITH MonthlyInterestCounts AS (
+    SELECT interest_id, COUNT(DISTINCT month_year) AS month_count
+    FROM interest_metrics
+    GROUP BY interest_id
+),
+InterestCumulativePercentage AS (
+    SELECT
+        month_count,
+        COUNT(interest_id) AS interest_count,
+        SUM(COUNT(interest_id)) OVER (ORDER BY month_count DESC) AS total_interest_count
+    FROM MonthlyInterestCounts
+    GROUP BY month_count
+)
+SELECT
+    month_count,
+    total_interest_count,
+    ROUND(total_interest_count * 100.0 / (SELECT SUM(interest_count) FROM InterestCumulativePercentage), 2) AS cumulative_percent
+FROM InterestCumulativePercentage
+WHERE ROUND(total_interest_count * 100.0 / (SELECT SUM(interest_count) FROM InterestCumulativePercentage), 2) > 90;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0fd8c0e6-7122-4e7f-ac96-0b3ac8ae02c1">
+  <ul>
+  <li><strong>Common Table Expressions (CTEs):</strong></li>
+  <ul>
+    <li><strong><code>MonthlyInterestCounts:</code></strong> Calculates the count of distinct <code>month_year</code> values for each <code>interest_id</code> from the <code>interest_metrics</code> table.</li>
+    <li><strong><code>InterestCumulativePercentage:</code></strong> Computes the cumulative percentage of interests based on the count of <code>interest_id</code>s and their <code>month_count</code>. It uses a window function to calculate the cumulative sum of <code>interest_count</code>.</li>
+  </ul>
+  
+  <li><strong>Main Query:</strong></li>
+  <ul>
+    <li><strong><code>month_count:</code></strong> Represents the number of distinct <code>month_year</code> values for each <code>interest_id</code>.</li>
+    <li><strong><code>total_interest_count:</code></strong> Shows the total count of <code>interest_id</code>s considered up to the current <code>month_count</code> in descending order.</li>
+    <li><strong><code>cumulative_percent:</code></strong> Calculates the cumulative percentage of <code>interest_id</code>s based on the <code>total_interest_count</code> and the total sum of <code>interest_count</code> from the <code>InterestCumulativePercentage</code> CTE.</li>
+    <li><strong><code>WHERE:</code></strong> Filters the results to include only rows where the calculated cumulative percentage is greater than 90.</li>
+  </ul>
+</ul>
+
+  
+  <li><h5>If we were to remove all interest_id values which are lower than the total_months value we found in the previous question - how many total data points would we be removing?</h5></li>
+
+  ```sql
+WITH InterestMonthsCounts AS (
+    SELECT interest_id, COUNT(DISTINCT month_year) AS month_count
+    FROM interest_metrics
+    GROUP BY interest_id
+),
+TotalMonths AS (
+    SELECT MAX(month_count) AS total_months
+    FROM InterestMonthsCounts
+)
+SELECT SUM(imc.month_count) AS total_data_points_to_keep,
+       (SELECT COUNT(*) FROM interest_metrics) - SUM(imc.month_count) AS total_data_points_removed
+FROM InterestMonthsCounts imc
+JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
+```
+  <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e89487bf-8087-406f-892b-bd876016f781">
+  <ul>
+  <li><strong>Common Table Expressions (CTEs):</strong></li>
+  <ul>
+    <li><strong><code>InterestMonthsCounts:</code></strong> Calculates the count of distinct <code>month_year</code> values for each <code>interest_id</code> from the <code>interest_metrics</code> table using the <code>COUNT</code> and <code>GROUP BY</code> aggregation.</li>
+    <li><strong><code>TotalMonths:</code></strong> Determines the maximum <code>month_count</code> from the <code>InterestMonthsCounts</code> CTE as the <code>total_months</code>.</li>
+  </ul>
+  
+  <li><strong>Main Query:</strong></li>
+  <ul>
+    <li><strong><code>total_data_points_to_keep:</code></strong> Calculates the total count of data points to keep, which is the sum of <code>month_count</code> values from the <code>InterestMonthsCounts</code> CTE.</li>
+    <li><strong><code>total_data_points_removed:</code></strong> Computes the total count of data points to be removed, which is the difference between the total count of data points in the <code>interest_metrics</code> table and the sum of <code>month_count</code> values from the <code>InterestMonthsCounts</code> CTE.</li>
+    <li><strong><code>JOIN:</code></strong> Joins the <code>InterestMonthsCounts</code> CTE with the <code>TotalMonths</code> CTE based on the condition that <code>month_count</code> in <code>InterestMonthsCounts</code> is greater than or equal to <code>total_months</code> in <code>TotalMonths</code>.</li>
+  </ul>
+</ul>
+</ol>
+------------------------------------------------------------------------------------------------------------------------------------------------
+
 

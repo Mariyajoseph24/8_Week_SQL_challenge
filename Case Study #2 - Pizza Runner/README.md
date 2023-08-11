@@ -133,7 +133,7 @@ FROM runner_orders_temp
 
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.pizzametrics"></a>A. Pizza Metrics🍕🍕</h4>
 
 <ol> 
@@ -369,7 +369,7 @@ GROUP BY 1
   <li>Finally, the results are sorted based on the textual representation of the day of the week.</li>
 </ul>
 </ol>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.runnerandcustomerexperience"></a>B. Runner And Customer Experience 💁‍♂️🍕</h4>
 
 <ol>
@@ -579,7 +579,7 @@ GROUP BY runner_id,completed;
 </ul>
 </ol>
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="c.ingredientoptimisation"></a>C. Ingredient Optimisation🍕</h4>
 
 <ol>

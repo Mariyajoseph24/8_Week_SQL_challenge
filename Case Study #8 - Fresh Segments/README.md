@@ -374,5 +374,20 @@ JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
 </ul>
 </ol>
 ------------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="c.segmentanalysis"></a>C. Segment Analysis</h4>
+<ol>
+  <li><h5>Using our filtered dataset by removing the interests with less than 6 months worth of data, which are the top 10 and bottom 10 interests which have the largest composition values in any month_year? Only use the maximum composition value for each interest but you must keep the corresponding month_year</h5></li>
+   <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0f55fb3f-7d83-44cc-a6b3-98347f1ed317">
+  
+  <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
+   <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/70596f0f-0432-4f81-b573-4e36eb3e84cd">
+  
+  <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
+   <h6>Answer:</h6>
+  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc45a89a-70e3-44ad-b1bb-48b998b882a7">
+
+
 
 

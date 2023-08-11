@@ -10,6 +10,7 @@
   <li><a href="#a.dataexplorationandcleansing">A. Data Exploration and Cleansing</a></li>
   <li><a href="#b.interestanalysis">B. Interest Analysis</a></li>
   <li><a href="#c.segmentanalysis">C. Segment Analysis</a></li>
+  <li><a href="#d.indexanalysis">D. Index Analysis</a></li>
 </ul>
 </ul>
 
@@ -460,6 +461,18 @@ LIMIT 10;
 
   
   <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
+
+  ```sql
+SELECT
+  f.interest_id,
+  im.interest_name,
+  AVG(f.ranking) AS avg_ranking
+FROM filtered_table f
+JOIN interest_map im ON f.interest_id = im.id::varchar
+GROUP BY f.interest_id, im.interest_name
+ORDER BY avg_ranking ASC
+LIMIT 5;
+```
    <h6>Answer:</h6>
   <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/70596f0f-0432-4f81-b573-4e36eb3e84cd">
 
@@ -503,6 +516,119 @@ LIMIT 5;
   </ul>
 </ul>
 --------------------------------------------------------------------------------------------------------------------------------------------
+<h4><a name="d.indexanalysis"></a>D. Index Analysis</h4>
+<ol>
+  <li><h5>What is the top 10 interests by the average composition for each month?</h5></li>
+
+  ```sql
+SELECT
+  _month,
+  _year,
+  month_year,
+  interest_id,
+  ROUND(SUM(composition)::numeric / SUM(index_value)::numeric, 2) AS average_composition
+FROM interest_metrics
+GROUP BY _month, _year, month_year, interest_id
+ORDER BY _year, _month, average_composition DESC
+LIMIT 10;
+```
+  <h6>Answer:</h6>
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7bb731b0-37d0-48af-a12b-3531815e55e7">
+  <ul>
+  <li><strong>Query:</strong></li>
+  <ul>
+    <li>Selects <code>_month</code>, <code>_year</code>, <code>month_year</code>, <code>interest_id</code>, and calculates the average composition using the formula: <code>SUM(composition) / SUM(index_value)</code>, rounded to two decimal places.</li>
+    <li>Groups the results by <code>_month</code>, <code>_year</code>, <code>month_year</code>, and <code>interest_id</code>.</li>
+    <li>Orders the result by <code>_year</code> in ascending order, then <code>_month</code> in ascending order, and finally <code>average_composition</code> in descending order.</li>
+    <li>Limits the output to the top 10 records using <code>LIMIT 10</code>.</li>
+  </ul>
+</ul>
+
+  
+  <li><h5>For all of these top 10 interests - which interest appears the most often?</h5></li>
+
+  ```sql
+WITH ranks_tab AS (
+  SELECT
+    i.interest_id,
+    interest_name,
+    month_year,
+    AVG(composition / index_value) AS avg_composition,
+    RANK() OVER (PARTITION BY month_year ORDER BY AVG(composition / index_value) DESC) AS ranks
+  FROM interest_metrics i
+  JOIN interest_map m ON i.interest_id = m.id::varchar
+  GROUP BY i.interest_id, interest_name, month_year
+)
+SELECT
+  interest_id,
+  interest_name,
+  COUNT(*) OVER (PARTITION BY interest_name) AS counts
+FROM ranks_tab
+WHERE ranks <= 10
+ORDER BY 3 DESC;
+```
+   <h6>Answer:</h6>
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1d2677f0-4be2-457d-9df8-1adaa0e06406">
+  <ul>
+  <li><strong>Query:</strong></li>
+  <ul>
+    <li>Uses a common table expression (CTE) named <code>ranks_tab</code> to calculate the average composition for each <code>interest_id</code> and <code>month_year</code>.</li>
+    <li>Assigns a rank to each record within the same <code>month_year</code> partition based on the descending order of <code>avg_composition</code>.</li>
+    <li>Joins the <code>interest_metrics</code> table with the <code>interest_map</code> table using <code>interest_id</code> to retrieve the <code>interest_name</code>.</li>
+    <li>Groups the results by <code>interest_id</code>, <code>interest_name</code>, and <code>month_year</code>.</li>
+  </ul>
+  <li><strong>Final Query:</strong></li>
+  <ul>
+    <li>Selects <code>interest_id</code>, <code>interest_name</code>, and calculates the count of records with the same <code>interest_name</code> using the window function <code>COUNT(*)</code> over a partition.</li>
+    <li>Filters the results to only include records with <code>ranks</code> up to 10.</li>
+    <li>Orders the result by the third column (counts) in descending order.</li>
+  </ul>
+</ul>
+
+  
+  <li><h5>What is the average of the average composition for the top 10 interests for each month?</h5></li>
+  
+  ```sql
+WITH ranks_tab AS (
+  SELECT
+    i.interest_id,
+    interest_name,
+    month_year,
+    AVG(composition / index_value) AS avg_composition,
+    RANK() OVER (PARTITION BY month_year ORDER BY AVG(composition / index_value) DESC) AS ranks
+  FROM interest_metrics i
+  JOIN interest_map m ON i.interest_id = m.id::varchar
+  GROUP BY i.interest_id, interest_name, month_year
+)
+SELECT
+  month_year,
+  AVG(avg_composition) AS average_avg_composition
+FROM ranks_tab
+WHERE ranks <= 10
+GROUP BY month_year
+ORDER BY month_year;
+```
+  
+   <h6>Answer:</h6>
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/66b5b9f6-c261-4510-8f68-e542fd6ef98b">
+  <ul>
+  <li><strong>Query:</strong></li>
+  <ul>
+    <li>Uses a common table expression (CTE) named <code>ranks_tab</code> to calculate the average composition for each <code>interest_id</code> and <code>month_year</code>.</li>
+    <li>Assigns a rank to each record within the same <code>month_year</code> partition based on the descending order of <code>avg_composition</code>.</li>
+    <li>Joins the <code>interest_metrics</code> table with the <code>interest_map</code> table using <code>interest_id</code> to retrieve the <code>interest_name</code>.</li>
+    <li>Groups the results by <code>interest_id</code>, <code>interest_name</code>, and <code>month_year</code>.</li>
+  </ul>
+  <li><strong>Final Query:</strong></li>
+  <ul>
+    <li>Selects <code>month_year</code> and calculates the average of <code>avg_composition</code> using the <code>AVG()</code> function.</li>
+    <li>Filters the results to only include records with <code>ranks</code> up to 10.</li>
+    <li>Groups the results by <code>month_year</code>.</li>
+    <li>Orders the result by <code>month_year</code> in ascending order.</li>
+  </ul>
+</ul>
+</ol>
+
 
 
 

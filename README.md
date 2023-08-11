@@ -3,7 +3,8 @@
 
 This repository reflects the culmination of my journey through various SQL challenges. Each case study presents a unique problem-solving scenario that required me to apply a range of SQL techniques such as CTEs, case statements, date functions, and complex aggregations. As a result, I have honed my skills in SQL query crafting, data manipulation, and analysis.<br>
 
-Through this repository, I proudly present my ability to tackle intricate SQL challenges and exemplify my aptitude for effectively addressing real-world data scenarios. It serves as a testament to my growth, proficiency, and innovation in the realm of SQL.<br></p>
+Through this repository, I proudly present my ability to tackle intricate SQL challenges and exemplify my aptitude for effectively addressing real-world data scenarios. It serves as a testament to my growth, proficiency, and innovation in the realm of SQL.<br>
+The creator behind the development of the #8WeekSQLChallenge is Danny Maa.</p>
 
 <h2>CONTENTS📝</h2>
 <ul>

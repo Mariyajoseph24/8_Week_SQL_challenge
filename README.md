@@ -7,7 +7,7 @@ Through this repository, I proudly present my ability to tackle intricate SQL ch
 The creator behind the development of the #8WeekSQLChallenge is Danny Maa.</p>
 
 <p>Feel free to reach out for any questions or suggestions about this project. I'm open to discussions and eager to assist.<a href="www.linkedin.com/in/mariya-jos">
-  <img src="LINKEDLN" alt=""> LINKEDLN</a><br>
+  <img src=" Linkedln | Mariya Joseph" alt=""> Linkedln | Mariya Joseph</a><br>
   
   Don't forget to follow and star ⭐ the repository if you find it valuable.</p>
 

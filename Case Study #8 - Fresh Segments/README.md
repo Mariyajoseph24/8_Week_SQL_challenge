@@ -212,6 +212,7 @@ FROM interest_metrics AS im
 LEFT JOIN interest_map AS map ON im.interest_id::VARCHAR = map.id::VARCHAR
 WHERE im.interest_id = '21246';
 ```
+
    <h6>Answer:</h6>
   <img width="800" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/2172c5ad-4c56-496f-b2c8-6fe2c2bada0b">
   <ul>

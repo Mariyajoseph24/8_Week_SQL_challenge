@@ -24,7 +24,7 @@ The agency's forte lies in unraveling interest composition and rankings for each
 Danny seeks our expertise in deciphering aggregated metrics for a sample client. Our mission is to distill key insights from this data, shedding light on customer lists and the array of captivating interests. Through this analysis, we illuminate overarching patterns, offering strategic guidance to propel Fresh Segments forward.<br></p>
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.dataexplorationandcleansing"></a>A. Data Exploration and Cleansing</h4>
 <ol> 
   <li><h5>Update the fresh_segments.interest_metrics table by modifying the month_year column to be a date data type with the start of the month</h5></li>
@@ -273,7 +273,7 @@ ORDER BY
   <li><strong>Order By:</strong> Orders the results first by <code>interest_id</code> and then by <code>month_year</code> in ascending order.</li>
 </ul>
 </ol>
------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.interestanalysis"></a>B. Interest Analysis</h4>
 <ol>
   <li><h5>Which interests have been present in all month_year dates in our dataset?</h5></li>
@@ -375,7 +375,7 @@ JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
   </ul>
 </ul>
 </ol>
-------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="c.segmentanalysis"></a>C. Segment Analysis</h4>
 <ol>
   <li><h5>Using our filtered dataset by removing the interests with less than 6 months worth of data, which are the top 10 and bottom 10 interests which have the largest composition values in any month_year? Only use the maximum composition value for each interest but you must keep the corresponding month_year</h5></li>
@@ -517,7 +517,7 @@ LIMIT 5;
   </ul>
 </ul>
 </ol>
---------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="d.indexanalysis"></a>D. Index Analysis</h4>
 <ol>
   <li><h5>What is the top 10 interests by the average composition for each month?</h5></li>

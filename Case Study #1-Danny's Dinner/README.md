@@ -1,4 +1,5 @@
-<h1>Case Study #1 - Danny's Diner👨🏻‍🍳</h1>
+
+<h1><a name="casestudy#1-danny'sdiner👨🏻‍🍳">Case Study #1 - Danny's Diner👨🏻‍🍳</a></h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c69d49a0-ffd6-4cf1-b66f-1d1eb14f8549">
 <h1>Contents</h1>
 <ul>

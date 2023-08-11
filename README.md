@@ -15,7 +15,7 @@ The creator behind the development of the #8WeekSQLChallenge is Danny Maa.</p>
 
   <li>
   <a href="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner">
-  <img src="Case Study #2 Pizza Runner" alt="">Case Study #2 Pizza Runner </a>
+  <img src="Case Study #2 Pizza Runner" alt="">Case Study #2 - Pizza Runner </a>
   </li>
 
   <li>

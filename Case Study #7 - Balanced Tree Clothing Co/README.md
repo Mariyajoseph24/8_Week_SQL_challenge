@@ -21,7 +21,7 @@
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/79a8e787-9d67-466c-bdb7-9579ec6eb5ee">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
---------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.highlevelsalesanalysis"></a>A. High Level Sales Analysis</h4>
 <ol> 
   <li><h5>What was the total quantity sold for all products?</h5></li>
@@ -77,7 +77,7 @@ FROM balanced_tree.sales;
 </ul>
 
 </ol>
------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.transactionanalysis"></a>B. Transaction Analysis</h4>
 <ol>
   <li><h5>How many unique transactions were there?</h5></li>
@@ -204,7 +204,7 @@ GROUP BY member_status;
   <li>The result displays the member status ('Member' or 'Non-Member') and the average revenue for each category.</li>
 </ul>
 </ol>
---------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="c.productanalysis"></a>C. Product Analysis</h4>
 <ol>
   <li><h5>What are the top 3 products by total revenue before discount?</h5></li>

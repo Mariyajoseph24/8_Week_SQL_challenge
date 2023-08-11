@@ -22,7 +22,7 @@
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4f5a28db-79ac-4be4-9c35-909580740913">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
-------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.digitalanalysis"></a>A. Digital Analysis</h4>
 <ol> 
   <li><h5>How many users are there?</h5></li>
@@ -217,7 +217,7 @@ LIMIT 3;
   <li>The <code>LIMIT 3</code> clause limits the output to the top 3 products with the highest number of purchases.</li>
 </ul>
 </ol>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.productfunnelanalysis"></a>B. Product Funnel Analysis</h4>
 <ol>
   <p></ul>Using a single SQL query - create a new output table which has the following details:<br>
@@ -648,7 +648,7 @@ FROM ProductStats;
   <li>The result is displayed as <code>average_conversion_rate</code>.</li>
 </ul>
 </ol>
------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="c.campaignsanalysis"></a>C. Campaigns Analysis</h4>
 <ol> 
   <li><h5>Generate a table that has 1 single row for every unique visit_id record and has the following columns:

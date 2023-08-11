@@ -321,7 +321,7 @@ FROM InterestCumulativePercentage
 WHERE ROUND(total_interest_count * 100.0 / (SELECT SUM(interest_count) FROM InterestCumulativePercentage), 2) > 90;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0fd8c0e6-7122-4e7f-ac96-0b3ac8ae02c1">
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0fd8c0e6-7122-4e7f-ac96-0b3ac8ae02c1">
   <ul>
   <li><strong>Common Table Expressions (CTEs):</strong></li>
   <ul>
@@ -357,7 +357,7 @@ FROM InterestMonthsCounts imc
 JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
 ```
   <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e89487bf-8087-406f-892b-bd876016f781">
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/e89487bf-8087-406f-892b-bd876016f781">
   <ul>
   <li><strong>Common Table Expressions (CTEs):</strong></li>
   <ul>
@@ -378,15 +378,15 @@ JOIN TotalMonths tm ON imc.month_count >= tm.total_months;
 <ol>
   <li><h5>Using our filtered dataset by removing the interests with less than 6 months worth of data, which are the top 10 and bottom 10 interests which have the largest composition values in any month_year? Only use the maximum composition value for each interest but you must keep the corresponding month_year</h5></li>
    <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0f55fb3f-7d83-44cc-a6b3-98347f1ed317">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/0f55fb3f-7d83-44cc-a6b3-98347f1ed317">
   
   <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
    <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/70596f0f-0432-4f81-b573-4e36eb3e84cd">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/70596f0f-0432-4f81-b573-4e36eb3e84cd">
   
   <li><h5>Which 5 interests had the lowest average ranking value?</h5></li>
    <h6>Answer:</h6>
-  <img width="150" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc45a89a-70e3-44ad-b1bb-48b998b882a7">
+  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/cc45a89a-70e3-44ad-b1bb-48b998b882a7">
 
 
 

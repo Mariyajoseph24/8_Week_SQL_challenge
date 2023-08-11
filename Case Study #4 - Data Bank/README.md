@@ -29,7 +29,7 @@ This case study project is an expedition into the realms of metric calculation, 
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7680ae3b-6426-4753-8ca8-e38e183a9649">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.customernodesexploration"></a>A. Customer Nodes Exploration👥</h4>
 <ol> 
   <li><h5>How many unique nodes are there on the Data Bank system?</h5></li>
@@ -157,7 +157,7 @@ GROUP BY
   <li>As a result, the query presents the region names along with the median, 80th percentile, and 95th percentile of node active durations, calculated using data from the <code>date_diff_cte</code> CTE and the <code>regions</code> table.</li>
 </ul>
 </ol>
----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.customertransactions"></a>B. Customer Transactions💸</h4>
 <ol>
   <li><h5>What is the unique count and total amount for each transaction type?</h5></li>

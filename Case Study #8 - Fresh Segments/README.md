@@ -515,6 +515,7 @@ LIMIT 5;
     <li>Limits the output to the top 5 records using <code>LIMIT 5</code>.</li>
   </ul>
 </ul>
+</ol>
 --------------------------------------------------------------------------------------------------------------------------------------------
 <h4><a name="d.indexanalysis"></a>D. Index Analysis</h4>
 <ol>
@@ -533,7 +534,7 @@ ORDER BY _year, _month, average_composition DESC
 LIMIT 10;
 ```
   <h6>Answer:</h6>
-  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7bb731b0-37d0-48af-a12b-3531815e55e7">
+  <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/7bb731b0-37d0-48af-a12b-3531815e55e7">
   <ul>
   <li><strong>Query:</strong></li>
   <ul>
@@ -568,7 +569,7 @@ WHERE ranks <= 10
 ORDER BY 3 DESC;
 ```
    <h6>Answer:</h6>
-  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1d2677f0-4be2-457d-9df8-1adaa0e06406">
+  <img width="400" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/1d2677f0-4be2-457d-9df8-1adaa0e06406">
   <ul>
   <li><strong>Query:</strong></li>
   <ul>
@@ -610,7 +611,7 @@ ORDER BY month_year;
 ```
   
    <h6>Answer:</h6>
-  <img width="350" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/66b5b9f6-c261-4510-8f68-e542fd6ef98b">
+  <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/66b5b9f6-c261-4510-8f68-e542fd6ef98b">
   <ul>
   <li><strong>Query:</strong></li>
   <ul>

@@ -31,7 +31,7 @@ Central to this inquiry are the subsequent pivotal questions:<br>
 <h1><a name="entityrelationshipdiagram"></a>Entity Relationship Diagram</h1>
 <img width="250" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/ba1afa8c-5fc5-43d4-88d4-4fe2c660ab84">
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="1.datacleansingsteps"></a>1. Data Cleansing Steps📊</h4>
 <ol> 
   <li><h5>
@@ -95,7 +95,7 @@ FROM clean_weekly_sales;
   <li>As a result, the <code>clean_weekly_sales</code> table contains transformed and cleaned data from the <code>weekly_sales</code> table with various columns representing date information, age band, demographic, platform, sales metrics, and more.</li>
 </ul>
 </ol>
---------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="2.dataexploration"></a>2. Data Exploration🤯📊</h4>
 <ol>
   <li><h5>What day of the week is used for each week_date value?</h5></li>
@@ -316,7 +316,7 @@ ORDER BY calendar_year, platform;
   <li>The results are ordered in ascending order based on <code>calendar_year</code> and <code>platform</code> using the <code>ORDER BY</code> clause.</li>
 </ul>
 </ol>
----------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="3.beforeandafteranalysis"></a>3. Before & After Analysis📈📉</h4>
 <ol>
   <li><h5>This technique is usually used when we inspect an important event and want to inspect the impact before and after a certain point in time.
@@ -414,7 +414,7 @@ FROM before_after_changes;
 </ol>
 
   
--------------------------------------------------------------------------------------------------------------------------------------------------------
+
   
 
 

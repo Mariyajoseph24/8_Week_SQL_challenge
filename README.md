@@ -9,5 +9,5 @@ Through this repository, I proudly present my ability to tackle intricate SQL ch
 
 <h2>CONTENTS📝</h2>
 <ul>
-  <li><a href="#casestudy#1-danny'sdiner">Case Study #1 - Danny's Diner</a></li>
+  <li><a href="#casestudy1dannysdiner">Case Study #1 - Danny's Diner</a></li>
 </ul>

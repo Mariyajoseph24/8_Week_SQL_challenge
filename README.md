@@ -9,8 +9,8 @@ Through this repository, I proudly present my ability to tackle intricate SQL ch
 
 <h2>CONTENTS📝</h2>
 <ul>
-  <a href="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/README.md">
- <li> <img src="Case Study #1 - Danny's Diner" alt=""> Case Study #1 - Danny's Diner</a></li>
+  <li> <a href="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/README.md">
+  <img src="Case Study #1 - Danny's Diner" alt=""> Case Study #1 - Danny's Diner</a></li>
 
   <a href="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner">
   <img src="Case Study #2 Pizza Runner" alt="">Case Study #2 Pizza Runner </a>

@@ -9,5 +9,8 @@ Through this repository, I proudly present my ability to tackle intricate SQL ch
 
 <h2>CONTENTS📝</h2>
 <ul>
-  <li><a href="#casestudy1dannysdiner">Case Study #1 - Danny's Diner👨🏻‍🍳</a></li>
+  <a href="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/blob/main/Case%20Study%20%231-Danny's%20Dinner/README.md">
+  <img src="Case Study" alt="Like icon"> Like this page
+</a>
+
 </ul>

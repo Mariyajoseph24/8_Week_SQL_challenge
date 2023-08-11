@@ -25,7 +25,7 @@ At the heart of Foodie-Fi's foundation lies Danny's commitment to data-driven de
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/82dd908e-38b9-4d7f-a17e-743bc745469d">
 
 <h1><a name="casestudyquestionsandsolutions"></a>Case Study Questions & Solutions</h1>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="a.customerjourney"></a>A. Customer Journey🫕🥑</h4>
 
 <ol> 
@@ -111,7 +111,7 @@ ORDER BY
   </li>
 </ol>
 </ol>
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="b.dataanalysisquestions"></a>B. Data Analysis Questions📊</h4>
 <ol>
   <li><h5>How many customers has Foodie-Fi ever had?</h5></li>
@@ -373,7 +373,7 @@ WHERE EXTRACT(YEAR FROM prev.start_date) = 2020;
   <li>As a result, the query presents the count of downgrades from the pro monthly plan (Plan ID 2) to the basic monthly plan (Plan ID 1) during the year 2020 based on the specified conditions from the <code>subscriptions</code> table.</li>
 </ul>
   </ol>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <h4><a name="c.challengepaymentquestion"></a>C. Challenge Payment Question💰</h4>
 <ol>
   <li><h5>The Foodie-Fi team wants you to create a new payments table for the year 2020 that includes amounts paid by each customer in the subscriptions table with the following requirements:

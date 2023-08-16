@@ -11,7 +11,7 @@ The creator behind the development of the #8WeekSQLChallenge is Danny Maa.</p>
   <img src=" Linkedln | Mariya Joseph" alt=""> Linkedln | Mariya Joseph</a><br>
   
   Don't forget to follow and star ⭐ the repository if you find it valuable.</p>
-  <p>Tools Used : <h4>PostgreSQL</h4></p>
+  <p><h4>Tools Used🛠️</h4> : PostgreSQL</p>
 
 <h2>CONTENTS📝</h2>
 <ul>

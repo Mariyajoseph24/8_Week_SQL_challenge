@@ -1,0 +1,2 @@
+SELECT*
+FROM interest_metrics
